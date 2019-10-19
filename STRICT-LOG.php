@@ -32,7 +32,7 @@
     <dt> Source: </dt>
     <dd>
       sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
-    </dd><dd> <b>Build: </b> fede808 </dd>
+    </dd><dd> <b>Build: </b> 6106bf6 </dd>
     </dd><dd> &nbsp; </dd>
 
     <dd> 

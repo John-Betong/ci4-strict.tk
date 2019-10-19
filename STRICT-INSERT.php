@@ -63,7 +63,7 @@ $src = 'STRICT-LOG.php';
 </head>
 <body>  
 
-<?php if(10) : ?>
+<?php if(0) : ?>
   <div class="bgs tac bd1 p42">
     <iframe class="w99 h99 tal" src="<?=$src?>"></iframe>
   </div>  
@@ -78,7 +78,7 @@ $src = 'STRICT-LOG.php';
     <dt> Source: </dt>
     <dd>
       sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
-    </dd><dd> <b>Build: </b> fede808 </dd>
+    </dd><dd> <b>Build: </b> 6106bf6 </dd>
     </dd><dd> &nbsp; </dd>
 
     <dd> 

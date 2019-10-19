@@ -7,6 +7,7 @@ $analytics = CI_DEBUG ? NULL : $analytics;
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
+<meta charset="utf-8"> 
 <title> <?= $title ?>  </title>
 <!--
 <link

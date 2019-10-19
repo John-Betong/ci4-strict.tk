@@ -2,14 +2,14 @@
 CodeIgniter4 with  DECLARE(STRICT_TYPES=1);  inserted for a better coding experience
 
 
-
 Source:
-    sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
-    Build: fede808 
+    <b>sudo git clone:</b> https://github.com/codeigniter4/CodeIgniter4.git 
+    <b>Build:</b> 6106bf6
+ 
       
-    File type 	total 	inserted strict 	todo
-    Not PHP 	  27 	  	 
-    PHP 	      327 	300 	15
+    File type   total   inserted strict     todo
+    Not PHP     27       
+    PHP         327     300                 15
 
 
     NOT PHP files: 27
@@ -49,7 +49,7 @@ Source:
 
 
 
-    PHP files Require Manual insertion : 15
+    PHP files require manual insertion : 15
 
     Array
     (
@@ -74,7 +74,7 @@ Source:
 
 
 
-    PHP files: 300 with DECLARE(STRICT_TYPES=1); inserted
+    Inserted Strict_types=1 into: 300 PHP files
 
     Array
     (
@@ -380,5 +380,4 @@ Source:
         [299] => system/ThirdParty/ZendEscaper/Exception/RuntimeException.php
     )
      
-
 
