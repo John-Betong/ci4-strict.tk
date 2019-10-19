@@ -1,0 +1,261 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title> Ci4-Strict.tk  </title>
+<!--
+<link
+  rel="stylesheet" 
+  type="text/css" 
+  href="//fonts.googleapis.com/css?family=Raleway"
+/>
+-->
+<style>
+html, body {margin:0; padding:0;} body {  font-family: "-apple-system", BlinkMacSystemFont,  "Segoe UI", Roboto, Helvetica, Arial, sans-serif;  background: #fff; } .nav, .footer, .header {  position: fixed; left: 0;  width: 100%;  background-color: #eeeeef;  border: solid 1px #ccc;  z-index: 2; } .header {top: 0; height: 4.8em; background-color: #eeeefe } .nav   {   top: 4.2em; height: 100%; width: 10em;   padding: 0 0 0 0.21em;   line-height: 2; } .XXXfooter {bottom:0; height:0;} .article {  margin: 1.2em 2em 4.2em 1em; padding:4.2em 1em 2em 12em; } a:hover {background-color: lime;} .logo {  height: 50px; width: 39px;  margin: 0.22em 0 0 1em; padding: 0;  opacity: 0.12;  border:0; outline:0; } .logo:hover {opacity:0.55;} .menu-001 dd {margin-left:0.88em;} .menu-001 dd a{text-decoration: none;} .menu-001 dd:hover {background-color:#ddd;} .h1 {margin: 0.088em 0 0 0;} dl dt {font-weight: 700; font-size: .88em;} blockquote button:hover {  background-color: #3ff; color: #fff; } button {  background-color: #9ff; color: #00a;  padding: 0.42em 0.88em;  border-radius: 0.88em;  font-size: x-large; } a:link {color: #0a0; font-weight: 400; font-style: oblique;} a:hover {color: #00f;} ol li {margin: 1em 1em 1em -1em;} .bd1 {border: solid 1px #ccc;} .bd2 {outline: solid 3px #0a0;} .bd3 {outline: dotted 5px #f33;} .bga {background-color: aqua;} .bgs {background-color: #fff;} .bgr {background-color: #f00;} .bgR {background-color: #fdd;} .bgc {background-color: #ccc;} .bgd {background-color: #ddd;} .bge {background-color: #efe;} .btn {padding: 0.42em 0.88em; } .dib {display: inline-block;} .fg0 {color: #000; text-decoration: none;} .fgg {color: #0a0;} .fgr {color: #f33;} .fll {float: left;} .flr {float: right;} .fred{background-color:#ffe; color:#00a;} .fss {font-size: small;} .fs2 {font-size: 1.12em;} .fsl {font-size: x-large;} .ftr {position: fixed; left: 0; bottom: 0;} .ftt {position: fixed; top:0; left:0;} .fwb {font-weight: 700;} .hg7 {min-height: 11em;} .hhh {display: none;} .lh2 {line-height: 1.88;} .mga {margin: 0 auto;} .ooo {margin: 0; padding: 0;} .ooh {height:0.42em;} .oot {margin-top: 0;} .pof {position: fixed; top: 0 ;left: 0;} .p42 {padding: 0.42em;} .rad {border-radius: 0.88em;} .spc {height: 0.88em;} .tac {text-align: center;} .tal {text-align: left;} .tdn {text-decoration: none;} .w88 {width: 88%;} .w99 {width: 100%;} .z02 {z-index: 222;} /* ========================================== */ table {border-collapse: collapse;} .dt, .th  {font-weight: 700; background-color: #eef;} th, td  {  padding: 0.42em 0.42em;  border: solid 1px #ccc;  font-weight:700;  text-align: center; } .nob td {  border: solid 0px #ccc;  line-height: 0.88;  font-size: x-small;  } td a {  background-color: #ddd; color: #000;  border: outset 2px #eef;  padding: 0.12em 0.88em; } pre {min-width:16em; overflow: auto; white-space: pre-wrap;} .fgF {  animation-name: example;  color: red;  animation-duration: .4s;  animation-iteration-count: 111; } /* Standard syntax */ @keyframes example {  0%  {color:red;  left:0px; top:0px;}  25% {color:yellow; left:200px; top:0px;}  50% {color:blue;  left:200px; top:200px;}  75% {color:green; left:0px; top:200px;}  100% {color:red;  left:0px; top:0px;} } 
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Raleway'), local('Raleway-Regular'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptug8zYS_SKggPNyCMIT5lu.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Raleway'), local('Raleway-Regular'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptug8zYS_SKggPNyC0ITw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+h1 {
+  font-weight: lighter;
+  /* letter-spacing: 0.8rem; */
+  letter-spacing: 0.2rem;
+  font-size: 2.5rem;
+  margin-top: 145px;
+  margin-bottom: 0;
+  color: #222;
+  position: relative;
+  z-index: 1;
+}
+h1 b {
+  font-family: Raleway; 
+  font-weight: 700;
+  color: #a00;
+}
+</style>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149630114-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-149630114-1');
+    </script></head><body>
+  <div class="header tac">
+      <div class="fll logo"> 
+    <a href="https://ci4-strict.tk/" >
+        <!--
+    width="155px" height="200px" 
+    version="1.0" xmlns="http://www.w3.org/2000/svg"
+-->    
+<svg 
+   viewBox="0 0 155 200"
+   preserveAspectRatio="xMidYMid meet">
+<g transform="translate(0,200) scale(0.1,-0.1)" fill="#ee2600" stroke="none">
+<path d="M737 1963 c22 -79 -7 -185 -78 -290 -18 -26 -107 -122 -197 -213
+    -239 -240 -336 -371 -403 -544 -79 -206 -78 -408 5 -582 64 -134 212 -264 361
+    -314 l60 -20 -30 22 c-210 152 -229 387 -48 588 25 27 48 50 51 50 4 0 7 -27
+    7 -61 0 -57 2 -62 37 -95 30 -27 46 -34 78 -34 56 0 99 24 116 65 29 69 16
+    120 -50 205 -105 134 -117 233 -43 347 l31 48 7 -47 c13 -82 58 -129 250 -258
+    209 -141 306 -261 328 -405 11 -72 -1 -161 -31 -218 -27 -53 -112 -143 -165
+    -174 -24 -14 -43 -26 -43 -28 0 -2 24 4 53 14 241 83 427 271 482 486 19 76
+    19 202 -1 285 -35 152 -146 305 -299 412 l-70 49 -6 -33 c-8 -48 -26 -76 -59
+    -93 -45 -23 -103 -19 -138 10 -67 57 -78 146 -37 305 30 116 32 206 5 291 -27
+    89 -104 206 -162 247 -17 13 -18 12 -11 -15z"></path>
+</g>
+</svg>
+    </a>  
+  </div>  
+
+  <h6 class="flr ooo">
+    Ver: 0.010 &nbsp;   </h6>
+    
+  <div class="p42 fgg">
+
+    <div class="tac"> 
+      <h1 class="ooo fgg"> 
+        CI4-Strict.tk
+      </h1>
+
+      <h2 class="flr ooo XXXbgl"> 
+        <a 
+          class="tdn" 
+          href="https://github.com/John-Betong/ci4-strict">   GitHub 
+        </a>
+      </h2>
+
+      <h6 class="ooo"> 
+        Ver: 4.0.0-rc.2.1        -
+        <i class="XXXflr "> Build: cc34771 </i>
+      </h6>
+    </div>  
+  </div>  
+    <!-- h4 class="hhh ooo"> Strict_types=0 </h4 -->  
+  </div>
+
+  <div class="nav">
+      <dl class="menu-001 fss tdn">
+    <dt> Strict Menu: </dt> 
+          <dd>
+      <a href="https://ci4-strict.tk/myths"> 
+        <b class="tdn tar dib bga fgb ">MYTHS EXPLAINED</b> 
+      </a>
+    </dd>          <dd>
+      <a href="https://ci4-strict.tk/strict-0"> 
+        STRICT Examples 
+      </a>
+    </dd> 
+      <dd> &nbsp; </dd>
+
+    <dt> Info </dt>
+          <dd>
+      <a href="https://ci4-strict.tk/modified-files"> 
+        Modified files 
+      </a>
+    </dd> 
+          <dd>
+      <a href="https://ci4-strict.tk/conversion-script"> 
+        Conversion Script 
+      </a>
+    </dd> 
+          <dd>
+      <a href="https://ci4-strict.tk/readme"> 
+        Readme 
+      </a>
+    </dd> 
+      <dd> &nbsp; </dd>
+
+    <dt> Download & install  </dt>
+          <dd>
+      <a href="https://ci4-strict.tk/download-install"> 
+        Download &amp; Install 
+      </a>
+    </dd>      <dd> <br> </dd>
+
+    <dt> Welcome messages  </dt>
+          <dd>
+      <a href="https://ci4-strict.tk/welcome-strict"> 
+        Welcome Strict 
+      </a>
+    </dd>          <dd>
+      <a href="https://ci4-strict.tk/welcome_message"> 
+        Welcome Original 
+      </a>
+    </dd>      <dd> <br> </dd>
+
+    </dl>  </div>
+ 
+  <div class="article">
+    <h2 class="ooo"> Declare Strict - Myths and Clarification </h2>
+    <p> &nbsp; </p>
+
+    <dl>
+      <dt class="fsl"> TL;DR;  </dt>
+      <dd> 
+        <blockquote>
+          Instead study the following examples... &nbsp; try to guess the result before selecting a Test(...) option:
+        </blockquote>
+        <p class="tac lh2">
+          <a 
+            class="btn fwb bd1 rad bga fg0"
+            href="https://ci4-strict.tk/strict-0"
+            > 
+            <b> STRICT Examples </b>
+          </a> 
+        </p>
+      </dd>
+      <dd> &nbsp; </dd>
+
+      <dt> PHP - Brief History  </dt>
+      <dd> 
+        <p>
+        Introduced nearly 25 years ago! Originally designed to simply enhance web development. The simplistic approach necessitated a large amount of script to make writing HTML script easy. 
+        </p>
+        <p>
+        Unfortunately making PHP more user friendly increased processing time and PHP aquired a reputation for being very slow...
+        </p>
+      </dd>
+      <dd> &nbsp; </dd>
+
+
+
+      <dt> PHP 7 has overcome slow processing... </dt>
+      <dd> 
+        <p>
+          Released December 2015,
+          it not only but also achieved better performance but also does not affect legacy code! 
+        </p>
+
+        <p>
+          Most performance is due to eliminating "Type juggling". 
+        </p>
+
+        <blockquote class="w88 mga fwb">
+          Native PHP functions now have all function parameters types and return types set!
+        </blockquote>
+
+        <p>    
+          This feature would have made all legacy libraries fail but has been cunningly implemented and applies **ONLY** if the following declaration is the first file statement.
+        </p>
+
+        <blockquote class="w88 mga fwb">
+          &lt;?php declare(strict_types=1);
+        </blockquote>
+        
+        <p>
+          The strict validation checks <b>only</b> apply to the file where the declaration has been set!
+        </p>
+
+        <p>
+           This new feature is vastly misunderstood and can be simplified with the following three usage types which cover every eventuality:
+        </p>
+        <ol>
+          <li> Do not use the feature - ideal for **OLD** external libraries. </li>
+          <li> 
+            Declare strict_types - usage: 
+            <ul>
+              <li> 
+                Native PHP function parameter types must match otherwise errors will be activated.
+              </li>
+              <li> 
+                Included files having functions have two options 
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </dd>
+      <dd> &nbsp; </dd>
+      <dd> &nbsp; </dd>
+      
+      <dt> To be continued </dt>
+      <dd> &nbsp; </dd>
+      <dd> Watch this space  </dd>
+    </dl>
+  </div><!-- article -->
+  
+ <div class="footer tac p42">
+      <p> <br> <br> <br> </p>
+
+    <div class="ftr tac w99 XXXfss bgc bd1">
+      <b class="fll"> <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fci4-strict.tk%2Fmyths"> HTML: Validator </a> </b>
+      <b class="flr"> <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fci4-strict.tk%2Fmyths&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en">CSS: Validator</a>  </b>
+      Support: <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=6&ved=2ahUKEwjvwq2e0LHkAhVBRY8KHRwQAYwQFjAFegQIARAB&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FGreta_Thunberg&usg=AOvVaw21NdejsloklvSuGIIpDL-U" title="Greta Thunberg"> <b>Greta Thunberg </b> </a>
+    </div>   
+ </div>
+  
+</body>
+</html>

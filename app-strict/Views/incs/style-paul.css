@@ -1,0 +1,107 @@
+/* 
+  https://codepen.io/paulobrien/full/PoYXQyZ
+*/
+html {
+  box-sizing: border-box;
+}
+*, 
+*:before, 
+*:after {
+  box-sizing: inherit;
+}
+body { 
+  font-family: -apple-system, BlinkMacSystemFont, 
+  "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+html, 
+body {
+  margin:0;
+  padding:0
+}
+.wrap {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  max-width:1200px;
+  margin:auto;
+}
+.main {
+  flex: 1;
+  display:flex;
+}
+footer, 
+header {
+  background:#ccc;
+  padding:10px;
+  position:webkit-sticky;
+  position:sticky;
+}
+header{top:0;}
+footer{bottom:0;}
+.sidebar {
+  background:#f9f9f9;;
+  flex:0 0 300px;
+  padding:10px;
+}
+.content{
+  background:#eee;
+  padding:10px;
+  flex:1; 
+}
+@media screen and (max-width:680px){
+  .sidebar{flex: 0;order:2; outline: solid 11px red;}
+  .main {flex-direction:column;}  
+}
+.logo {
+  height: 50px; width: 39px;
+  margin: -0.42em 0 0 0; padding: 0;
+  opacity: 0.12;
+  /* z-index: 0; */
+  border:0; outline:0;
+}
+.logo:hover {opacity:0.55;}
+
+.menu-001 dd {margin-left:0.88em;}
+h1 {margin: -0.42em 0 0 0;}
+h2,
+dl dt {font-weight: 700; font-size: 1.00em;}
+blockquote a:hover {display: inline-block;
+  background-color: #eee; color: #00f;
+  border: solid 1px #aaa;
+}
+a:link  {color: #0a0; font-weight: 400; font-style: oblique;}
+a:hover {color: #00f;}
+
+ol li {margin: 1em 1em 1em -1em;}
+
+.bd1 {border: solid 1px #ccc;}
+/*
+.bgc {background-color: #00f;}
+.bgd {background-color: #99f;}
+.bge {background-color: #0ff;}
+*/
+.bgs {background-color: snow;}
+.bgr {background-color: red;}
+
+.fg0 {color: #000; text-decoration: none;}
+.fgg {color: #3d3;} .fgr {color: #f33;}
+
+.fll {float: left;} .flr {float: right;}
+.fss {font-size: small;} .fs2 {font-size: 1.12em;}
+.fsl {font-size: x-large;}
+.ftr {position: fixed; left: 0; bottom: 0;}
+.ftt {position: fixed; top:0; left:0;}
+.fwb {font-weight: 700;}
+.hhh {display: none;}
+.lh2 {line-height: 1.88;}
+.mga {margin: 0 auto;}
+.ooo {margin: 0; padding: 0;}
+.ooh {height:0.42em;}
+.oot {margin-top: 0;}
+.pof {position: fixed; top: 0 ;left: 0;}
+.spc {height:0.88em;}
+.tac {text-align: center;}
+.tdn {text-decoration: none; }
+.w88 {width: 88%;} .w99 {width: 100%;}
+.z02 {z-index: 222;}

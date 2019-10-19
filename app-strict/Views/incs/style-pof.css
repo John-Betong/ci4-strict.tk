@@ -1,0 +1,139 @@
+html, 
+body {margin:0; padding:0;}
+body { 
+  font-family: "-apple-system", BlinkMacSystemFont, 
+  "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #fff;
+}
+.nav,
+.footer,
+.header
+{
+  position: fixed; left: 0;
+  width: 100%;
+  background-color: #eeeeef; 
+  border: solid 1px #ccc;
+  z-index: 2;
+}
+.header  {top: 0; height: 5.0em; background-color: #eeeefe }
+.nav     {
+    top: 5.0em; height: 100%;  width: 10em; 
+    padding: 0 0 0 0.21em; 
+    line-height: 2;
+}
+.XXXfooter  {bottom:0; height:0;}
+.article {
+  margin: 1.2em 2em 4.2em 1em; padding:4.2em 1em 2em 12em;
+}
+
+.logo {
+  height: 50px; width: 39px;
+  margin: 0.22em 0 0 1em; padding: 0;
+  opacity: 0.12; 
+  border:0; outline:0;
+}
+.logo:hover {opacity:0.55;}
+
+.menu-001 dd  {margin-left:0.88em;}
+.menu-001 dd a{text-decoration: none;}
+.menu-001 dd:hover {background-color:#ddd;}
+
+.h1 {margin: 0.088em 0 0 0;}
+
+dl dt {font-weight: 700; font-size: .88em;}
+
+blockquote button:hover {
+  background-color: #3ff; color: #fff;
+}
+button {
+  background-color: #9ff; color: #00a; 
+  padding: 0.42em 0.88em;
+  border-radius: 0.88em;
+  font-size: x-large;
+}
+a:link  {color: #0a0; font-weight: 400; font-style: oblique;}
+a:hover {color: #00f;}
+
+ol li {margin: 1em 1em 1em -1em;}
+
+.bd1 {border: solid  1px #ccc;}
+.bd2 {outline: solid  3px #0a0;}
+.bd3 {outline: dotted 5px #f33;}
+
+.bga {background-color: aqua;}
+.bgs {background-color: #fff;}
+.bgr {background-color: #f00;}
+.bgR {background-color: #fdd;}
+.bgc {background-color: #ccc;}
+.bgd {background-color: #ddd;}
+.bge {background-color: #efe;}
+.btn {padding: 0.42em 0.88em; }
+
+.dib {display: inline-block;}
+
+.fg0 {color: #000; text-decoration: none;}
+.fgg {color: #0a0;} .fgr {color: #f33;}
+.fgy {color: #ff0;} .fgs {color: snow;}
+.fll {float: left;} .flr {float: right;}
+.fred{background-color:#ffe; color:#00a;} 
+.fss {font-size: small;} .fs2 {font-size: 1.12em;}
+.fsl {font-size: xx-large;}
+.ftr {position: fixed; left: 0; bottom: 0;}
+.ftt {position: fixed; top:0; left:0;}
+.fwb {font-weight: 700;}
+
+.hg7 {min-height: 11em;}
+.hhh {display: none;}
+
+.lh2 {line-height: 1.88;}
+.mga {margin: 0 auto;}
+.ooo {margin: 0; padding: 0;}
+.ooh {height:0.42em;}
+.oot {margin-top: 0;}
+.pof {position: fixed; top: 0 ;left: 0;}
+.p42 {padding: 0.42em;} .p55 {padding: 2.2em;}
+.rad {border-radius: 0.88em;}
+.spc {height:  0.88em;}
+.tac {text-align: center;} .tal {text-align: left;}
+.tdn {text-decoration: none;}
+.w88 {width: 88%;} .w99 {width: 100%;}
+.z02 {z-index: 222;}
+
+/* ========================================== */
+table {border-collapse: collapse;}
+.dt,
+.th   {font-weight: 700; background-color: #eef;}
+th,
+td   {
+  padding: 0.42em 0.42em; 
+  border: solid 1px #ccc; 
+  font-weight:700;
+  text-align: center;
+}
+.nob td {
+  border: solid 0px #ccc; 
+  line-height: 0.88; 
+  font-size: x-small;
+  }
+td a {
+  background-color: #ddd; color: #000; 
+  border: outset 2px #eef;
+  padding: 0.12em 0.88em;
+}
+pre {min-width:16em; overflow: auto; white-space: pre-wrap;}
+
+.fgF {
+  animation-name: example;
+  color: red;
+  animation-duration: .4s;
+  animation-iteration-count: 111;
+}
+
+/* Standard syntax */
+@keyframes example {
+  0%   {color:red;    left:0px; top:0px;}
+  25%  {color:yellow; left:200px; top:0px;}
+  50%  {color:blue;   left:200px; top:200px;}
+  75%  {color:green;  left:0px; top:200px;}
+  100% {color:red;    left:0px; top:0px;}
+}
