@@ -4,7 +4,7 @@ $strictPath = BASEURL;
 
 $nob  = '<tr class="nob">'
       . '  <td> &nbsp; </td><td> </td><td> '
-      . '  </td><td> </td> <td> </td> <td> </td></tr>';
+      . '  </td><td>   </td><td> </td> </tr>';
 
 # $pInt = 'test(1, 1 )'; 
 $pInt = 'test(2, 3)';
