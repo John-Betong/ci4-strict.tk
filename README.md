@@ -3,16 +3,15 @@ CodeIgniter4 with  DECLARE(STRICT_TYPES=1);  inserted for a better coding experi
 
 
 Source:
-    <b>sudo git clone:</b> https://github.com/codeigniter4/CodeIgniter4.git 
-    <b>Build:</b> 6106bf6
- 
+    sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
+    Build: fab833c 
       
     File type   total   inserted strict     todo
     Not PHP     27       
     PHP         327     300                 15
 
 
-    NOT PHP files: 27
+### NOT PHP files: 27
 
     Array
     (
@@ -49,7 +48,7 @@ Source:
 
 
 
-    PHP files require manual insertion : 15
+### PHP files require manual insertion: 15
 
     Array
     (
@@ -74,7 +73,7 @@ Source:
 
 
 
-    Inserted Strict_types=1 into: 300 PHP files
+### Strict_types=1 inserted into PHP files: 300
 
     Array
     (
