@@ -17,34 +17,33 @@ $sup  = '<sup class="fss">'
 
 # title="version <?= CodeIgniter\CodeIgniter::CI_VERSION "      
 ?>
+
+  <h2 class="flr ooo"> 
+    <a 
+      class="tdn" 
+      href="https://github.com/John-Betong/ci4-strict">
+        GitHub 
+    </a>
+  </h2>
+    
   <div class="fll logo"> 
-    <a href="<?= BASEURL ?>" >
-        <?= file_get_contents('assets/svg/logo.svg'); ?>
+    <a 
+      href="<?= BASEURL ?>" 
+      title="Home"
+    >
+      <?= file_get_contents('assets/svg/logo.svg'); ?>
     </a>  
   </div>  
+   
+  <div class="p42 fgg dib tac">
+    <h1 class="ooo <?= $clr ?>"> 
+      <a class="tdn" href="<?= BASEURL ?>"> CI4-Strict.tk </a>
+    </h1>
 
-  <h6 class="flr ooo">
-    <?= 'Ver: 0.010 &nbsp; '; ?>
-  </h6>
-    
-  <div class="p42 fgg">
-
-    <div class="tac"> 
-      <h1 class="ooo <?= $clr ?>"> 
-        CI4-Strict.tk
-      </h1>
-
-      <h2 class="flr ooo"> 
-        <a 
-          class="tdn" 
-          href="https://github.com/John-Betong/ci4-strict">   GitHub 
-        </a>
-      </h2>
-
-      <h5 class="ooo dib"> 
-        <?= $ver ?>
-        -
-        <i> <b>Build:</b> fab833c </i>
-      </h5>
-    </div>  
+    <h5 class="ooo dib"> 
+      <?= $ver ?>
+      -
+      <i> <b>Build:</b> fab833c </i>
+    </h5>
   </div>  
+

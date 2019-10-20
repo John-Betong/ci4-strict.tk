@@ -29,10 +29,6 @@ ____EOT;
     rsync -avz  {$src}/public_html/ -e ssh {$dst}/public_html/
 ____EOT;
 
-  $commands['rsync STRICT-LOG.php'] = <<< ____EOT
-    rsync -avz  {$src}/STRICT-LOG.php -e ssh {$dst}/
-____EOT;
-
   $commands['rsync README.md'] = <<< ____EOT
     rsync -avz  {$src}/README.md -e ssh {$dst}/
 ____EOT;

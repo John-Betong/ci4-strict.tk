@@ -12,7 +12,8 @@
       $tmp = 'http://localhost/ci4-strict.tk/public_html/';
     endif;  
   define('BASEURL', $tmp);
-  define('CI_DEBUG', ! TRUE);
+  define('CI_DEBUG', TRUE);
+
 
 /*#  Valid PHP Version?
   $minPHPVersion = '7.2';

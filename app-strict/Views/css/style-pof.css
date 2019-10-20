@@ -26,13 +26,15 @@ body {
   margin: 1.2em 2em 4.2em 1em; padding:4.2em 1em 2em 12em;
 }
 
+
+.logo:hover {opacity:0.99;}
 .logo {
   height: 50px; width: 39px;
-  margin: 0.22em 0 0 1em; padding: 0;
+  margin: 0.88em 0 0 1em; padding: 0;
   opacity: 0.12; 
-  border:0; outline:0;
+  border:0; 
+  z-index: 99;
 }
-.logo:hover {opacity:0.55;}
 
 .menu-001 dd  {margin-left:0.88em;}
 .menu-001 dd a{text-decoration: none;}

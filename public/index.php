@@ -1,5 +1,8 @@
 <?php
 
+define('BASEURL', 'http://localhost/ci4-strict/public/');
+define('CI_DEBUG', ! TRUE);
+
 // Valid PHP Version?
 $minPHPVersion = '7.2';
 if (phpversion() < $minPHPVersion)
