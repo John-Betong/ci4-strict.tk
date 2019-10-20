@@ -45,7 +45,8 @@ $github = 'https://github.com/codeigniter4/CodeIgniter4';
       <dt> Path: app  </dt>
       <dd class="dib p42 bd1 bgs fred">  
         <!-- pre class="dib p42 bd1 bgs fred" -->
-          <?= "\r" .trim(file_get_contents('../STRICT-LOG.php') ); ?>
+          <?php # "\r" .trim(file_get_contents('../STRICT-LOG.php') ); ?>
+          <pre><?=     "\r" .trim(file_get_contents('../README.md') ); ?></pre>
         <!-- /pre -->  
       </dd>
     </dl>

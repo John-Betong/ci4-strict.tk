@@ -33,6 +33,10 @@ ____EOT;
     rsync -avz  {$src}/STRICT-LOG.php -e ssh {$dst}/
 ____EOT;
 
+  $commands['rsync README.md'] = <<< ____EOT
+    rsync -avz  {$src}/README.md -e ssh {$dst}/
+____EOT;
+
   $commands['rsync STRICT-INSERT.php'] = <<< ____EOT
     rsync -avz  {$src}/STRICT-INSERT.php -e ssh {$dst}/
 ____EOT;
