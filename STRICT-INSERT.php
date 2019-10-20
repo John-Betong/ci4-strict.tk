@@ -38,6 +38,8 @@ $src = 'STRICT-LOG.php';
 ?><!DOCTYPE HTML>
 <html lang="en">
 <head>
+<meta charset="utf-8"> 
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1"> 
 <title> title goes here </title>
 <style>
   body {background-color: #ccd; color: #00a;}
@@ -78,7 +80,7 @@ $src = 'STRICT-LOG.php';
     <dt> Source: </dt>
     <dd>
       sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
-    </dd><dd> <b>Build: </b> 6106bf6 </dd>
+    </dd><dd> <b>Build: </b> fab833c </dd>
     </dd><dd> &nbsp; </dd>
 
     <dd> 
@@ -108,11 +110,11 @@ $src = 'STRICT-LOG.php';
 ____EOT;
 
   echo '<dd>';
-    fred($notByref,   'NOT PHP files: '           .count($notByref));
+    fred($notByref,   'NOT PHP files: '                           .count($notByref));
       echo '<br><br><br>';
-    fred($manByref,   'PHP file NOT REPLACED: '   .count($manByref));
+    fred($manByref,   'PHP files require manual insertion: '      .count($manByref));
       echo '<br><br><br>';
-    fred($doneByref,  'PHP files: '               .count($doneByref));
+    fred($doneByref,  'Strict_types=1 inserted into PHP files: '  .count($doneByref));
   echo '<dd></dl>';
   echo '<div class="tac">';
 

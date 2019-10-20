@@ -27,8 +27,8 @@ $analytics = ! CI_DEBUG ? NULL : $analytics ;
 />
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">   
 <style>
-<?= file_get_contents(APPPATH . 'Views/incs/style-ci4.min.css'); ?>
-<?= file_get_contents(APPPATH . 'Views/incs/style-tla.min.css'); ?>
+<?= file_get_contents(APPPATH . 'Views/css/style-ci4.min.css'); ?>
+<?= file_get_contents(APPPATH . 'Views/css/style-tla.min.css'); ?>
 h1 {
   font-weight: lighter;
   /* letter-spacing: 0.8rem; */

@@ -29,7 +29,7 @@ ____EOT;
 }  
 
 ?>
-  <dl class="menu-001 fss tdn">
+  <dl class="menu-001 fss tdn lh2">
     <dt> Strict Menu: </dt> 
       <?= getLink($pages, 'myths') ?>
       <?= getLink($pages, 'strict-0') ?> 

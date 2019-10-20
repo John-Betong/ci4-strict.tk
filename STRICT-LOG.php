@@ -1,6 +1,12 @@
-<!DOCTYPE HTML>
+<?php DECLARE(STRICT_TYPES=1);
+
+//
+
+?><!DOCTYPE HTML>
 <html lang="en">
 <head>
+<meta charset="utf-8"> 
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1"> 
 <title> title goes here </title>
 <style>
   body {background-color: #ccd; color: #00a;}
@@ -32,7 +38,7 @@
     <dt> Source: </dt>
     <dd>
       sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
-    </dd><dd> <b>Build: </b> 6106bf6 </dd>
+    </dd><dd> <b>Build: </b> fab833c </dd>
     </dd><dd> &nbsp; </dd>
 
     <dd> 
@@ -92,7 +98,7 @@
 )
  </pre>
   </div><br><br><br>  <div class="mga dib bd1 p42 bgs ">
-    <b> PHP file NOT REPLACED: 15 </b>
+    <b> PHP files require manual insertion: 15 </b>
     <pre>Array
 (
     [0] => 6 ==> app/Views/errors/cli/error_exception.php
@@ -113,7 +119,7 @@
 )
  </pre>
   </div><br><br><br>  <div class="mga dib bd1 p42 bgs ">
-    <b> PHP files: 300 </b>
+    <b> Strict_types=1 inserted into PHP files: 300 </b>
     <pre>Array
 (
     [0] => app/Common.php

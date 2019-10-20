@@ -45,19 +45,18 @@ class BaseController extends Controller
 		parent::initController($request, $response, $logger);
 
 		if(0):
-			$this->style_tla = file_get_contents(APPPATH .'Views/incs/style-tla.min.css');
-		# $this->style_tla = str_replace(["\n", "\r", "\t", "  "] , ' ', $this->style_tla);
+			#	$this->style_tla = file_get_contents(APPPATH .'Views/css/style-tla.min.css');
+			# $this->style_tla = str_replace(["\n", "\r", "\t", "  "] , ' ', $this->style_tla);
 		else:	
-		#	$this->style_tla = file_get_contents(APPPATH .'Views/incs/style-paul.css');
+		#	$this->style_tla = file_get_contents(APPPATH .'Views/css/style-paul.css');
 			if(0) :
-			$this->style_rst = file_get_contents(APPPATH .'Views/incs/style-reset.css');
-		endif;
-			$this->style_tla = file_get_contents(APPPATH .'Views/incs/style-pof.css');
+				# $this->style_rst = file_get_contents(APPPATH .'Views/css/style-reset.css');
+			endif;
+			$this->style_tla = file_get_contents(APPPATH .'Views/css/style-pof.css');
 			$this->style_tla = str_replace(["\n", "\t", "\r", '  '], ' ', $this->style_tla);
-
 		endif;
 
-		$this->style_ci4 	= file_get_contents(APPPATH .'Views/incs/style-ci4.min.css');
+		$this->style_ci4 	= file_get_contents(APPPATH .'Views/css/style-ci4.min.css');
 
 		# $this->style_ci4 = str_replace(["\n", "\r", "\t", "  "] , ' ', $this->style_ci4);
 		//--------------------------------------------------------------------

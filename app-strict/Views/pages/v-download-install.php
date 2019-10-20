@@ -15,10 +15,16 @@ require APPPATH .'Views/incs/doctype-001.php';
   </div>
 
   <div class="article">
-    <h2 class="ooo"> Download preferred zip file: </h2>
+    <h2 class="ooo"> Moved to GitHub : </h2>
     <div class="spc"></div>
 
-    <ul class="w88 mga fsl lh2">
+    <h2>
+      <a href="https://github.com/John-Betong/ci4-strict">
+        GitHub Source 
+      </a>
+    </h2>
+
+    <ul class="hhh w88 mga fsl lh2">
       <li>
       <a href="/zips/ci4-strict.tk.zip"> 
         ci4-strict.tk.zip - (876.8 KB) 
@@ -53,6 +59,7 @@ require APPPATH .'Views/incs/doctype-001.php';
       </dd>  
     </dl>
 
+    <p class="lh2"> <br><br><br><br><br><br><br><br><br><br> </p>
   </div><!--article -->
   
  <div class="footer tac p42">

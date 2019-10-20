@@ -21,7 +21,7 @@ require APPPATH .'Views/incs/doctype-001.php';
   
     <i class="fsl">file: </i> <b> STRICT_INSERT.php </b>
     <br><br>
-    <div class="dib mga p42 bgs fred bd1">
+    <div class="w88 dib mga p42 bgs fred bd1">
       <?php highlight_file('../STRICT-INSERT.php'); ?>
     </div>
   </div><!-- article -->

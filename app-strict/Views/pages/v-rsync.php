@@ -33,6 +33,10 @@ ____EOT;
     rsync -avz  {$src}/STRICT-LOG.php -e ssh {$dst}/
 ____EOT;
 
+  $commands['rsync STRICT-INSERT.php'] = <<< ____EOT
+    rsync -avz  {$src}/STRICT-INSERT.php -e ssh {$dst}/
+____EOT;
+
   # $commands['whoami'] = 'whoami';
   # $commands['date']   = 'date';
 
