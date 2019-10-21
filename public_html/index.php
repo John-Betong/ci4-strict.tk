@@ -1,9 +1,20 @@
 <?php DECLARE(STRICT_TYPES=1); 
 
-
   require '/var/www/ci2/fred.php';
   $ok = @unlink('../writable/logs/log-' .date('Y-m-d') .'.php');
- # $ok = @array_map('unlink', glob("../writable/debugbar/*.json"));
+  $ok = @array_map('unlink', glob("../writable/debugbar/*.json"));
+
+# https://forum.codeigniter.com/thread-74649.html  
+  if( DEFINED('AUTOMATIC_URL_DETECTION') ) :
+    $tmp = (isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) 
+        && 
+        ('on' == $_SERVER['HTTPS']) 
+        ? "https://" 
+        : "http://") .$_SERVER['HTTP_HOST'];
+
+    $tmp .= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);
+    define('BASEURL', $tmp);
+  endif;  
 
 # NOW USES ENV
   define('LOCALHOST', 'localhost'===$_SERVER['SERVER_NAME']);
@@ -12,7 +23,7 @@
       $tmp = 'http://localhost/ci4-strict.tk/public_html/';
     endif;  
   define('BASEURL', $tmp);
-  define('CI_DEBUG', TRUE);
+  define('CI_DEBUG', FALSE);
 
 
 /*#  Valid PHP Version?
