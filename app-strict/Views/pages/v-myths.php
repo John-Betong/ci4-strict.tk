@@ -14,7 +14,7 @@
   </div>
  
   <div class="article">
-    <h2 class="ooo"> Declare Strict - Myths and Clarification </h2>
+    <h2 class="ooo"> Declare Strict_types - Myths and Clarification </h2>
     <p> &nbsp; </p>
  
     <dl>
@@ -31,7 +31,7 @@
           class="btn fsl fwb bd1 rad bga fg0 p42"
           href="<?=  BASEURL .'strict-0'; ?>"
           > 
-          <b> STRICT Examples </b>
+          <b> Test Strict_types </b>
         </a> 
         <br>
       </dt>
@@ -40,7 +40,7 @@
 
     <div class="tac">
       <h2 class="dib rad p42 bgr bd1 fgy fsl lh2">
-          Coding with Strict=1 <br> is like <br> driving with a seatbelt...
+          Coding with Strict_types=1 <br> is like <br> driving with a seatbelt...
           <br>
           <i class="fsn XXXfgg">
             and an airbag!
@@ -90,7 +90,7 @@
         </blockquote>
         
         <p>
-          The strict validation checks <b>only</b> apply to the file where the declaration has been set!
+          The strict_types validation checks <b>only</b> apply to the file where the declaration has been set!
         </p>
 
         <p>
