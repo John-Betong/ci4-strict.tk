@@ -1,5 +1,7 @@
 <?php DECLARE(STRICT_TYPES=1); 
 
+# echo '<pre>'; print_r( $_SERVER ); die; 
+
   require '/var/www/ci2/fred.php';
   $ok = @unlink('../writable/logs/log-' .date('Y-m-d') .'.php');
   $ok = @array_map('unlink', glob("../writable/debugbar/*.json"));

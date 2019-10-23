@@ -43,7 +43,7 @@ $sup  = '<sup class="fss">'
     <h5 class="ooo dib"> 
       <?= $ver ?>
       -
-      <i> <b>Build:</b> fab833c </i>
+      <i> <b>Build:</b> ba60732 </i>
     </h5>
   </div>  
 

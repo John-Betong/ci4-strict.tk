@@ -80,7 +80,7 @@ $src = 'STRICT-LOG.php';
     <dt> Source: </dt>
     <dd>
       sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
-    </dd><dd> <b>Build: </b> fab833c </dd>
+    </dd><dd> <b>Build: </b> ba60732 </dd>
     </dd><dd> &nbsp; </dd>
 
     <dd> 
