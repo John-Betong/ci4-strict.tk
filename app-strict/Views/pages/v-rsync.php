@@ -8,6 +8,10 @@ require APPPATH ."Views/incs/doctype-001.php";
   $src = '/var/www/ci4-strict.tk';
   $dst = 'root@139.162.244.63:/var/www/ci4-strict.tk';
 
+  $commands['rsync .env-THELOT'] = <<< ____EOT
+  rsync -avz  {$src}/ -e ssh {$dst}/
+____EOT;
+
   $commands['rsync .env-ONLINE'] = <<< ____EOT
   rsync -avz  {$src}/.env-ONLINE -e ssh {$dst}/.env
 ____EOT;
