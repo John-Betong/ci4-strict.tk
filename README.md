@@ -6,21 +6,20 @@
         declare(strict_types=1); inserted into most of the PHP files. Some PHP files require manual insertion. 
     </dd>
     <dd>
-        To install:
-        <br>
-        <ol>
-          <li>Download the repository files into a http://localhost/ANY-NAME/ directory </li>
-          <li style="color:red;">
-            make the writable directory writable 
-          </li>
-          <li>
-            View by browsing to http://localhost/ANY-NAME/public_html
-          </li>
-          <li>
-            Or browse to http://localhost/ANY-NAME/public
-          </li>
+      To install:
+      <br>
+      <ol>
+        <li>Download the repository files into a http://localhost/ANY-NAME/ directory </li>
+        <li style="color:red;">
+          make the writable directory writable 
+        </li>
+        <li>
+          View by browsing to http://localhost/ANY-NAME/public_html
+        </li>
+        <li>
+          Or browse to http://localhost/ANY-NAME/public
+        </li>
       </ol>
-
     </dd>
   </dl>
 
