@@ -18,14 +18,16 @@ require APPPATH ."Views/incs/doctype-001.php";
   </div>
 
   <div class="article">
-    <h2 class="ooo"> 
+    <h2 class="hhh ooo"> 
       README.md:
     </h2>
-    <p class="ooo"> &nbsp; </p>
+    <p class="hhh ooo"> &nbsp; </p>
   
     <?php
       $tmp = file_get_contents('../README.md'); 
-      fred($tmp);
+      fred($tmp, 'File: README.md');
+
+      # print_r($tmp); 
     ?>
  
   </div><!-- article -->

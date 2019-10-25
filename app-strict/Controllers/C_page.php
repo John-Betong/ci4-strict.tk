@@ -25,7 +25,7 @@ public $pages = [
   ];
 
 //=========================================  
-public function index($page='myths') // 'welcome_message')
+public function index(string $page='myths') // 'welcome_message')
 {
   $analytics = <<< ____EOT
     <!-- Global site tag (gtag.js) - Google Analytics -->
