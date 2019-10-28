@@ -1,3 +1,4 @@
+<?php DECLARE(STRICT_TYPES=1); ?>
 An uncaught Exception was encountered
 
 Type:        <?= get_class($exception), "\n"; ?>

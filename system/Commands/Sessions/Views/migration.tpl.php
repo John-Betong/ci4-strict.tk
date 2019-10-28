@@ -1,3 +1,4 @@
+<?php DECLARE(STRICT_TYPES=1); ?>
 @php namespace <?= $namespace ?>\Database\Migrations;
 
 use CodeIgniter\Database\Migration;

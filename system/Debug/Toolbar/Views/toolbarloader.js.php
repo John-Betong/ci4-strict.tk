@@ -1,3 +1,4 @@
+<?php DECLARE(STRICT_TYPES=1); ?>
 <?php if (ENVIRONMENT !== 'testing') : ?>
 document.addEventListener('DOMContentLoaded', loadDoc, false);
 

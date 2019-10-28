@@ -52,7 +52,8 @@ class BaseController extends Controller
 			if(0) :
 				# $this->style_rst = file_get_contents(APPPATH .'Views/css/style-reset.css');
 			endif;
-			$this->style_tla = file_get_contents(APPPATH .'Views/css/style-pof.css');
+		#	$this->style_tla = file_get_contents(APPPATH .'Views/css/style-pof.css');
+			$this->style_tla = file_get_contents('assets/css/style-pof.css');
 		# 	$this->style_tla = str_replace(["\n", "\t", "\r", '  '], ' ', $this->style_tla);
 		endif;
 		# $this->style_ci4 	= file_get_contents(APPPATH .'Views/css/style-ci4.min.css');

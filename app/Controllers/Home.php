@@ -1,4 +1,5 @@
-<?php DECLARE(STRICT_TYPES=1);  namespace App\Controllers;
+<?php DECLARE(STRICT_TYPES=1); ?>
+<?php namespace App\Controllers;
 
 class Home extends BaseController
 {

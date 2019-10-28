@@ -36,8 +36,8 @@ ____EOT;
       <dd> &nbsp; </dd>
 
     <dt> Info </dt>
-      <?= getLink($pages, 'modified-files') ?> 
       <?= getLink($pages, 'conversion-script') ?> 
+      <?= getLink($pages, 'modified-files') ?> 
       <?= getLink($pages, 'readme') ?> 
       <dd> &nbsp; </dd>
 

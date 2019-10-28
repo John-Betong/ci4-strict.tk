@@ -1,4 +1,5 @@
-<?php DECLARE(STRICT_TYPES=1);  namespace Config;
+<?php DECLARE(STRICT_TYPES=1); ?>
+<?php namespace Config;
 
 use CodeIgniter\Config\Services as CoreServices;
 use CodeIgniter\Config\BaseConfig;

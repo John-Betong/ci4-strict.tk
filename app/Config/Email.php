@@ -1,7 +1,10 @@
-<?php DECLARE(STRICT_TYPES=1); 
+<?php DECLARE(STRICT_TYPES=1); ?>
+<?php
 namespace Config;
 
-class Email
+use CodeIgniter\Config\BaseConfig;
+
+class Email extends BaseConfig
 {
 
 	/**

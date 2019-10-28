@@ -17,8 +17,8 @@ $analytics = CI_DEBUG ? NULL : $analytics;
   href="//fonts.googleapis.com/css?family=Raleway"
 />
 -->
+<link rel="stylesheet" href="assets/css/style-pof.css" media="screen">
 <style>
-<?= $style_tla ?> 
 /* latin-ext */
 @font-face {
   font-family: 'Raleway';
@@ -54,5 +54,5 @@ h1 b {
   color: #a00;
 }
 </style>
-  <?= $analytics ?>
+<?= $analytics ?>
 </head>

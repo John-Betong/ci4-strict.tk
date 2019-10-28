@@ -1,3 +1,4 @@
+<?php DECLARE(STRICT_TYPES=1); ?>
 <!doctype html>
 <html>
 	<head>

@@ -1,39 +1,21 @@
-
-  <dl>
-    <dt> README.md </dt>
-    <dd> 
-        The follwoing files were downloaded form the codeIgniter4 Github Repository and
-        declare(strict_types=1); inserted into most of the PHP files. Some PHP files require manual insertion. 
-    </dd>
-    <dd>
-      To install:
-      <br>
+  <dl style="line-height:1">
+    <dt>The follwoing files were downloaded form the codeIgniter4 Github Repository and declare(strict_types=1); inserted into every PHP file.
+    </dt>
+    <dd>To install:
       <ol>
         <li>Download the repository files into a http://localhost/ANY-NAME/ directory </li>
-        <li style="color:red;">
-          make the writable directory writable 
-        </li>
-        <li>
-          View by browsing to http://localhost/ANY-NAME/public_html
-        </li>
-        <li>
-          Or browse to http://localhost/ANY-NAME/public
-        </li>
+        <li style="color:red;">make the writable directory writable</li>
+        <li>View by browsing to http://localhost/ANY-NAME/public_html</li>
+        <li>Or browse to http://localhost/ANY-NAME/public</li>
       </ol>
     </dd>
-  </dl>
-
-<pre>
-Source:
+  </dl><pre>
+ Source:
     sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
-    Build: a424b3e (previous ba60732) 
+    Build: 2c04e1c 
       
-    File type   total   inserted strict     todo
-    Not PHP     27       
-    PHP         327     300     15
+    NOT PHP files: 24
 
-
-    NOT PHP files: 27
     Array
     (
         [0] => app/index.html
@@ -42,58 +24,31 @@ Source:
         [3] => public_html/favicon.ico
         [4] => public_html/index.html
         [5] => public_html/robots.txt
-        [6] => public_html/zips/ci4-strict.tk.7z
-        [7] => public_html/zips/ci4-strict.tk.tar.xz
-        [8] => public_html/zips/ci4-strict.tk.zip
-        [9] => public_html/assets/imgs/Screenshot from 2019-10-10 11-44-13.png
-        [10] => public_html/assets/imgs/Whoops.png
-        [11] => public_html/assets/imgs/screenshot-from-2019-10-10 11-44-13.png
-        [12] => public_html/assets/svg/logo.svg
-        [13] => system/index.html
-        [14] => system/Debug/Toolbar/Views/_config.tpl
-        [15] => system/Debug/Toolbar/Views/_database.tpl
-        [16] => system/Debug/Toolbar/Views/_events.tpl
-        [17] => system/Debug/Toolbar/Views/_files.tpl
-        [18] => system/Debug/Toolbar/Views/_history.tpl
-        [19] => system/Debug/Toolbar/Views/_logs.tpl
-        [20] => system/Debug/Toolbar/Views/_routes.tpl
-        [21] => system/Debug/Toolbar/Views/toolbar.css
-        [22] => system/Debug/Toolbar/Views/toolbar.js
-        [23] => writable/cache/index.html
-        [24] => writable/logs/index.html
-        [25] => writable/session/index.html
-        [26] => writable/uploads/index.html
+        [6] => public_html/assets/imgs/Screenshot from 2019-10-10 11-44-13.png
+        [7] => public_html/assets/imgs/Whoops.png
+        [8] => public_html/assets/imgs/screenshot-from-2019-10-10 11-44-13.png
+        [9] => public_html/assets/svg/logo.svg
+        [10] => system/index.html
+        [11] => system/Debug/Toolbar/Views/_config.tpl
+        [12] => system/Debug/Toolbar/Views/_database.tpl
+        [13] => system/Debug/Toolbar/Views/_events.tpl
+        [14] => system/Debug/Toolbar/Views/_files.tpl
+        [15] => system/Debug/Toolbar/Views/_history.tpl
+        [16] => system/Debug/Toolbar/Views/_logs.tpl
+        [17] => system/Debug/Toolbar/Views/_routes.tpl
+        [18] => system/Debug/Toolbar/Views/toolbar.css
+        [19] => system/Debug/Toolbar/Views/toolbar.js
+        [20] => writable/cache/index.html
+        [21] => writable/logs/index.html
+        [22] => writable/session/index.html
+        [23] => writable/uploads/index.html
     )
      
 
 
 
+    Strict_types=1 inserted into PHP files: 319
 
-    PHP files require manual insertion: 15
-    Array
-    (
-        [0] => 6 ==> app/Views/errors/cli/error_exception.php
-        [1] => 3 ==> app/Views/errors/html/error_404.php
-        [2] => 69 ==> app/Views/errors/html/error_exception.php
-        [3] => 2 ==> system/Autoloader/Autoloader.php
-        [4] => 2 ==> system/Helpers/text_helper.php
-        [5] => 2 ==> system/Typography/Typography.php
-        [6] => 7 ==> system/View/Parser.php
-        [7] => 2 ==> system/Commands/Database/CreateMigration.php
-        [8] => 2 ==> system/Commands/Sessions/CreateMigration.php
-        [9] => 2 ==> system/Log/Handlers/FileHandler.php
-        [10] => 7 ==> system/Pager/Views/default_full.php
-        [11] => 4 ==> system/Validation/Views/list.php
-        [12] => 5 ==> system/Commands/Sessions/Views/migration.tpl.php
-        [13] => 54 ==> system/Debug/Toolbar/Views/toolbar.tpl.php
-        [14] => 2 ==> system/Debug/Toolbar/Views/toolbarloader.js.php
-    )
-     
-
-
-
-
-    Strict_types=1 inserted into PHP files: 300
     Array
     (
         [0] => app/Common.php
@@ -127,278 +82,296 @@ Source:
         [28] => app/Config/View.php
         [29] => app/Controllers/BaseController.php
         [30] => app/Controllers/Home.php
-        [31] => app/Config/Boot/development.php
-        [32] => app/Config/Boot/production.php
-        [33] => app/Config/Boot/testing.php
-        [34] => app/Views/errors/cli/error_404.php
-        [35] => app/Views/errors/cli/production.php
-        [36] => public_html/index-DEBUG.php
-        [37] => public_html/index.php
-        [38] => public_html/zzz-index-DEBUG.php
-        [39] => system/CodeIgniter.php
-        [40] => system/Common.php
-        [41] => system/ComposerScripts.php
-        [42] => system/Controller.php
-        [43] => system/Entity.php
-        [44] => system/Model.php
-        [45] => system/bootstrap.php
-        [46] => system/API/ResponseTrait.php
-        [47] => system/Autoloader/FileLocator.php
-        [48] => system/CLI/BaseCommand.php
-        [49] => system/CLI/CLI.php
-        [50] => system/CLI/CommandRunner.php
-        [51] => system/CLI/Console.php
-        [52] => system/Cache/CacheFactory.php
-        [53] => system/Cache/CacheInterface.php
-        [54] => system/Commands/Help.php
-        [55] => system/Commands/ListCommands.php
-        [56] => system/Config/AutoloadConfig.php
-        [57] => system/Config/BaseConfig.php
-        [58] => system/Config/BaseService.php
-        [59] => system/Config/Config.php
-        [60] => system/Config/DotEnv.php
-        [61] => system/Config/ForeignCharacters.php
-        [62] => system/Config/Routes.php
-        [63] => system/Config/Services.php
-        [64] => system/Config/View.php
-        [65] => system/Database/BaseBuilder.php
-        [66] => system/Database/BaseConnection.php
-        [67] => system/Database/BasePreparedQuery.php
-        [68] => system/Database/BaseResult.php
-        [69] => system/Database/BaseUtils.php
-        [70] => system/Database/Config.php
-        [71] => system/Database/ConnectionInterface.php
-        [72] => system/Database/Database.php
-        [73] => system/Database/Forge.php
-        [74] => system/Database/Migration.php
-        [75] => system/Database/MigrationRunner.php
-        [76] => system/Database/PreparedQueryInterface.php
-        [77] => system/Database/Query.php
-        [78] => system/Database/QueryInterface.php
-        [79] => system/Database/ResultInterface.php
-        [80] => system/Database/Seeder.php
-        [81] => system/Debug/Exceptions.php
-        [82] => system/Debug/Iterator.php
-        [83] => system/Debug/Timer.php
-        [84] => system/Debug/Toolbar.php
-        [85] => system/Email/Email.php
-        [86] => system/Encryption/EncrypterInterface.php
-        [87] => system/Encryption/Encryption.php
-        [88] => system/Events/Events.php
-        [89] => system/Exceptions/AlertError.php
-        [90] => system/Exceptions/CastException.php
-        [91] => system/Exceptions/ConfigException.php
-        [92] => system/Exceptions/CriticalError.php
-        [93] => system/Exceptions/DownloadException.php
-        [94] => system/Exceptions/EmergencyError.php
-        [95] => system/Exceptions/ExceptionInterface.php
-        [96] => system/Exceptions/FrameworkException.php
-        [97] => system/Exceptions/ModelException.php
-        [98] => system/Exceptions/PageNotFoundException.php
-        [99] => system/Files/File.php
-        [100] => system/Filters/CSRF.php
-        [101] => system/Filters/DebugToolbar.php
-        [102] => system/Filters/FilterInterface.php
-        [103] => system/Filters/Filters.php
-        [104] => system/Filters/Honeypot.php
-        [105] => system/Format/FormatterInterface.php
-        [106] => system/Format/JSONFormatter.php
-        [107] => system/Format/XMLFormatter.php
-        [108] => system/HTTP/CLIRequest.php
-        [109] => system/HTTP/CURLRequest.php
-        [110] => system/HTTP/ContentSecurityPolicy.php
-        [111] => system/HTTP/DownloadResponse.php
-        [112] => system/HTTP/Header.php
-        [113] => system/HTTP/IncomingRequest.php
-        [114] => system/HTTP/Message.php
-        [115] => system/HTTP/Negotiate.php
-        [116] => system/HTTP/RedirectResponse.php
-        [117] => system/HTTP/Request.php
-        [118] => system/HTTP/RequestInterface.php
-        [119] => system/HTTP/Response.php
-        [120] => system/HTTP/ResponseInterface.php
-        [121] => system/HTTP/URI.php
-        [122] => system/HTTP/UserAgent.php
-        [123] => system/Helpers/array_helper.php
-        [124] => system/Helpers/cookie_helper.php
-        [125] => system/Helpers/date_helper.php
-        [126] => system/Helpers/filesystem_helper.php
-        [127] => system/Helpers/form_helper.php
-        [128] => system/Helpers/html_helper.php
-        [129] => system/Helpers/inflector_helper.php
-        [130] => system/Helpers/number_helper.php
-        [131] => system/Helpers/security_helper.php
-        [132] => system/Helpers/url_helper.php
-        [133] => system/Helpers/xml_helper.php
-        [134] => system/Honeypot/Honeypot.php
-        [135] => system/I18n/Time.php
-        [136] => system/I18n/TimeDifference.php
-        [137] => system/Images/Image.php
-        [138] => system/Images/ImageHandlerInterface.php
-        [139] => system/Language/Language.php
-        [140] => system/Log/Logger.php
-        [141] => system/Pager/Pager.php
-        [142] => system/Pager/PagerInterface.php
-        [143] => system/Pager/PagerRenderer.php
-        [144] => system/RESTful/ResourceController.php
-        [145] => system/RESTful/ResourcePresenter.php
-        [146] => system/Router/RouteCollection.php
-        [147] => system/Router/RouteCollectionInterface.php
-        [148] => system/Router/Router.php
-        [149] => system/Router/RouterInterface.php
-        [150] => system/Security/Security.php
-        [151] => system/Session/Session.php
-        [152] => system/Session/SessionInterface.php
-        [153] => system/Test/CIDatabaseTestCase.php
-        [154] => system/Test/CIUnitTestCase.php
-        [155] => system/Test/ControllerResponse.php
-        [156] => system/Test/ControllerTester.php
-        [157] => system/Test/DOMParser.php
-        [158] => system/Test/FeatureResponse.php
-        [159] => system/Test/FeatureTestCase.php
-        [160] => system/Test/ReflectionHelper.php
-        [161] => system/Throttle/Throttler.php
-        [162] => system/Throttle/ThrottlerInterface.php
-        [163] => system/Validation/CreditCardRules.php
-        [164] => system/Validation/FileRules.php
-        [165] => system/Validation/FormatRules.php
-        [166] => system/Validation/Rules.php
-        [167] => system/Validation/Validation.php
-        [168] => system/Validation/ValidationInterface.php
-        [169] => system/View/Cell.php
-        [170] => system/View/Filters.php
-        [171] => system/View/Plugins.php
-        [172] => system/View/RendererInterface.php
-        [173] => system/View/Table.php
-        [174] => system/View/View.php
-        [175] => system/CLI/Exceptions/CLIException.php
-        [176] => system/Cache/Exceptions/CacheException.php
-        [177] => system/Cache/Exceptions/ExceptionInterface.php
-        [178] => system/Cache/Handlers/DummyHandler.php
-        [179] => system/Cache/Handlers/FileHandler.php
-        [180] => system/Cache/Handlers/MemcachedHandler.php
-        [181] => system/Cache/Handlers/PredisHandler.php
-        [182] => system/Cache/Handlers/RedisHandler.php
-        [183] => system/Cache/Handlers/WincacheHandler.php
-        [184] => system/Commands/Database/Migrate.php
-        [185] => system/Commands/Database/MigrateRefresh.php
-        [186] => system/Commands/Database/MigrateRollback.php
-        [187] => system/Commands/Database/MigrateStatus.php
-        [188] => system/Commands/Database/Seed.php
-        [189] => system/Commands/Server/Serve.php
-        [190] => system/Commands/Server/rewrite.php
-        [191] => system/Commands/Utilities/Namespaces.php
-        [192] => system/Commands/Utilities/Routes.php
-        [193] => system/Database/Exceptions/DataException.php
-        [194] => system/Database/Exceptions/DatabaseException.php
-        [195] => system/Database/Exceptions/ExceptionInterface.php
-        [196] => system/Database/MySQLi/Builder.php
-        [197] => system/Database/MySQLi/Connection.php
-        [198] => system/Database/MySQLi/Forge.php
-        [199] => system/Database/MySQLi/PreparedQuery.php
-        [200] => system/Database/MySQLi/Result.php
-        [201] => system/Database/MySQLi/Utils.php
-        [202] => system/Database/Postgre/Builder.php
-        [203] => system/Database/Postgre/Connection.php
-        [204] => system/Database/Postgre/Forge.php
-        [205] => system/Database/Postgre/PreparedQuery.php
-        [206] => system/Database/Postgre/Result.php
-        [207] => system/Database/Postgre/Utils.php
-        [208] => system/Database/SQLite3/Builder.php
-        [209] => system/Database/SQLite3/Connection.php
-        [210] => system/Database/SQLite3/Forge.php
-        [211] => system/Database/SQLite3/PreparedQuery.php
-        [212] => system/Database/SQLite3/Result.php
-        [213] => system/Database/SQLite3/Table.php
-        [214] => system/Database/SQLite3/Utils.php
-        [215] => system/Encryption/Exceptions/EncryptionException.php
-        [216] => system/Encryption/Handlers/BaseHandler.php
-        [217] => system/Encryption/Handlers/OpenSSLHandler.php
-        [218] => system/Files/Exceptions/FileException.php
-        [219] => system/Files/Exceptions/FileNotFoundException.php
-        [220] => system/Filters/Exceptions/FilterException.php
-        [221] => system/Format/Exceptions/FormatException.php
-        [222] => system/HTTP/Exceptions/HTTPException.php
-        [223] => system/HTTP/Files/FileCollection.php
-        [224] => system/HTTP/Files/UploadedFile.php
-        [225] => system/HTTP/Files/UploadedFileInterface.php
-        [226] => system/Honeypot/Exceptions/HoneypotException.php
-        [227] => system/I18n/Exceptions/I18nException.php
-        [228] => system/Images/Exceptions/ImageException.php
-        [229] => system/Images/Handlers/BaseHandler.php
-        [230] => system/Images/Handlers/GDHandler.php
-        [231] => system/Images/Handlers/ImageMagickHandler.php
-        [232] => system/Language/en/CLI.php
-        [233] => system/Language/en/Cache.php
-        [234] => system/Language/en/Cast.php
-        [235] => system/Language/en/Core.php
-        [236] => system/Language/en/Database.php
-        [237] => system/Language/en/Email.php
-        [238] => system/Language/en/Encryption.php
-        [239] => system/Language/en/Entity.php
-        [240] => system/Language/en/Files.php
-        [241] => system/Language/en/Filters.php
-        [242] => system/Language/en/Format.php
-        [243] => system/Language/en/HTTP.php
-        [244] => system/Language/en/Images.php
-        [245] => system/Language/en/Language.php
-        [246] => system/Language/en/Log.php
-        [247] => system/Language/en/Migrations.php
-        [248] => system/Language/en/Number.php
-        [249] => system/Language/en/Pager.php
-        [250] => system/Language/en/RESTful.php
-        [251] => system/Language/en/Redirect.php
-        [252] => system/Language/en/Router.php
-        [253] => system/Language/en/Session.php
-        [254] => system/Language/en/Time.php
-        [255] => system/Language/en/Validation.php
-        [256] => system/Language/en/View.php
-        [257] => system/Log/Exceptions/LogException.php
-        [258] => system/Log/Handlers/BaseHandler.php
-        [259] => system/Log/Handlers/ChromeLoggerHandler.php
-        [260] => system/Log/Handlers/HandlerInterface.php
-        [261] => system/Pager/Exceptions/PagerException.php
-        [262] => system/Pager/Views/default_head.php
-        [263] => system/Pager/Views/default_simple.php
-        [264] => system/Router/Exceptions/RedirectException.php
-        [265] => system/Router/Exceptions/RouterException.php
-        [266] => system/Security/Exceptions/SecurityException.php
-        [267] => system/Session/Exceptions/SessionException.php
-        [268] => system/Session/Handlers/ArrayHandler.php
-        [269] => system/Session/Handlers/BaseHandler.php
-        [270] => system/Session/Handlers/DatabaseHandler.php
-        [271] => system/Session/Handlers/FileHandler.php
-        [272] => system/Session/Handlers/MemcachedHandler.php
-        [273] => system/Session/Handlers/RedisHandler.php
-        [274] => system/Test/Filters/CITestStreamFilter.php
-        [275] => system/ThirdParty/Kint/kint.php
-        [276] => system/ThirdParty/ZendEscaper/Escaper.php
-        [277] => system/Validation/Exceptions/ValidationException.php
-        [278] => system/View/Exceptions/ViewException.php
-        [279] => system/Debug/Toolbar/Collectors/BaseCollector.php
-        [280] => system/Debug/Toolbar/Collectors/Config.php
-        [281] => system/Debug/Toolbar/Collectors/Database.php
-        [282] => system/Debug/Toolbar/Collectors/Events.php
-        [283] => system/Debug/Toolbar/Collectors/Files.php
-        [284] => system/Debug/Toolbar/Collectors/History.php
-        [285] => system/Debug/Toolbar/Collectors/Logs.php
-        [286] => system/Debug/Toolbar/Collectors/Routes.php
-        [287] => system/Debug/Toolbar/Collectors/Timers.php
-        [288] => system/Debug/Toolbar/Collectors/Views.php
-        [289] => system/ThirdParty/PSR/Log/AbstractLogger.php
-        [290] => system/ThirdParty/PSR/Log/InvalidArgumentException.php
-        [291] => system/ThirdParty/PSR/Log/LogLevel.php
-        [292] => system/ThirdParty/PSR/Log/LoggerAwareInterface.php
-        [293] => system/ThirdParty/PSR/Log/LoggerAwareTrait.php
-        [294] => system/ThirdParty/PSR/Log/LoggerInterface.php
-        [295] => system/ThirdParty/PSR/Log/LoggerTrait.php
-        [296] => system/ThirdParty/PSR/Log/NullLogger.php
-        [297] => system/ThirdParty/ZendEscaper/Exception/ExceptionInterface.php
-        [298] => system/ThirdParty/ZendEscaper/Exception/InvalidArgumentException.php
-        [299] => system/ThirdParty/ZendEscaper/Exception/RuntimeException.php
+        [31] => app/Views/welcome_message.php
+        [32] => app/Config/Boot/development.php
+        [33] => app/Config/Boot/production.php
+        [34] => app/Config/Boot/testing.php
+        [35] => app/Views/errors/cli/error_404.php
+        [36] => app/Views/errors/cli/error_exception.php
+        [37] => app/Views/errors/cli/production.php
+        [38] => app/Views/errors/html/error_404.php
+        [39] => app/Views/errors/html/error_exception.php
+        [40] => app/Views/errors/html/production.php
+        [41] => public_html/index-DEBUG.php
+        [42] => public_html/index.php
+        [43] => public_html/kill-001.php
+        [44] => public_html/zzz-index-DEBUG.php
+        [45] => system/CodeIgniter.php
+        [46] => system/Common.php
+        [47] => system/ComposerScripts.php
+        [48] => system/Controller.php
+        [49] => system/Entity.php
+        [50] => system/Model.php
+        [51] => system/bootstrap.php
+        [52] => system/API/ResponseTrait.php
+        [53] => system/Autoloader/Autoloader.php
+        [54] => system/Autoloader/FileLocator.php
+        [55] => system/CLI/BaseCommand.php
+        [56] => system/CLI/CLI.php
+        [57] => system/CLI/CommandRunner.php
+        [58] => system/CLI/Console.php
+        [59] => system/Cache/CacheFactory.php
+        [60] => system/Cache/CacheInterface.php
+        [61] => system/Commands/Help.php
+        [62] => system/Commands/ListCommands.php
+        [63] => system/Config/AutoloadConfig.php
+        [64] => system/Config/BaseConfig.php
+        [65] => system/Config/BaseService.php
+        [66] => system/Config/Config.php
+        [67] => system/Config/DotEnv.php
+        [68] => system/Config/ForeignCharacters.php
+        [69] => system/Config/Routes.php
+        [70] => system/Config/Services.php
+        [71] => system/Config/View.php
+        [72] => system/Database/BaseBuilder.php
+        [73] => system/Database/BaseConnection.php
+        [74] => system/Database/BasePreparedQuery.php
+        [75] => system/Database/BaseResult.php
+        [76] => system/Database/BaseUtils.php
+        [77] => system/Database/Config.php
+        [78] => system/Database/ConnectionInterface.php
+        [79] => system/Database/Database.php
+        [80] => system/Database/Forge.php
+        [81] => system/Database/Migration.php
+        [82] => system/Database/MigrationRunner.php
+        [83] => system/Database/PreparedQueryInterface.php
+        [84] => system/Database/Query.php
+        [85] => system/Database/QueryInterface.php
+        [86] => system/Database/ResultInterface.php
+        [87] => system/Database/Seeder.php
+        [88] => system/Debug/Exceptions.php
+        [89] => system/Debug/Iterator.php
+        [90] => system/Debug/Timer.php
+        [91] => system/Debug/Toolbar.php
+        [92] => system/Email/Email.php
+        [93] => system/Encryption/EncrypterInterface.php
+        [94] => system/Encryption/Encryption.php
+        [95] => system/Events/Events.php
+        [96] => system/Exceptions/AlertError.php
+        [97] => system/Exceptions/CastException.php
+        [98] => system/Exceptions/ConfigException.php
+        [99] => system/Exceptions/CriticalError.php
+        [100] => system/Exceptions/DownloadException.php
+        [101] => system/Exceptions/EmergencyError.php
+        [102] => system/Exceptions/ExceptionInterface.php
+        [103] => system/Exceptions/FrameworkException.php
+        [104] => system/Exceptions/ModelException.php
+        [105] => system/Exceptions/PageNotFoundException.php
+        [106] => system/Files/File.php
+        [107] => system/Filters/CSRF.php
+        [108] => system/Filters/DebugToolbar.php
+        [109] => system/Filters/FilterInterface.php
+        [110] => system/Filters/Filters.php
+        [111] => system/Filters/Honeypot.php
+        [112] => system/Format/FormatterInterface.php
+        [113] => system/Format/JSONFormatter.php
+        [114] => system/Format/XMLFormatter.php
+        [115] => system/HTTP/CLIRequest.php
+        [116] => system/HTTP/CURLRequest.php
+        [117] => system/HTTP/ContentSecurityPolicy.php
+        [118] => system/HTTP/DownloadResponse.php
+        [119] => system/HTTP/Header.php
+        [120] => system/HTTP/IncomingRequest.php
+        [121] => system/HTTP/Message.php
+        [122] => system/HTTP/Negotiate.php
+        [123] => system/HTTP/RedirectResponse.php
+        [124] => system/HTTP/Request.php
+        [125] => system/HTTP/RequestInterface.php
+        [126] => system/HTTP/Response.php
+        [127] => system/HTTP/ResponseInterface.php
+        [128] => system/HTTP/URI.php
+        [129] => system/HTTP/UserAgent.php
+        [130] => system/Helpers/array_helper.php
+        [131] => system/Helpers/cookie_helper.php
+        [132] => system/Helpers/date_helper.php
+        [133] => system/Helpers/filesystem_helper.php
+        [134] => system/Helpers/form_helper.php
+        [135] => system/Helpers/html_helper.php
+        [136] => system/Helpers/inflector_helper.php
+        [137] => system/Helpers/number_helper.php
+        [138] => system/Helpers/security_helper.php
+        [139] => system/Helpers/text_helper.php
+        [140] => system/Helpers/url_helper.php
+        [141] => system/Helpers/xml_helper.php
+        [142] => system/Honeypot/Honeypot.php
+        [143] => system/I18n/Time.php
+        [144] => system/I18n/TimeDifference.php
+        [145] => system/Images/Image.php
+        [146] => system/Images/ImageHandlerInterface.php
+        [147] => system/Language/Language.php
+        [148] => system/Log/Logger.php
+        [149] => system/Pager/Pager.php
+        [150] => system/Pager/PagerInterface.php
+        [151] => system/Pager/PagerRenderer.php
+        [152] => system/RESTful/ResourceController.php
+        [153] => system/RESTful/ResourcePresenter.php
+        [154] => system/Router/RouteCollection.php
+        [155] => system/Router/RouteCollectionInterface.php
+        [156] => system/Router/Router.php
+        [157] => system/Router/RouterInterface.php
+        [158] => system/Security/Security.php
+        [159] => system/Session/Session.php
+        [160] => system/Session/SessionInterface.php
+        [161] => system/Test/CIDatabaseTestCase.php
+        [162] => system/Test/CIUnitTestCase.php
+        [163] => system/Test/ControllerResponse.php
+        [164] => system/Test/ControllerTester.php
+        [165] => system/Test/DOMParser.php
+        [166] => system/Test/FeatureResponse.php
+        [167] => system/Test/FeatureTestCase.php
+        [168] => system/Test/ReflectionHelper.php
+        [169] => system/Throttle/Throttler.php
+        [170] => system/Throttle/ThrottlerInterface.php
+        [171] => system/Typography/Typography.php
+        [172] => system/Validation/CreditCardRules.php
+        [173] => system/Validation/FileRules.php
+        [174] => system/Validation/FormatRules.php
+        [175] => system/Validation/Rules.php
+        [176] => system/Validation/Validation.php
+        [177] => system/Validation/ValidationInterface.php
+        [178] => system/View/Cell.php
+        [179] => system/View/Filters.php
+        [180] => system/View/Parser.php
+        [181] => system/View/Plugins.php
+        [182] => system/View/RendererInterface.php
+        [183] => system/View/Table.php
+        [184] => system/View/View.php
+        [185] => system/CLI/Exceptions/CLIException.php
+        [186] => system/Cache/Exceptions/CacheException.php
+        [187] => system/Cache/Exceptions/ExceptionInterface.php
+        [188] => system/Cache/Handlers/DummyHandler.php
+        [189] => system/Cache/Handlers/FileHandler.php
+        [190] => system/Cache/Handlers/MemcachedHandler.php
+        [191] => system/Cache/Handlers/PredisHandler.php
+        [192] => system/Cache/Handlers/RedisHandler.php
+        [193] => system/Cache/Handlers/WincacheHandler.php
+        [194] => system/Commands/Database/CreateMigration.php
+        [195] => system/Commands/Database/Migrate.php
+        [196] => system/Commands/Database/MigrateRefresh.php
+        [197] => system/Commands/Database/MigrateRollback.php
+        [198] => system/Commands/Database/MigrateStatus.php
+        [199] => system/Commands/Database/Seed.php
+        [200] => system/Commands/Server/Serve.php
+        [201] => system/Commands/Server/rewrite.php
+        [202] => system/Commands/Sessions/CreateMigration.php
+        [203] => system/Commands/Utilities/Namespaces.php
+        [204] => system/Commands/Utilities/Routes.php
+        [205] => system/Database/Exceptions/DataException.php
+        [206] => system/Database/Exceptions/DatabaseException.php
+        [207] => system/Database/Exceptions/ExceptionInterface.php
+        [208] => system/Database/MySQLi/Builder.php
+        [209] => system/Database/MySQLi/Connection.php
+        [210] => system/Database/MySQLi/Forge.php
+        [211] => system/Database/MySQLi/PreparedQuery.php
+        [212] => system/Database/MySQLi/Result.php
+        [213] => system/Database/MySQLi/Utils.php
+        [214] => system/Database/Postgre/Builder.php
+        [215] => system/Database/Postgre/Connection.php
+        [216] => system/Database/Postgre/Forge.php
+        [217] => system/Database/Postgre/PreparedQuery.php
+        [218] => system/Database/Postgre/Result.php
+        [219] => system/Database/Postgre/Utils.php
+        [220] => system/Database/SQLite3/Builder.php
+        [221] => system/Database/SQLite3/Connection.php
+        [222] => system/Database/SQLite3/Forge.php
+        [223] => system/Database/SQLite3/PreparedQuery.php
+        [224] => system/Database/SQLite3/Result.php
+        [225] => system/Database/SQLite3/Table.php
+        [226] => system/Database/SQLite3/Utils.php
+        [227] => system/Encryption/Exceptions/EncryptionException.php
+        [228] => system/Encryption/Handlers/BaseHandler.php
+        [229] => system/Encryption/Handlers/OpenSSLHandler.php
+        [230] => system/Files/Exceptions/FileException.php
+        [231] => system/Files/Exceptions/FileNotFoundException.php
+        [232] => system/Filters/Exceptions/FilterException.php
+        [233] => system/Format/Exceptions/FormatException.php
+        [234] => system/HTTP/Exceptions/HTTPException.php
+        [235] => system/HTTP/Files/FileCollection.php
+        [236] => system/HTTP/Files/UploadedFile.php
+        [237] => system/HTTP/Files/UploadedFileInterface.php
+        [238] => system/Honeypot/Exceptions/HoneypotException.php
+        [239] => system/I18n/Exceptions/I18nException.php
+        [240] => system/Images/Exceptions/ImageException.php
+        [241] => system/Images/Handlers/BaseHandler.php
+        [242] => system/Images/Handlers/GDHandler.php
+        [243] => system/Images/Handlers/ImageMagickHandler.php
+        [244] => system/Language/en/CLI.php
+        [245] => system/Language/en/Cache.php
+        [246] => system/Language/en/Cast.php
+        [247] => system/Language/en/Core.php
+        [248] => system/Language/en/Database.php
+        [249] => system/Language/en/Email.php
+        [250] => system/Language/en/Encryption.php
+        [251] => system/Language/en/Entity.php
+        [252] => system/Language/en/Files.php
+        [253] => system/Language/en/Filters.php
+        [254] => system/Language/en/Format.php
+        [255] => system/Language/en/HTTP.php
+        [256] => system/Language/en/Images.php
+        [257] => system/Language/en/Language.php
+        [258] => system/Language/en/Log.php
+        [259] => system/Language/en/Migrations.php
+        [260] => system/Language/en/Number.php
+        [261] => system/Language/en/Pager.php
+        [262] => system/Language/en/RESTful.php
+        [263] => system/Language/en/Redirect.php
+        [264] => system/Language/en/Router.php
+        [265] => system/Language/en/Session.php
+        [266] => system/Language/en/Time.php
+        [267] => system/Language/en/Validation.php
+        [268] => system/Language/en/View.php
+        [269] => system/Log/Exceptions/LogException.php
+        [270] => system/Log/Handlers/BaseHandler.php
+        [271] => system/Log/Handlers/ChromeLoggerHandler.php
+        [272] => system/Log/Handlers/FileHandler.php
+        [273] => system/Log/Handlers/HandlerInterface.php
+        [274] => system/Pager/Exceptions/PagerException.php
+        [275] => system/Pager/Views/default_full.php
+        [276] => system/Pager/Views/default_head.php
+        [277] => system/Pager/Views/default_simple.php
+        [278] => system/Router/Exceptions/RedirectException.php
+        [279] => system/Router/Exceptions/RouterException.php
+        [280] => system/Security/Exceptions/SecurityException.php
+        [281] => system/Session/Exceptions/SessionException.php
+        [282] => system/Session/Handlers/ArrayHandler.php
+        [283] => system/Session/Handlers/BaseHandler.php
+        [284] => system/Session/Handlers/DatabaseHandler.php
+        [285] => system/Session/Handlers/FileHandler.php
+        [286] => system/Session/Handlers/MemcachedHandler.php
+        [287] => system/Session/Handlers/RedisHandler.php
+        [288] => system/Test/Filters/CITestStreamFilter.php
+        [289] => system/ThirdParty/Kint/kint.php
+        [290] => system/ThirdParty/ZendEscaper/Escaper.php
+        [291] => system/Validation/Exceptions/ValidationException.php
+        [292] => system/Validation/Views/list.php
+        [293] => system/Validation/Views/single.php
+        [294] => system/View/Exceptions/ViewException.php
+        [295] => system/Commands/Sessions/Views/migration.tpl.php
+        [296] => system/Debug/Toolbar/Collectors/BaseCollector.php
+        [297] => system/Debug/Toolbar/Collectors/Config.php
+        [298] => system/Debug/Toolbar/Collectors/Database.php
+        [299] => system/Debug/Toolbar/Collectors/Events.php
+        [300] => system/Debug/Toolbar/Collectors/Files.php
+        [301] => system/Debug/Toolbar/Collectors/History.php
+        [302] => system/Debug/Toolbar/Collectors/Logs.php
+        [303] => system/Debug/Toolbar/Collectors/Routes.php
+        [304] => system/Debug/Toolbar/Collectors/Timers.php
+        [305] => system/Debug/Toolbar/Collectors/Views.php
+        [306] => system/Debug/Toolbar/Views/toolbar.tpl.php
+        [307] => system/Debug/Toolbar/Views/toolbarloader.js.php
+        [308] => system/ThirdParty/PSR/Log/AbstractLogger.php
+        [309] => system/ThirdParty/PSR/Log/InvalidArgumentException.php
+        [310] => system/ThirdParty/PSR/Log/LogLevel.php
+        [311] => system/ThirdParty/PSR/Log/LoggerAwareInterface.php
+        [312] => system/ThirdParty/PSR/Log/LoggerAwareTrait.php
+        [313] => system/ThirdParty/PSR/Log/LoggerInterface.php
+        [314] => system/ThirdParty/PSR/Log/LoggerTrait.php
+        [315] => system/ThirdParty/PSR/Log/NullLogger.php
+        [316] => system/ThirdParty/ZendEscaper/Exception/ExceptionInterface.php
+        [317] => system/ThirdParty/ZendEscaper/Exception/InvalidArgumentException.php
+        [318] => system/ThirdParty/ZendEscaper/Exception/RuntimeException.php
     )
      
-
 
 </pre>
   </div><dd></dl><div class="tac">

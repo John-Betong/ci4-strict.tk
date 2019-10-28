@@ -1,3 +1,4 @@
+<?php DECLARE(STRICT_TYPES=1); ?>
 <?php if (! empty($errors)) : ?>
 	<div class="errors" role="alert">
 		<ul>

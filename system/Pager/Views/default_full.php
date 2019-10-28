@@ -1,3 +1,4 @@
+<?php DECLARE(STRICT_TYPES=1); ?>
 <?php
 /**
  * @var \CodeIgniter\Pager\PagerRenderer $pager

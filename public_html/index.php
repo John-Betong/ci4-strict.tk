@@ -1,8 +1,14 @@
 <?php DECLARE(STRICT_TYPES=1); 
+error_reporting(-1);
+ini_set('dis[lay_errors', '1');
 
-# echo '<pre>'; print_r( $_SERVER ); die; 
+# LOAD DEBUG FILE
+  $debugFile = '/var/www/ci2/fred.php';
+  if( file_exists($debugFile) ):
+    require $debugFile;
+  endif;
 
-  require '/var/www/ci2/fred.php';
+# CLEAN TRASH    
   $ok = @unlink('../writable/logs/log-' .date('Y-m-d') .'.php');
   $ok = @array_map('unlink', glob("../writable/debugbar/*.json"));
 
@@ -12,19 +18,19 @@
         && 
         ('on' == $_SERVER['HTTPS']) 
         ? "https://" 
-        : "http://") .$_SERVER['HTTP_HOST'];
-
+        : "http://") .$_SERVER['HTTP_HOST']
+        ;
     $tmp .= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);
     define('BASEURL', $tmp);
   endif;  
 
-# NOW USES ENV
+# USES ENV ???
   define('LOCALHOST', 'localhost'===$_SERVER['SERVER_NAME']);
-    $tmp = 'https://ci4-strict.tk/';
+    $url = 'https://ci4-strict.tk/';
     if(LOCALHOST):
-      $tmp = 'http://localhost/ci4-strict.tk/public_html/';
+      $url = 'http://localhost/ci4-strict.tk/public_html/';
     endif;  
-  define('BASEURL', $tmp);
+  define('BASEURL', $url);
   define('CI_DEBUG', FALSE);
 
 
@@ -75,6 +81,4 @@ $pathsPath = FCPATH . '../app-strict/Config/Paths.php';
  * Now that everything is setup, it's time to actually fire
  * up the engines and make this app do its thang.
  */
-
-
 $app->run();
