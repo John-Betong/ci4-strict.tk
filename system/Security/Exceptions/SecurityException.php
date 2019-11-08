@@ -1,4 +1,5 @@
-<?php DECLARE(STRICT_TYPES=1);  namespace CodeIgniter\Security\Exceptions;
+<?php DECLARE(STRICT_TYPES=1); ?>
+<?php namespace CodeIgniter\Security\Exceptions;
 
 use CodeIgniter\Exceptions\ExceptionInterface;
 use CodeIgniter\Exceptions\FrameworkException;

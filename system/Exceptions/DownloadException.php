@@ -1,4 +1,5 @@
-<?php DECLARE(STRICT_TYPES=1);  namespace CodeIgniter\Exceptions;
+<?php DECLARE(STRICT_TYPES=1); ?>
+<?php namespace CodeIgniter\Exceptions;
 
 /**
  * Class DownloadException

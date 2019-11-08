@@ -1,4 +1,5 @@
-<?php DECLARE(STRICT_TYPES=1);  namespace Psr\Log;
+<?php DECLARE(STRICT_TYPES=1); ?>
+<?php namespace Psr\Log;
 
 /**
  * Describes a logger instance

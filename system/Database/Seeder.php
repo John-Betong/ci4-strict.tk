@@ -1,4 +1,5 @@
-<?php DECLARE(STRICT_TYPES=1); 
+<?php DECLARE(STRICT_TYPES=1); ?>
+<?php
 
 /**
  * CodeIgniter
@@ -168,6 +169,7 @@ class Seeder
 			$seeder = new $class($this->config);
 		}
 
+		$seeder->setSilent($this->silent);
 		$seeder->run();
 
 		unset($seeder);

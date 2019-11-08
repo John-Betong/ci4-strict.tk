@@ -1,4 +1,5 @@
-<?php DECLARE(STRICT_TYPES=1);  namespace CodeIgniter\Honeypot\Exceptions;
+<?php DECLARE(STRICT_TYPES=1); ?>
+<?php namespace CodeIgniter\Honeypot\Exceptions;
 
 use CodeIgniter\Exceptions\ConfigException;
 use CodeIgniter\Exceptions\ExceptionInterface;

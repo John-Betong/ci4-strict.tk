@@ -1,4 +1,5 @@
-<?php DECLARE(STRICT_TYPES=1); 
+<?php DECLARE(STRICT_TYPES=1); ?>
+<?php
 /**
  * CodeIgniter
  *
@@ -682,7 +683,7 @@ class MigrationRunner
 	 */
 	public function getObjectUid($object): string
 	{
-		return $object->version . $object->class;
+		return preg_replace('/[^0-9]/', '', $object->version) . $object->class;
 	}
 
 	//--------------------------------------------------------------------

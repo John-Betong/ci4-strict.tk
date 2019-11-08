@@ -1,4 +1,5 @@
-<?php DECLARE(STRICT_TYPES=1); 
+<?php DECLARE(STRICT_TYPES=1); ?>
+<?php
 /**
  * RESTful language strings.
  *

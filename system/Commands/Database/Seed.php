@@ -1,4 +1,5 @@
-<?php DECLARE(STRICT_TYPES=1); 
+<?php DECLARE(STRICT_TYPES=1); ?>
+<?php
 
 /**
  * CodeIgniter
@@ -98,8 +99,7 @@ class Seed extends BaseCommand
 	protected $options = [];
 
 	/**
-	 * Runs all of the migrations in reverse order, until they have
-	 * all been un-applied.
+	 * Passes to Seeder to populate the database.
 	 *
 	 * @param array $params
 	 */

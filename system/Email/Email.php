@@ -1,4 +1,5 @@
-<?php DECLARE(STRICT_TYPES=1); 
+<?php DECLARE(STRICT_TYPES=1); ?>
+<?php
 /**
  * CodeIgniter
  *
@@ -373,7 +374,6 @@ class Email
 	{
 		$this->initialize($config);
 		isset(static::$func_overload) || static::$func_overload = (extension_loaded('mbstring') && ini_get('mbstring.func_overload'));
-		log_message('info', 'Email Class Initialized');
 	}
 	//--------------------------------------------------------------------
 	/**

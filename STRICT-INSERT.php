@@ -1,6 +1,5 @@
 <?php DECLARE(STRICT_TYPES=1);
 
-# ========================================================
   $path   = ['app', 'public', 'system', 'writable'] ; 
   $link   = '<h2 class="flr">show: <a href="?strict">CI4_Strict</a> &nbsp; </h2>';
   $title  = 'CodeIgniter4';
@@ -84,11 +83,7 @@ ____EOT;
     echo fredLink($notByref);
   echo '<dd><dd>&nbsp;</dd>';  
   echo '<dt>Strict_types=1 inserted into PHP files: ' .count($doneByref) .'</dt>';
-  echo '<dd class="w88 p42">';
-    echo fredLink($doneByref);
-    #echo fredLink($doneByref, 'Strict_types=1 inserted into PHP files: ' .count($doneByref));
-
-  echo '</dd><dd>&nbsp;</dd></dl>';
+  echo '<dd class="w88 p42">'; echo fredLink($doneByref); echo '</dd><dd>&nbsp;</dd></dl>';
   echo '<div class="tac">';
 
 //========================================================
@@ -133,7 +128,6 @@ function fnAddStrictTypes
   endif;  
 }//
 
-
 //========================================================
 function scandir_through($dir)
 {
@@ -148,7 +142,6 @@ function scandir_through($dir)
 
   return $items;
 }
-
 
 //====== DEBUG ===========================================
 function fred(
@@ -171,7 +164,6 @@ ____EOT;
   $result = <<< ____EOT
     <pre style="$style">$prn </pre>
 ____EOT;
-
 
   return $result;
 }//
@@ -213,7 +205,6 @@ ____EOT;
   $result = <<< ____EOT
     <pre style="$style">$prn </pre>
 ____EOT;
-
 
   return $result;
 }//

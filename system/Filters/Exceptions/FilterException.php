@@ -1,4 +1,5 @@
-<?php DECLARE(STRICT_TYPES=1);  namespace CodeIgniter\Filters\Exceptions;
+<?php DECLARE(STRICT_TYPES=1); ?>
+<?php namespace CodeIgniter\Filters\Exceptions;
 
 use CodeIgniter\Exceptions\ConfigException;
 use CodeIgniter\Exceptions\ExceptionInterface;
