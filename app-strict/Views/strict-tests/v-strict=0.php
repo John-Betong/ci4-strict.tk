@@ -1,4 +1,3 @@
-<?php DECLARE(STRICT_TYPES=1); ?>
 <?php DECLARE(STRICT_TYPES=0);
 
 $title = 'Testing: strict_types=0';
