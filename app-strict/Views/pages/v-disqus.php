@@ -31,12 +31,9 @@ require APPPATH ."Views/incs/doctype-001.php";
     </p>  
   </div><!-- article -->
   
-  <?php if(10): ?>
-    <div class="footer tac p42">
-      <?= $footer ?> 
-    </div>
-  <?php endif; ?>
-
+  <div class="footer tac p42">
+    <?= $footer ?> 
+  </div>
 </body>
 </html>
 

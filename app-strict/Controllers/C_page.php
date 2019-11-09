@@ -42,7 +42,7 @@ ____EOT;
   $data['pages']      = $this->pages; //
   $data['analytics']  = $analytics; 
   $data['title']      = 'Ci4-Strict.tk'; //
-  $data['footer']     = view('incs/footer.php', $data, [TRUE] );
+  $data['footer']     = view('incs/footer.php', $data, [TRUE] ) .$analytics; 
   $data['style_tla']  = $this->style_tla;
 
   #if( (int) $page && (int) $page <= 10) :

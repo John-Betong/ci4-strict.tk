@@ -74,11 +74,9 @@ ____EOT;
     <?= $result ?>   
    </div><!-- article -->
   
-  <?php if(10): ?>
-    <div class="footer tac p42">
-      <?= $footer ?> 
-    </div>
-  <?php endif; ?>
+   <div class="footer tac p42">
+     <?= $footer ?> 
+   </div>
 
 </body>
 </html><?php

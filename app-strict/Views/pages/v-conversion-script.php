@@ -26,9 +26,8 @@ require APPPATH .'Views/incs/doctype-001.php';
     </div>
   </div><!-- article -->
   
- <div class="footer tac p42">
-  <?= $footer ?> 
- </div>
-
+  <div class="footer tac p42">
+    <?= $footer ?> 
+  </div>
 </body>
 </html>

@@ -45,12 +45,9 @@ $aConsts = [
  
   </div><!-- article -->
   
-  <?php if(1): ?>
   <div class="footer tac p42">
     <?= $footer ?> 
   </div>
-<?php endif; ?>
-
 
 </body>
 </html>

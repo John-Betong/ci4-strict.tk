@@ -36,7 +36,6 @@ require APPPATH ."Views/incs/doctype-001.php";
     <?= $footer ?> 
   </div>
 
-
 </body>
 </html>
 
