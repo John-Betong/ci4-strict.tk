@@ -1,9 +1,9 @@
-Source:
+Source: CodeIgniter4
     sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
-    Build: 2fa10ce [previous ba60732]
+    Build: a976069
       
-To view source: prefix filename with:
-    https://github.com/codeigniter4/CodeIgniter4/blob/develop/ 
+Source: John-Betong/ci4-strict
+    sudo git clone https://github.com/John-Betong/ci4-strict.git 
       
 NOT PHP files: 19
 

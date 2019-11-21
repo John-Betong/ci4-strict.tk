@@ -39,7 +39,7 @@
 
 namespace CodeIgniter\Language;
 
-use CodeIgniter\Config\Services;
+use Config\Services;
 
 /**
  * Handle system messages and localization.

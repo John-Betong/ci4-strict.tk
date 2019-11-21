@@ -112,7 +112,14 @@ if (! function_exists('base_url'))
 		// otherwise get rid of the path, because we have
 		// no way of knowing the intent...
 		$config = \CodeIgniter\Config\Services::request()->config;
-		$url    = new \CodeIgniter\HTTP\URI($config->baseURL);
+
+		// If baseUrl does not have a trailing slash it won't resolve
+		// correctly for users hosting in a subfolder.
+		$baseUrl = ! empty($config->baseURL) && $config->baseURL !== '/'
+			? rtrim($config->baseURL, '/ ') . '/'
+			: $config->baseURL;
+
+		$url = new \CodeIgniter\HTTP\URI($baseUrl);
 		unset($config);
 
 		// Merge in the path set by the user, if any
@@ -133,7 +140,7 @@ if (! function_exists('base_url'))
 			$url->setScheme($protocol);
 		}
 
-		return (string) $url;
+		return rtrim((string) $url, '/ ');
 	}
 }
 
@@ -153,7 +160,25 @@ if (! function_exists('current_url'))
 	 */
 	function current_url(bool $returnObject = false)
 	{
-		return $returnObject ? \CodeIgniter\Config\Services::request()->uri : (string) \CodeIgniter\Config\Services::request()->uri;
+		$uri = clone service('request')->uri;
+
+		// If hosted in a sub-folder, we will have additional
+		// segments that show up prior to the URI path we just
+		// grabbed from the request, so add it on if necessary.
+		$baseUri = new \CodeIgniter\HTTP\URI(config('App')->baseURL);
+
+		if (! empty($baseUri->getPath()))
+		{
+			$path = rtrim($baseUri->getPath(), '/ ') . '/' . $uri->getPath();
+
+			$uri->setPath($path);
+		}
+
+		// Since we're basing off of the IncomingRequest URI,
+		// we are guaranteed to have a host based on our own configs.
+		return $returnObject
+			? $uri
+			: (string)$uri->setQuery('');
 	}
 }
 

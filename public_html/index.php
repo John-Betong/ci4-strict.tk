@@ -1,8 +1,10 @@
-<?php DECLARE(STRICT_TYPES=1); 
-error_reporting(-1);
-ini_set('dis[lay_errors', '1');
+<?php 
+DECLARE(STRICT_TYPES=1); 
 
-# LOAD DEBUG FILE
+error_reporting(-1);
+ini_set('display_errors', '1');
+
+
   $debugFile = '/var/www/ci2/fred.php';
   if( file_exists($debugFile) ):
     require $debugFile;
