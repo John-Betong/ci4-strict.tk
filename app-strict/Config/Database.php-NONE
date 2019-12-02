@@ -1,5 +1,4 @@
-<?php DECLARE(STRICT_TYPES=1); ?>
-<?php namespace Config;
+<?php DECLARE(STRICT_TYPES=1);  namespace Config;
 
 /**
  * Database Configuration
@@ -33,9 +32,9 @@ class Database extends \CodeIgniter\Database\Config
 	public $default = [
 		'DSN'      => '',
 		'hostname' => 'localhost',
-		'username' => 'dasabooks',
-		'password' => 'dasa424242',
-		'database' => 'ci4',
+		'username' => '',
+		'password' => '',
+		'database' => '',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => false,

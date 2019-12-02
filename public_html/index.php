@@ -1,9 +1,10 @@
-<?php 
-DECLARE(STRICT_TYPES=1); 
+<?php DECLARE(STRICT_TYPES=1); 
 
 error_reporting(-1);
 ini_set('display_errors', '1');
 
+$_SERVER['CI_ENVIRONMENT'] = 0 ? 'development' : 'production';
+define('CI_DEBUG',           1 ? FALSE : TRUE);
 
   $debugFile = '/var/www/ci2/fred.php';
   if( file_exists($debugFile) ):
@@ -16,15 +17,16 @@ ini_set('display_errors', '1');
 
 # https://forum.codeigniter.com/thread-74649.html  
   if( 1 || DEFINED('AUTOMATIC_URL_DETECTION') ) :
-    $tmp = (isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) 
+    $url = (isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) 
         && 
         ('on' == $_SERVER['HTTPS']) 
         ? "https://" 
         : "http://") .$_SERVER['HTTP_HOST']
         ;
-    $tmp .= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);
+    $url .= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);
     # define('BASEURL', $tmp);
   endif;  
+  defined('BASEURL') ?: define('BASEURL', $url);
 
 # USES ENV ???
   define('LOCALHOST', 'localhost'===$_SERVER['SERVER_NAME']);
@@ -33,8 +35,6 @@ ini_set('display_errors', '1');
     if(LOCALHOST):
       $url = 'http://localhost/ci4-strict.tk/public_html/';
     endif;  
-  define('BASEURL', $url);
-  define('CI_DEBUG', FALSE);
 
 
 /*#  Valid PHP Version?
@@ -52,7 +52,12 @@ ini_set('display_errors', '1');
 
 # Location of the Paths config file.
 # This is the line that might need to be changed, depending on your folder structure.
-$pathsPath = FCPATH . '../app-strict/Config/Paths.php';
+  if( isset($_GET['pg']) ) :
+    $pathsPath = FCPATH . '../app-playground/Config/Paths.php';
+  else:  
+    $pathsPath = FCPATH . '../app-strict/Config/Paths.php';
+  endif;  
+
 # if( isset($_GET['original']) ): // isset($_GET['strict'])
 #   $pathsPath = FCPATH . '../app/Config/Paths.php';
 # endif;  
@@ -73,7 +78,6 @@ $pathsPath = FCPATH . '../app-strict/Config/Paths.php';
 # Load our paths config file
   require $pathsPath;
   $paths = new Config\Paths();
-
 # Location of the framework bootstrap file.
   $app = require rtrim($paths->systemDirectory, '/ ') . '/bootstrap.php';
 

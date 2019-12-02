@@ -35,6 +35,10 @@ ____EOT;
       <?= getLink($pages, 'strict-0') ?> 
       <dd> &nbsp; </dd>
 
+    <dt> Playground </dt>
+      <?= getLink($pages, 'playground') ?> 
+      <dd> &nbsp; </dd>
+
     <dt> Info </dt>
       <?= getLink($pages, 'conversion-script') ?> 
       <?= getLink($pages, 'modified-files') ?> 

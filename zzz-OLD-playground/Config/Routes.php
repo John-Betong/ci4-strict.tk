@@ -1,4 +1,5 @@
-<?php DECLARE(STRICT_TYPES=1);  namespace Config;
+<?php DECLARE(STRICT_TYPES=1); ?>
+<?php namespace Config;
 
 /**
  * --------------------------------------------------------------------
@@ -58,7 +59,7 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
  * only routes that have been defined here will be available.
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+$routes->setDefaultController('Playground');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -72,17 +73,7 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-if(0) :
-  $routes->get('/', 'Home::index');
-  $routes->add('(:any)/(:any)', 'C_page::index/$1/$2');
-  $routes->add('(:any)',        'C_page::index/$1');
-else:
-# $routes->get('/',             'Home::index');
-  $routes->get('/',             'C_page::index');
-  $routes->add('playground',    'Playground::index');
-  $routes->add('(:any)/(:any)', 'C_page::index/$1/$2');
-  $routes->add('(:any)',        'C_page::index/$1');
-endif;
+$routes->get('/', 'Playground::index');
 
 /**
  * --------------------------------------------------------------------

@@ -104,7 +104,7 @@ class Connection extends BaseConnection implements ConnectionInterface
 		{
 			$hostname = ($persistent === true) ? 'p:' . $this->hostname : $this->hostname;
 			$port     = empty($this->port) ? null : $this->port;
-			$socket   = null;
+			$socket   = ''; // null;
 		}
 
 		$client_flags = ($this->compress === true) ? MYSQLI_CLIENT_COMPRESS : 0;
@@ -177,7 +177,7 @@ class Connection extends BaseConnection implements ConnectionInterface
 		try
 		{
 			if ($this->mysqli->real_connect($hostname, $this->username, $this->password,
-				$this->database, $port, $socket, $client_flags)
+				$this->database, $port, $socket='', $client_flags)
 			)
 			{
 				// Prior to version 5.7.3, MySQL silently downgrades to an unencrypted connection if SSL setup fails

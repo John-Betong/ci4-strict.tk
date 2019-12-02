@@ -16,6 +16,7 @@ public $pages = [
     'download-install'  => 'Download &amp; Install',
     'myths'             => 'Myths explained',
     'modified-files'    => 'Modified files', 
+    'playground'        => 'Playground',
     'readme'            => 'Readme',
     'rsync'             => 'Rsync',
     'strict-0'          => 'Test Strict_types',
