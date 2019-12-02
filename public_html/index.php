@@ -29,6 +29,7 @@ ini_set('display_errors', '1');
 # USES ENV ???
   define('LOCALHOST', 'localhost'===$_SERVER['SERVER_NAME']);
     # $url = 'https://ci4-strict.tk/';
+    $url = 'https://ci4-strict.tk/';
     if(LOCALHOST):
       $url = 'http://localhost/ci4-strict.tk/public_html/';
     endif;  
