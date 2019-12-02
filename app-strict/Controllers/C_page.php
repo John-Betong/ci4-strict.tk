@@ -51,6 +51,7 @@ ____EOT;
 
   # if( in_array($page, $this->pages) ) :  
   if( array_key_exists($page, $this->pages) ) :  
+    $data['title'] = $data['pages'][$page];
     $page = 'pages/v-' .$page;
 
   else :  
@@ -59,7 +60,7 @@ ____EOT;
     # $page =  'welcome_message'; 
     # $page = 'v-strict-0';
   endif;
-
+  
   $data['vPage']  =  $page; 
   # fred($data); die;
   # echo $page ; die;

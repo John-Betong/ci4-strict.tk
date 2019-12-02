@@ -1,6 +1,6 @@
 Source: CodeIgniter4
     sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
-    Build: 2c04e1c 
+    Build:  7007f51 (last: 2c04e1c) 
       
 Source: John-Betong/ci4-strict
     sudo git clone https://github.com/John-Betong/ci4-strict.git 

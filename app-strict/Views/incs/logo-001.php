@@ -39,7 +39,7 @@ $sup  = '<sup class="fss">'
    
   <div class="p42 fgg dib tac">
     <h1 class="ooo <?= $clr ?>"> 
-      <a class="tdn" href="<?= BASEURL ?>"> CI4-Strict.tk </a>
+      <a class="tdn" href="<?= BASEURL ?>"> <?= $title ?> </a>
     </h1>
 
     <div class="ooo dib fss"> 
