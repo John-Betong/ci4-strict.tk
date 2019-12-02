@@ -45,7 +45,7 @@ $sup  = '<sup class="fss">'
     <div class="ooo dib fss"> 
       <?= $ver ?>
       -
-      <i> <b>Build:</b> a976069 (previous: 01878e9) </i>
+      <i> <b>Build:</b> 7007f51 (previous: a976069) </i>
     </div>
   </div>  
 

@@ -15,7 +15,7 @@ ini_set('display_errors', '1');
   $ok = @array_map('unlink', glob("../writable/debugbar/*.json"));
 
 # https://forum.codeigniter.com/thread-74649.html  
-  if( DEFINED('AUTOMATIC_URL_DETECTION') ) :
+  if( 1 || DEFINED('AUTOMATIC_URL_DETECTION') ) :
     $tmp = (isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) 
         && 
         ('on' == $_SERVER['HTTPS']) 
@@ -23,12 +23,12 @@ ini_set('display_errors', '1');
         : "http://") .$_SERVER['HTTP_HOST']
         ;
     $tmp .= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);
-    define('BASEURL', $tmp);
+    # define('BASEURL', $tmp);
   endif;  
 
 # USES ENV ???
   define('LOCALHOST', 'localhost'===$_SERVER['SERVER_NAME']);
-    $url = 'https://ci4-strict.tk/';
+    # $url = 'https://ci4-strict.tk/';
     if(LOCALHOST):
       $url = 'http://localhost/ci4-strict.tk/public_html/';
     endif;  
