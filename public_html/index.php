@@ -3,8 +3,8 @@
 error_reporting(-1);
 ini_set('display_errors', '1');
 
-$_SERVER['CI_ENVIRONMENT'] = 0 ? 'development' : 'production';
-define('CI_DEBUG',           1 ? FALSE : TRUE);
+$_SERVER['CI_ENVIRONMENT'] = 1 ? 'development' : 'production';
+define('CI_DEBUG',           0 ? FALSE : TRUE);
 
   $debugFile = '/var/www/ci2/fred.php';
   if( file_exists($debugFile) ):

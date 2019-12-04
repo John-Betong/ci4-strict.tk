@@ -1,6 +1,4 @@
-<?php DECLARE(STRICT_TYPES=1); ?>
-<?php DECLARE(STRICT_TYPES=0);
-
+<?php DECLARE(STRICT_TYPES=1); 
 # namespace "Views\incs\doctype-001.php";
 
 
@@ -24,7 +22,6 @@ $aConsts = [
 <body>
   <div class="header tac">
     <?php require APPPATH .'Views/incs/logo-001.php'; ?>
-    <h4 class="hhh ooo"> Strict_types=0 </h4>  
   </div><!-- header -->
 
   <div class="nav">

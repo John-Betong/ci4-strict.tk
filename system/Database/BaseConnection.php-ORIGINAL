@@ -346,8 +346,8 @@ abstract class BaseConnection implements ConnectionInterface
 				$this->$key = $value;
 			}
 		}
-		# vd($params);
-		# fred($params);die;
+		vd($params);
+		fred($params);die;
 	}
 
 	//--------------------------------------------------------------------

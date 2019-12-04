@@ -3,7 +3,7 @@
   $path   = ['app', 'public', 'system', 'writable'] ; 
   $link   = '<h2 class="flr">show: <a href="?strict">CI4_Strict</a> &nbsp; </h2>';
   $title  = 'CodeIgniter4';
-  if(isset($_GET['strict']) ):
+  if(0 && isset($_GET['strict']) ):
     $path   = ['app-strict', 'public_html'] ; 
     $link   = '<h2 class="flr">show: <a href="?">CodeIgniter4</a> &nbsp; </h2>';
     $title  = 'CI4_strict';

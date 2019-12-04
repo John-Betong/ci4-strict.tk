@@ -8,7 +8,7 @@ namespace App\Controllers;
 class C_page extends BaseController
 {
 
-public $pages = [
+public $pagesXXX = [
     'disqus'            => 'Disqus',
     'env'               => 'Info',
     'info'              => 'Information', 

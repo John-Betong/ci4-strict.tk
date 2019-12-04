@@ -1,5 +1,6 @@
 <?php DECLARE(STRICT_TYPES=1);
-  
+
+
 # ENHANCE SELECTION 
   $url = $url = $_SERVER['REQUEST_URI'];
   $url = strrchr($url, '/');
@@ -37,6 +38,7 @@ ____EOT;
 
     <dt> Playground </dt>
       <?= getLink($pages, 'playground') ?> 
+      <?= getLink($pages, 'bugs-fixed') ?> 
       <dd> &nbsp; </dd>
 
     <dt> Info </dt>

@@ -39,8 +39,8 @@
     </dl>
 
     <div class="tac">
-      <h2 class="dib rad p42 bgr bd1 fgy fsl lh2">
-          Coding with Strict_types=1 <br> is like <br> driving with a seatbelt...
+      <h2 class="dib rad p42 bgg fgg XXXbgr XXXfgy bd1 fsl lh2">
+          Declare(Strict_types=1) <br> it's like <br> driving with a seatbelt...
           <br>
           <i class="fsn XXXfgg">
             and an airbag!

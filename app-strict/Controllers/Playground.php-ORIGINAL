@@ -12,7 +12,7 @@ class Playground extends BaseController
          // you can simply get a new instance here. It will use
          // the default database connection if none is passed in
          // during instantiation.
-        $heroes = new HeroModel();
+        $heroes   = new HeroModel();
         $dungeons = new DungeonModel();
 
 		return view('home', [

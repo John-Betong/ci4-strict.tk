@@ -30,6 +30,25 @@ class BaseController extends Controller
 	protected $helpers 		= [];
 	public    $style_tla 	= '';
 
+public $pages = [
+    'disqus'            => 'Disqus',
+    'env'               => 'Info',
+    'info'              => 'Information', 
+    'conversion-script' => 'Conversion Script',
+    'download-install'  => 'Download &amp; Install',
+    'myths'             => 'Myths explained',
+    'modified-files'    => 'Modified files', 
+    'playground'        => 'Playground',
+    'bugs-fixed'        => 'Bugs Fixed',
+    'readme'            => 'Readme',
+    'rsync'             => 'Rsync',
+    'strict-0'          => 'Test Strict_types',
+    'strict-1'          => 'NOT IN MENU',
+    'welcome-strict'    => 'Welcome Strict',
+    'welcome_message'   => 'Welcome Original',
+  ];
+
+
 	/**
 	 * Constructor.
 	 */

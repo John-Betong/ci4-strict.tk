@@ -1,6 +1,18 @@
+
+The CodeIgniter4 Repository, for some strange reason, does not DECLARE(STRICT_TYPES=1); which I find very strange because when used, many variable type errors are detected thus making the PHP just that little bit more robust.
+
+The following files were obtained from the CodeIgniter4 Repository and now have the strict types declaration included.
+
+No doubt when modifying this Repository validation type errors will appear but they will be far easier to fix because all error must be fixed before proceeding!
+
+enjoy :)
+
+
+
+
 Source: CodeIgniter4
     sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
-    Build:  7007f51 (last: 2c04e1c) 
+    Build: 9765931 (last build: 2c04e1c) 
       
 Source: John-Betong/ci4-strict
     sudo git clone https://github.com/John-Betong/ci4-strict.git 

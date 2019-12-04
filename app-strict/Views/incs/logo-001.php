@@ -20,7 +20,7 @@ $sup  = '<sup class="fss">'
 # title="version <?= CodeIgniter\CodeIgniter::CI_VERSION "      
 ?>
 
-  <div class="flr fsl ooo"> 
+  <div class="flr ooo"> 
     <a 
       class="tdn" 
       href="https://github.com/John-Betong/ci4-strict">
@@ -45,7 +45,7 @@ $sup  = '<sup class="fss">'
     <div class="ooo dib fss"> 
       <?= $ver ?>
       -
-      <i> <b>Build:</b> 7007f51 (previous: a976069) </i>
+      <i> <b>Build:</b> 9765931 (previous: 2c04e1c)  </i>
     </div>
   </div>  
 

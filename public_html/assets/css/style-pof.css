@@ -58,6 +58,7 @@ body {
 .XXXfooter  {bottom:0; height:0;}
 .article {
   margin: 1.2em 2em 4.2em 1em; padding:4.2em 1em 2em 12em;
+  height: 100%;  
 }
 .logo:hover {opacity:0.99;}
 .logo {
@@ -95,18 +96,19 @@ ol li {margin: 1em 1em 1em -1em;}
 .bd3 {outline: dotted 5px #f33;}
 
 .bga {background-color: aqua;}
+.bgg {background-color: #9f9;}
 .bgs {background-color: #fff;}
 .bgr {background-color: #f00;}
 .bgR {background-color: #fdd;}
 .bgc {background-color: #ccc;}
 .bgd {background-color: #ddd;}
 .bge {background-color: #efe;}
-.btn {padding: 0.42em 0.88em; }
+.btn {padding: 0.42em 0.88em;}
 
 .dib {display: inline-block;}
 
 .fg0 {color: #000; text-decoration: none;}
-.fgg {color: #0a0;} .fgr {color: #f33;}
+.fgg {color: #050;} .fgr {color: #f33;}
 .fgy {color: #ff0;} .fgs {color: snow;}
 .fll {float: left;} .flr {float: right;}
 .fred{background-color:#ffe; color:#00a;} 

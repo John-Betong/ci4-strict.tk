@@ -6,6 +6,7 @@
     display the final content. In this case, the view
     is at app/Views/layout.php
 -->
+
 <?= $this->extend('layout') ?>
 
 <!--
@@ -14,7 +15,6 @@
     `$this->renderSection('content')`.
 -->
 <?= $this->section('content') ?>
-
     <div class="row">
 
         <!-- Heroes -->

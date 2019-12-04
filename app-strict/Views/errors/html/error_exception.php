@@ -176,6 +176,7 @@
 						</thead>
 						<tbody>
 						<?php foreach ($constants['user'] as $key => $value) : ?>
+							<?php $value = (string) $value; ?>
 							<tr>
 								<td><?= htmlspecialchars($key, ENT_IGNORE, 'UTF-8') ?></td>
 								<td>
