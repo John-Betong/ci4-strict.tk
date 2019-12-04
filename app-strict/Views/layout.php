@@ -28,9 +28,16 @@
 
   <div class="article tac">
     
-    <h2 class="tal">
+    <i class="flr">
+        <a href="https://github.com/codeigniter4projects/playground">
+            GitHub PlayGround
+        </a>
+    </i>
+
+    <h2 class="tal ooo">
       DataBase name: <?= $dbName ?> 
     </h2>
+    <p class="clb"> &nbsp; </p>
 
     <table class="dib">
       <tr> 
