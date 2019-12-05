@@ -4,8 +4,9 @@ error_reporting(-1);
 ini_set('display_errors', '1');
 
 $_SERVER['CI_ENVIRONMENT'] = 1 ? 'development' : 'production';
-define('CI_DEBUG',           0 ? FALSE : TRUE);
-
+define('CI_DEBUG',           1 ? FALSE : TRUE);
+define('jj', "\n<br>");
+  
   $debugFile = '/var/www/ci2/fred.php';
   if( file_exists($debugFile) ):
     require $debugFile;
@@ -27,7 +28,7 @@ define('CI_DEBUG',           0 ? FALSE : TRUE);
     # define('BASEURL', $tmp);
   endif;  
   defined('BASEURL') ?: define('BASEURL', $url);
-
+  
 # USES ENV ???
   define('LOCALHOST', 'localhost'===$_SERVER['SERVER_NAME']);
     # $url = 'https://ci4-strict.tk/';

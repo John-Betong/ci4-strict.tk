@@ -34,27 +34,9 @@
         </a>
     </i>
 
-    <h2 class="tal ooo">
-      DataBase name: <?= $dbName ?> 
-    </h2>
-    <p class="clb"> &nbsp; </p>
-
-    <table class="dib">
-      <tr> 
-        <td> Heroes   </td>
-        <td> &nbsp;   </td>
-        <td> Dungeons </td>
-      </tr><tr>  
-        <td> No Heroes found  </td>
-        <td> &nbsp;   </td>
-        <td> No Dungeons found </td>
-     </tr> 
-    </table>
-    <p> &nbsp; </p>
-    <p> <br><br><br><br><br> </p>
-
-
-    <?php # echo $this->renderSection('content') ?>
+    <div class="fss"
+      <?php echo $this->renderSection('content') ?>
+    </div>    
 
     <p> &nbsp; </p>
 
@@ -70,19 +52,19 @@
         <dd class="col">
             <p class="text-right">Environment: <?= ENVIRONMENT ?></p>
         </dd>
-    </dl>
+      </dl>
+    <div><!-- class="tac" -->  
     <p> <br><br><br><br><br> </p>
     <p> <br><br><br><br><br> </p>
     <p> <br><br><br><br><br> </p>
+  </div><!-- class="article tac" -->
 
-
-</div>
-
- <div class="footer tac p42">
-  <?php require '/var/www/footer.php';
-    # echo $footer; 
-  ?> 
- </div>
+  <div class="footer tac p42">
+    <?php require '/var/www/footer.php';
+      # echo $footer; 
+    ?> 
+   </div>
+   
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

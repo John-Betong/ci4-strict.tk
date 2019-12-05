@@ -8,23 +8,6 @@ namespace App\Controllers;
 class C_page extends BaseController
 {
 
-public $pagesXXX = [
-    'disqus'            => 'Disqus',
-    'env'               => 'Info',
-    'info'              => 'Information', 
-    'conversion-script' => 'Conversion Script',
-    'download-install'  => 'Download &amp; Install',
-    'myths'             => 'Myths explained',
-    'modified-files'    => 'Modified files', 
-    'playground'        => 'Playground',
-    'readme'            => 'Readme',
-    'rsync'             => 'Rsync',
-    'strict-0'          => 'Test Strict_types',
-    'strict-1'          => 'NOT IN MENU',
-    'welcome-strict'    => 'Welcome Strict',
-    'welcome_message'   => 'Welcome Original',
-  ];
-
 //=========================================  
 public function index(string $page='myths') // 'welcome_message')
 {
@@ -46,20 +29,12 @@ ____EOT;
   $data['footer']     = view('incs/footer.php', $data, [TRUE] ) .$analytics; 
   $data['style_tla']  = $this->style_tla;
 
-  #if( (int) $page && (int) $page <= 10) :
-  #  $page   = str_pad($page, 3, "0", STR_PAD_LEFT); 
-  #  $page   = 'vPage-' .$page;
-
-  # if( in_array($page, $this->pages) ) :  
   if( array_key_exists($page, $this->pages) ) :  
     $data['title'] = $data['pages'][$page];
     $page = 'pages/v-' .$page;
 
   else :  
     $data['title'] = 'welcome_message';
-    // WHOOPS
-    # $page =  'welcome_message'; 
-    # $page = 'v-strict-0';
   endif;
   
   $data['vPage']  =  $page; 

@@ -6,6 +6,7 @@ use App\Models\HeroModel;
 
 class Playground extends BaseController
 {
+
 //===========================================================    
 public function index()
 {
@@ -14,14 +15,30 @@ public function index()
   // the default database connection if none is passed in
   // during instantiation.
 
+  $data['pages'] = $this->pages; //  
+  
   $result   = 'DUMMY RESULT';  
   $heroes   = new HeroModel();
   $dungeons = new DungeonModel();
   $dbName   = 'ci4';    
 
-  if($this->isConnected($dbName) ) :
-    $data['pages'] = $this->pages;  
+# MAYBE DROP DATABASE
+  if(0) :
+    $ok   = $this->newDatabase($dbName);
+    $conn = mysqli_connect
+    (
+      "localhost", 
+      $user="dasabooks", 
+      $pass="dasa424242", 
+      $dbName
+    );
+    $sql='DROP DATABASE '. $dbName;
+      $conn->query($sql);  
+    die($sql);
+  endif;  
 
+# MAYBE OPEN DATABASE B GET DATA
+  if($this->isConnected($dbName) ) :
     $result = view('home', 
     [
       // Note that we can intermingle builder and model methods
@@ -36,6 +53,7 @@ public function index()
       'dbName'  => $dbName,
     ], [true] );
 
+# MAYBE CREATE DATABASE & POPULATE
     else:
       $ok   = $this->newDatabase($dbName);
       $conn = mysqli_connect
@@ -45,12 +63,14 @@ public function index()
         $pass="dasa424242", 
         $dbName
       );
-      $ok = $this->newTable($conn, $dbName, 'heroes2') ;
-      $ok = $this->newTable($conn, $dbName, 'dungeons2');
-      $ok = $this->newTable($conn, $dbName, 'migrations2');
+      $ok = $this->newTable($conn, $dbName, 'heroes') ;
+      $ok = $this->newTable($conn, $dbName, 'dungeons');
+      $ok = $this->newTable($conn, $dbName, 'migrations');
 
       $data['content']  = $dbName;
       $data['database'] = $dbName;
+      $data['dbName']   = $dbName;
+    # MAYBE NOT REQUIRED ANYMORE ???  
       $data['table1']   = 'dungeons';   $data['row1'] = '0';
       $data['table2']   = 'heroes';     $data['row2'] = '1';
       $data['table3']   = 'migrations'; $data['row3'] = '2';
@@ -59,9 +79,6 @@ public function index()
     endif;  
 
   echo $result;
-  # var_dump($result);die;
-  # return $result;
-
 }//
 
 //============================================================
@@ -91,7 +108,6 @@ private function newDatabase
 : bool
 {
   $result = FALSE;
-  # error_reporting(0);
 
   $conn   = mysqli_connect("localhost", "dasabooks", "dasa424242");
   $sql    = 'CREATE DATABASE ' . $dbName ;
@@ -111,10 +127,21 @@ private function newTable
 {
   $result = FALSE;
 
-  $sql = file_get_contents(BASEURL .'assets/sql/' .$table .'.sql');
-  $result = $conn->query($sql);
+  $aSqls = glob(FCPATH .'assets/sql/*.sql');
+  sort($aSqls);
+  try {
+    foreach( $aSqls as $key => $sql) :
+      $sql    = file_get_contents($sql);
+      $result = $conn->query($sql);
+      # fred($result, '$result');
+    endforeach;
+    $result = TRUE;
+  } catch(Exception $e) {
+    fred($e, '$e');
+    fred('BIG PROBLEM', __method__);
+  }
 
-  return $result = TRUE;
+  return $result;
 }//  
 
 

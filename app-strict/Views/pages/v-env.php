@@ -1,6 +1,4 @@
 <?php DECLARE(STRICT_TYPES=1); 
-# namespace "Views\incs\doctype-001.php";
-
 
 require APPPATH ."Views/incs/doctype-001.php";
 
