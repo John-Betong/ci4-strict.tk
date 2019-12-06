@@ -31,7 +31,7 @@ $aConsts = [
     <h4> <?= getenv('app.baseURL') ?> </h4>
   
     <?php 
-      # fred( $default, '$default' );
+      # f red( $default, '$default' );
       table($aConsts, 'My Wonderful Constants');
       fred($_ENV, '$_ENV');
       echo env('app.TimeZone'); // , $default='Asia/Bangkok'

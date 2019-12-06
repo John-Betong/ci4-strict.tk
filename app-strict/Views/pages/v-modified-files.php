@@ -43,8 +43,8 @@ $github = 'https://github.com/codeigniter4/CodeIgniter4';
 
     <dl>
       <dt> Path: app  </dt>
-      <dd class="dib p42 bd1 bgs fred">  
-        <pre><?=     "\r" .trim(file_get_contents('../README.md') ); ?></pre>
+      <dd class="dib p42 bd1">  
+        <pre class="frd"><?= "\r" .trim(file_get_contents('../README.md') ); ?></pre>
       </dd>
     </dl>
   </div><!-- article -->

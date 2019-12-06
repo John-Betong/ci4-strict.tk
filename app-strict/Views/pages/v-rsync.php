@@ -12,42 +12,11 @@ require APPPATH ."Views/incs/doctype-001.php";
   rsync -avz  {$src}/ -e ssh {$dst}/
 ____EOT;
 
-  $commands['rsync .env-ONLINE'] = <<< ____EOT
-  rsync -avz  {$src}/.env-ONLINE -e ssh {$dst}/.env
-____EOT;
-
-  $commands['rsync app'] = <<< ____EOT
-  rsync -avz  {$src}/app/ -e ssh {$dst}/app/
-____EOT;
-
-  $commands['rsync app-strict'] = <<< ____EOT
-  rsync -avz  {$src}/app-strict/ -e ssh {$dst}/app-strict/
-____EOT;
-
-
-  $commands['rsync system'] = <<< ____EOT
-    rsync -avz  {$src}/system/ -e ssh {$dst}/system/
-____EOT;
-
-  $commands['rsync public_html'] = <<< ____EOT
-    rsync -avz  {$src}/public_html/ -e ssh {$dst}/public_html/
-____EOT;
-
-  $commands['rsync README.md'] = <<< ____EOT
-    rsync -avz  {$src}/README.md -e ssh {$dst}/
-____EOT;
-
-  $commands['rsync STRICT-INSERT.php'] = <<< ____EOT
-    rsync -avz  {$src}/STRICT-INSERT.php -e ssh {$dst}/
-____EOT;
-
-  # $commands['whoami'] = 'whoami';
-  # $commands['date']   = 'date';
-
 # RSYNC
   $result ='<dl class="bd1 p42 dib">';
     foreach($commands as $id => $command) :
       $result .= '<dt>' .$id .'</dt>';
+      $result .= '<dd> &nbsp; </dd>';
       $result .= '<dd>' .$command .'</dd>';
       $result .= '<dd> &nbsp; </dd>';
     endforeach;
@@ -72,6 +41,10 @@ ____EOT;
     <p class="ooo"> &nbsp; </p>
   
     <?= $result ?>   
+    <p> <br><br><br><br><br><br><br><br> </p>
+    <p> <br><br><br><br><br><br><br><br> </p>
+    <p> <br><br><br><br><br><br><br><br> </p>
+
    </div><!-- article -->
   
    <div class="footer tac p42">

@@ -45,7 +45,7 @@ ____EOT;
       $retype[$mode] = $err;
       break;
   endswitch;
-# fred($result);die;
+
   foreach($result as $id => $tmp) :
     if($tmp) :
       $result[$id] = $tmp; // '<b class="fgg">  </b>';

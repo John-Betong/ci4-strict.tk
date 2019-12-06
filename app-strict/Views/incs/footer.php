@@ -1,5 +1,8 @@
-<?php DECLARE(STRICT_TYPES=1); ?>
 <?php 
+declare(strict_types=1);
+
+# require '/var/www/footer.js';
+# exit;
 
   $url    = $_SERVER['REQUEST_SCHEME'] 
           . '://'
@@ -9,6 +12,8 @@
   $vEnc   = urlencode ($url) ;
 
 # FLOAT RIGHT
+  # $jig    = 'http://jigsaw.w3.org/css-validator/check/referer';
+  # $jig2   = '<a href="' .$jig .'"> CSS Validator </a>' ;
   $vCss   = '<a href="'
           .   'https://jigsaw.w3.org/css-validator/validator?uri='
           .     $vEnc
@@ -21,6 +26,7 @@
   $vHtml  = 'https://validator.w3.org/nu/?doc=' .$vEnc ;
   $vHtml  = '<a href="' .$vHtml .'"> HTML: Validator </a>' ;
   
+
  /* style.css 
   .bot {border: solid 1px #ccc;}
   .fll {float: left;} 
@@ -39,10 +45,16 @@
   $ftr  = <<< ____EOT
     <p> <br> <br> <br> </p>
 
-    <div class="ftr tac w99 bgc bd1">
+    <div class="ftr tac w99 XXXfss bgc bd1">
       <b class="fll"> $vHtml </b>
       <b class="flr"> $vCss  </b>
       $msg
     </div>  
 ____EOT;
-  echo $ftr;
+
+  if(0 && LOCALHOST):
+    include '/var/www/ci2/vendor/autoload.php';
+    d($_GET, $_POST, $ftr);
+  else:
+    echo $ftr;
+  endif;    

@@ -38,7 +38,7 @@ ____EOT;
   endif;
   
   $data['vPage']  =  $page; 
-  # fred($data); die;
+  # f red($data); die;
   # echo $page ; die;
   
 	return view($data['vPage'], $data);

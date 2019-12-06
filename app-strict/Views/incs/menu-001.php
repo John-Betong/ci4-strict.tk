@@ -15,7 +15,11 @@
   endforeach;
 
 //===================================================
-function getLink(array $pages, string $item) : string 
+function getLink
+(
+  array $pages, 
+  string $item
+):string 
 {
   $link = BASEURL .$item;
   $result = <<< ____EOT
@@ -34,16 +38,15 @@ ____EOT;
     <dt> Strict Menu: </dt> 
       <?= getLink($pages, 'myths') ?>
       <?= getLink($pages, 'strict-0') ?> 
+      <?= getLink($pages, 'bugs-fixed') ?> 
       <dd> &nbsp; </dd>
 
     <dt> Playground </dt>
       <?= getLink($pages, 'playground') ?> 
-      <?= getLink($pages, 'bugs-fixed') ?> 
       <dd> &nbsp; </dd>
 
     <dt> Info </dt>
       <?= getLink($pages, 'conversion-script') ?> 
-      <?= getLink($pages, 'modified-files') ?> 
       <?= getLink($pages, 'readme') ?> 
       <dd> &nbsp; </dd>
 
