@@ -1,26 +1,12 @@
 <?php DECLARE(STRICT_TYPES=1);
 
 # namespace "Views\incs\doctype-001.php";
-
 require APPPATH ."Views/incs/doctype-001.php";
 
-  $commands = [];
-  $src = '/var/www/ci4-strict.tk';
-  $dst = 'root@139.162.244.63:/var/www/ci4-strict.tk';
+$aImgs = [
+'',
+];
 
-  $commands['rsync .env-THELOT'] = <<< ____EOT
-  rsync -avz  {$src}/ -e ssh {$dst}/
-____EOT;
-
-# RSYNC
-  $result ='<dl class="dib bd1 p42 bgE">';
-    foreach($commands as $id => $command) :
-      $result .= '<dt>' .$id .'</dt>';
-      $result .= '<dd> &nbsp; </dd>';
-      $result .= '<dd>' .$command .'</dd>';
-      $result .= '<dd> &nbsp; </dd>';
-    endforeach;
-  $result .= '</dl>';
 
 ?>
 
@@ -34,12 +20,14 @@ ____EOT;
   </div>
 
   <div class="article">
-    <h2 class="ooo"> 
-      Rsync commands to be copied and pasted into command box:
-    </h2>
+    <h2 class="ooo"> <?= ucFirst($title) ?> </h2>
     <p class="ooo"> &nbsp; </p>
   
-    <?= $result ?>   
+    <h3> <?= 'Hero soon to go here' ?> </h3>  
+    
+    <h3 class="tac"> <a href="<?= BASEURL ?>playground"> Playground </a> </h3> 
+
+
     <p> <br><br><br><br><br><br><br><br> </p>
     <p> <br><br><br><br><br><br><br><br> </p>
     <p> <br><br><br><br><br><br><br><br> </p>

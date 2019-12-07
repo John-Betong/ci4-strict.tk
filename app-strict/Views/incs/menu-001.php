@@ -47,11 +47,13 @@ ____EOT;
 
     <dt> Info </dt>
       <?= getLink($pages, 'conversion-script') ?> 
+      <?= getLink($pages, 'download-install') ?>
+      <?= getLink($pages, 'more') ?> 
       <?= getLink($pages, 'readme') ?> 
       <dd> &nbsp; </dd>
 
-    <dt> Download & install  </dt>
-      <?= getLink($pages, 'download-install') ?>
+    <dt class="hhh"> Download & install  </dt>
+      <?php # echo getLink($pages, 'download-install') ?>
       <dd> <br> </dd>
 
     <dt> Welcome messages  </dt>
@@ -62,8 +64,8 @@ ____EOT;
     <?php 
       if(LOCALHOST) : 
         echo '<dt class="fgr"> LOCALHOST  </dt>';
-        echo getLink($pages, 'env');
-        echo getLink($pages, 'disqus');
+        echo getLink($pages, 'environment');
+      # echo getLink($pages, 'disqus');
         echo getLink($pages, 'rsync');
       endif;     
   echo '</dl>';  

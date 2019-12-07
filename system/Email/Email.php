@@ -41,7 +41,6 @@
 namespace CodeIgniter\Email;
 
 use Config\Mimes;
-use Psr\Log\LoggerAwareTrait;
 
 /**
  * CodeIgniter Email Class
@@ -56,7 +55,6 @@ use Psr\Log\LoggerAwareTrait;
  */
 class Email
 {
-	use LoggerAwareTrait;
 	/**
 	 * @var string
 	 */
@@ -356,12 +354,6 @@ class Email
 	 * @var boolean
 	 */
 	protected static $func_overload;
-	/**
-	 * Logger instance to record error messages and awarnings.
-	 *
-	 * @var \PSR\Log\LoggerInterface
-	 */
-	protected $logger;
 	//--------------------------------------------------------------------
 	/**
 	 * Constructor - Sets Email Preferences
@@ -1652,7 +1644,7 @@ class Email
 		catch (\ErrorException $e)
 		{
 			$success = false;
-			$this->logger->error('Email: ' . $method . ' throwed ' . $e->getMessage());
+			log_message('error', 'Email: ' . $method . ' throwed ' . $e->getMessage());
 		}
 		if (! $success)
 		{

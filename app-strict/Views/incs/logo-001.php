@@ -2,7 +2,7 @@
 
 # cc34771
 
-$clr  = CI_DEBUG ? 'fgr'    : 'fgg';
+$clr  = CI_DEBUG ? 'fgr'   : 'fgg';
 
 $ver  = CI_DEBUG ? 'Debug'  : 'Ver';
 $ver  = $ver . ': ' 
@@ -33,19 +33,20 @@ $sup  = '<sup class="fss">'
       href="<?= BASEURL ?>" 
       title="Home"
     >
-      <?= file_get_contents('assets/svg/logo.svg'); ?>
+      <?= file_get_contents( 'assets/svg/logo.svg'); ?>
     </a>  
   </div>  
    
   <div class="p42 fgg dib tac">
+
     <h1 class="ooo <?= $clr ?>"> 
-      <a class="tdn" href="<?= BASEURL ?>"> <?= $title ?> </a>
+      <?= $title ?>
     </h1>
 
     <div class="ooo dib fss"> 
       <?= $ver ?>
       -
-      <i> <b>Build:</b> 9765931 (previous: 2c04e1c)  </i>
+      <i> <b>Build:</b> a6cee3d (previous: 9765931)  </i>
     </div>
   </div>  
 

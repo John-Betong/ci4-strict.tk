@@ -39,7 +39,7 @@
                             Always escape data that users could have entered with the
                             `esc()` function. By default it assumes it's part of HTML.
                         -->
-                        <td><a href="/heroes/<?= $hero->id ?>"><?= esc($hero->name ?? '') ?></a></td>
+                        <td><a href="<?= BASEURL ?>heroes/<?= $hero->id ?>"><?= esc($hero->name ?? '') ?></a></td>
                         <td><?= $hero->level ?? 0 ?></td>
                         <td><?= esc($hero->class ?? '') ?></td>
                     </tr>
@@ -69,11 +69,15 @@
                 </thead>
                 <tbody>
                 <?php foreach ($dungeons as $dungeon) : ?>
-                    <tr>
-                        <td><?= $dungeon->id ?></td>
-                        <td><a href="<?= $dungeon->link() ?>"><?= esc($dungeon->name ?? '') ?></a></td>
-                        <td><?= $dungeon->difficulty ?? 0 ?></td>
-                        <td><?= $dungeon->capacity ?? 0 ?></td>
+                  <tr>
+                    <td><?= $dungeon->id ?></td>
+                    <td>
+                      <a href="<?= $dungeon->link() ?>">
+                        <?= esc($dungeon->name ?? '') ?>
+                      </a>
+                    </td>
+                    <td><?= $dungeon->difficulty ?? 0 ?></td>
+                    <td><?= $dungeon->capacity ?? 0 ?></td>
                     </tr>
                 <?php endforeach ?>
                 </tbody>

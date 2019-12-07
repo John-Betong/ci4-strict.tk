@@ -33,7 +33,16 @@ $aConsts = [
     <?php 
       # f red( $default, '$default' );
       table($aConsts, 'My Wonderful Constants');
-      fred($_ENV, '$_ENV');
+      /*
+      echo '<dl><dt>Whatever </dt>';
+      echo '<dd class="bgr">';
+      echo '<pre class="p42 bgE bd1">';
+        #echo print_r($aConsts, true);
+         # table($aConsts, 'My Wonderful Constants');
+      echo '</pre>';  
+      echo '</dd></dl>';  
+      # fred($_ENV, '$_ENV');
+      */
       echo env('app.TimeZone'); // , $default='Asia/Bangkok'
       fred($_SERVER, '$_SERVER');
     ?>

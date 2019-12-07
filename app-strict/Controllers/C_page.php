@@ -32,7 +32,6 @@ ____EOT;
   if( array_key_exists($page, $this->pages) ) :  
     $data['title'] = $data['pages'][$page];
     $page = 'pages/v-' .$page;
-
   else :  
     $data['title'] = 'welcome_message';
   endif;

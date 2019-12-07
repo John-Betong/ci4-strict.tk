@@ -1,35 +1,29 @@
 Source files:
 
- 
-
 Special notes:
 
-        Gitub source files
-        DECLARE(STRICT_TYPES=1); inserted into:
-            every PHP file with a single PHP occurrence
-            PHP with multiple references requires manually insertion
-        NON Php files not modified
+Gitub CodeIgniter4 source files
+   DECLARE(STRICT_TYPES=1); inserted into every PHP file. 
+   ONLY PHP files are modified.
 
 
-The CodeIgniter4 Repository, for some strange reason, does not DECLARE(STRICT_TYPES=1); which I find very most peculiar especially since most functions parameter type are set? When parameters are set, many variable type errors are detected thus making the PHP just that little bit more robust. 
-
-The following files were obtained from the CodeIgniter4 Repository and now have the strict types declaration included.
+The CodeIgniter4 Repository, for some strange reason, does not DECLARE(STRICT_TYPES=1); which I find most peculiar especially since many functions parameter types are set? When parameters are set, variable type errors are detected thus making the PHP just that little bit more robust. 
 
 No doubt when modifying this Repository validation type errors will appear but they will be far easier to fix because rendering fails fast and all error must be fixed before proceeding!
 
 enjoy :)
 
 
-
+The following files were obtained from the CodeIgniter4 Repository and now have the strict types declaration included.
 
 Source: CodeIgniter4
     sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
-    Build: 9765931 (last build: 2c04e1c) 
+    Build: 7c15ad4 (last build a6cee3d)
       
 Source: John-Betong/ci4-strict
     sudo git clone https://github.com/John-Betong/ci4-strict.git 
       
-NOT PHP files: 19
+NONE PHP files: 19
 
     app/index.html
     app/Views/errors/html/debug.css

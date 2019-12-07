@@ -29,13 +29,15 @@ class BaseController extends Controller
 	 */
 	protected $helpers 		= [];
 	public    $style_tla 	= '';
-
+ 
 public $pages = [
-    'disqus'            => 'Disqus',
-    'env'               => 'Info',
-    'info'              => 'Information', 
     'conversion-script' => 'Conversion Script',
+    'disqus'            => 'Disqus',
+    'environment'       => 'Environment', 
+ #  'information'       => 'Info',
+ #  'info'              => 'Information', 
     'download-install'  => 'Download &amp; Install',
+    'more'              => 'More info',
     'myths'             => 'Myths explained',
     'modified-files'    => 'Modified files', 
     'playground'        => 'Playground',
@@ -46,6 +48,8 @@ public $pages = [
     'strict-1'          => 'NOT IN MENU',
     'welcome-strict'    => 'Welcome Strict',
     'welcome_message'   => 'Welcome Original',
+    'heroes'            => 'heroes',
+    'dungeons'          => 'dungeons'
   ];
 
 

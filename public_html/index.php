@@ -1,20 +1,28 @@
 <?php DECLARE(STRICT_TYPES=1); 
 
-# error_reporting(-1);
-# ini_set('display_errors', '1');
-
 define('LOCALHOST', 'localhost'===$_SERVER['SERVER_NAME']);
+# Toggles server name and other server specific variables, etc
+  error_reporting(-1); // regardless
+  ini_set('display_errors', LOCALHOST ? '1' : '0'); 
 
 $_SERVER['CI_ENVIRONMENT'] = LOCALHOST ? 'development' : 'production';
-define('CI_DEBUG', FALSE);  // LOCALHOST ? FALSE : TRUE);
+# easier than setting directive in two .htaccess files
+
+define('CI_DEBUG', FALSE); // regardless
+# ensures CONST bool set in:
+  # app/Config/oot/development.php
+  # app/Config/oot/production.php
+
 define('jj', "\n<br>");
   
-require '../app-strict/Views/incs/fred.php';
+# Kint replacements  
+  require '../app-strict/Views/incs/fred.php';
 
-# CLEAN and SIMPLIFY LOGS    
+# CLEANER -  only shows last error logs and debugbar JSON files
   $ok = @unlink('../writable/logs/log-' .date('Y-m-d') .'.php');
   $ok = @array_map('unlink', glob("../writable/debugbar/*.json"));
 
+# DOES NOT USE ENV 
 # https://forum.codeigniter.com/thread-74649.html  
   if( 1 || DEFINED('AUTOMATIC_URL_DETECTION') ) :
     $url = (isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) 
@@ -23,18 +31,17 @@ require '../app-strict/Views/incs/fred.php';
         ? "https://" 
         : "http://") .$_SERVER['HTTP_HOST']
         ;
-    $url .= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);
+    $url .= str_replace
+    (
+      basename($_SERVER['SCRIPT_NAME']), 
+      '', 
+      $_SERVER['SCRIPT_NAME']
+    );
   endif;  
-  defined('BASEURL') ?: define('BASEURL', $url); // usedd in App/paths.php
+  defined('BASEURL') ?: define('BASEURL', $url); 
+  # used in app/Paths.php, etc
 
-# USES ENV ???
-    # $url = 'https://ci4-strict.tk/';
-    # if(LOCALHOST):
-    #   $url = 'http://localhost/ci4-strict.tk/public_html/';
-    # endif;  
-
-
-/*#  Valid PHP Version?
+/* #  Valid PHP Version? - should throw errors if not correct
   $minPHPVersion = '7.2';
   if (phpversion() < $minPHPVersion)
   {
@@ -44,22 +51,13 @@ require '../app-strict/Views/incs/fred.php';
 */
 
 
+# ORIGINAL index.php scripts
+
+
 # Path to the front controller (this file)
   define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
   $pathsPath = FCPATH . '../app-strict/Config/Paths.php';
   # ^^^ Change this if you move your application folder
-
-# Location of the Paths config file.
-# This is the line that might need to be changed, depending on your folder structure.
-#  if( isset($_GET['pg']) ) :
-#    $pathsPath = FCPATH . '../app-playground/Config/Paths.php';
-#  else:  
-#    $pathsPath = FCPATH . '../app-strict/Config/Paths.php';
-#  endif;  
-
-# if( isset($_GET['original']) ): // isset($_GET['strict'])
-#   $pathsPath = FCPATH . '../app/Config/Paths.php';
-# endif;  
 
 /*
  *---------------------------------------------------------------
@@ -80,9 +78,9 @@ require '../app-strict/Views/incs/fred.php';
   $app = require rtrim($paths->systemDirectory, '/ ') . '/bootstrap.php';
 
 if(0) :
-  fred($paths, 'function fred($paths, $title=""))');
+  fred($paths,   'function fred($paths, $title=""))');
   table( $paths, 'function table((array) $paths), $title="")');
-  vd($paths, 'function vd($paths), $title="")' );
+  vd($paths,     'function vd($paths), $title="")' );
   vd3($paths);
   die();
 endif;  

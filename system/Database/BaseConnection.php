@@ -1,4 +1,5 @@
-<?php DECLARE(STRICT_TYPES=1); 
+<?php DECLARE(STRICT_TYPES=1); ?>
+<?php
 
 /**
  * CodeIgniter
@@ -346,8 +347,6 @@ abstract class BaseConnection implements ConnectionInterface
 				$this->$key = $value;
 			}
 		}
-		# vd($params);
-		# fred($params);die;
 	}
 
 	//--------------------------------------------------------------------
