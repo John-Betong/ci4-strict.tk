@@ -27,15 +27,18 @@ ____EOT;
   $data['analytics']  = $analytics; 
   $data['title']      = 'Ci4-Strict.tk'; //
   $data['footer']     = view('incs/footer.php', $data, [TRUE] ) .$analytics; 
-  $data['style_tla']  = $this->style_tla;
+ #$data['style_tla']  = $this->style_tla;
 
   if( array_key_exists($page, $this->pages) ) :  
     $data['title'] = $data['pages'][$page];
     $page = 'pages/v-' .$page;
   else :  
     $data['title'] = 'welcome_message';
+    $whoops = '../app-strict/Views/errors/html/production.php';  
+    echo file_get_contents($whoops);
+    die;
   endif;
-  
+
   $data['vPage']  =  $page; 
   # f red($data); die;
   # echo $page ; die;

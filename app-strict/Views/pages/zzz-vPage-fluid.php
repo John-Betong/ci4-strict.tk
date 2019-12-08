@@ -89,7 +89,7 @@ body  {margin:0; padding:0;}
      </main>
 
      <div class="footer tac p42">
-      <?php require '/var/www/footer.php'; ?> 
+      <?php require APPPATH .'Views/incs/footer.php'; ?> 
      </div><!--footer -->
 
    </div>

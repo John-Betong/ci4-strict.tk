@@ -237,11 +237,11 @@ class Query implements QueryInterface
 	 * @return string
 	 */
 	public function getStartTime(bool $returnRaw = false, int $decimals = 6): string
-	{ 
+	{
 		if ($returnRaw)
 		{
-	    # JOHN MODFIED
-  	  # return $this->startTime;
+  		# JOHN MODFIED
+    	# return $this->startTime;
     	return number_format($this->startTime, $decimals);			
 		}
 

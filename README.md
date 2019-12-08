@@ -2,10 +2,16 @@ Source files:
 
 Special notes:
 
+<h2>      
+  <a href="https://ci4-strict.tk/">
+    Online Demo
+  </a>
+</h2>    
+
+
 Gitub CodeIgniter4 source files
    DECLARE(STRICT_TYPES=1); inserted into every PHP file. 
    ONLY PHP files are modified.
-
 
 The CodeIgniter4 Repository, for some strange reason, does not DECLARE(STRICT_TYPES=1); which I find most peculiar especially since many functions parameter types are set? When parameters are set, variable type errors are detected thus making the PHP just that little bit more robust. 
 
@@ -16,14 +22,15 @@ enjoy :)
 
 The following files were obtained from the CodeIgniter4 Repository and now have the strict types declaration included.
 
+
 Source: CodeIgniter4
     sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
-    Build: 7c15ad4 (last build a6cee3d)
-      
+    Build: 7c15ad4
+       
 Source: John-Betong/ci4-strict
     sudo git clone https://github.com/John-Betong/ci4-strict.git 
       
-NONE PHP files: 19
+NOT PHP files: 19
 
     app/index.html
     app/Views/errors/html/debug.css
@@ -47,7 +54,7 @@ NONE PHP files: 19
      
 
      
-Strict_types=1 inserted into PHP files: 316
+Strict_types=1 inserted into following PHP files: 316
 
     app/Common.php
     app/Config/App.php
@@ -365,4 +372,3 @@ Strict_types=1 inserted into PHP files: 316
     system/ThirdParty/ZendEscaper/Exception/ExceptionInterface.php
     system/ThirdParty/ZendEscaper/Exception/InvalidArgumentException.php
     system/ThirdParty/ZendEscaper/Exception/RuntimeException.php
-     

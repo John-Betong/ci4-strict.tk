@@ -57,8 +57,8 @@ ____EOT;
       <dd> <br> </dd>
 
     <dt> Welcome messages  </dt>
-      <?= getLink($pages, 'welcome-strict') ?>
       <?= getLink($pages, 'welcome_message') ?>
+      <?= getLink($pages, 'welcome-strict') ?>
       <dd> <br> </dd>
 
     <?php 
@@ -68,6 +68,4 @@ ____EOT;
       # echo getLink($pages, 'disqus');
         echo getLink($pages, 'rsync');
       endif;     
-  echo '</dl>';  
-
-  
+  echo '</dl>';

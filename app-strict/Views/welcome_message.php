@@ -52,7 +52,7 @@ require APPPATH .'Views/incs/doctype-welcome.php';
 
 	</div>
 	
-	<?php require '/var/www/footer.php' ?>
+	<?php require APPPATH .'Views/incs/footer.php'; ?>
 
 	</body>
 </html>

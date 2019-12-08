@@ -1,45 +1,13 @@
 <?php DECLARE(STRICT_TYPES=1); ?>
 <?php
 
-define('LOCALHOST', 'localhost'===$_SERVER['SERVER_NAME']);
-
-$_SERVER['CI_ENVIRONMENT'] = LOCALHOST ? 'development' : 'production';
-
-define('CI_DEBUG', FALSE); // regardless
-# ensures CONST bool set in:
-  # app/Config/oot/development.php
-  # app/Config/oot/production.php
-
-# DOES NOT USE ENV 
-# https://forum.codeigniter.com/thread-74649.html  
-  if( 1 || DEFINED('AUTOMATIC_URL_DETECTION') ) :
-    $url = (isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) 
-        && 
-        ('on' == $_SERVER['HTTPS']) 
-        ? "https://" 
-        : "http://") .$_SERVER['HTTP_HOST']
-        ;
-    $url .= str_replace
-    (
-      basename($_SERVER['SCRIPT_NAME']), 
-      '', 
-      $_SERVER['SCRIPT_NAME']
-    );
-  endif;  
-  defined('BASEURL') ?: define('BASEURL', $url); 
-  # used in app/Paths.php, etc
-
-
-# ORIGINAL SCRIPT BELOW
-
-
-# Valid PHP Version?
-  $minPHPVersion = '7.2';
-  if (phpversion() < $minPHPVersion)
-  {
-  	die("Your PHP version must be {$minPHPVersion} or higher to run CodeIgniter. Current version: " . phpversion());
-  }
-  unset($minPHPVersion);
+// Valid PHP Version?
+$minPHPVersion = '7.2';
+if (phpversion() < $minPHPVersion)
+{
+	die("Your PHP version must be {$minPHPVersion} or higher to run CodeIgniter. Current version: " . phpversion());
+}
+unset($minPHPVersion);
 
 // Path to the front controller (this file)
 define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);

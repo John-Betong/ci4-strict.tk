@@ -11,6 +11,6 @@ require 'strict_function.php';
 
 require 'strict_tests_0.php';
 
-require '/var/www/footer.php';
+require APPPATH .'Views/incs/footer.php';
 
 echo "\n\n</body></html>";

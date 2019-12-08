@@ -40,7 +40,7 @@ declare(strict_types=1);
 // PHP STRINGS HEREDOC Syntax
   $msg  = 'Wonderful place for a footer';
   $wiki = 'https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=6&ved=2ahUKEwjvwq2e0LHkAhVBRY8KHRwQAYwQFjAFegQIARAB&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FGreta_Thunberg&usg=AOvVaw21NdejsloklvSuGIIpDL-U';
-  $title = 'Greta Thunberg'; // '<img src="/var/www/ci2/cdn/great-thunberg.jpg" alt="Great Thunberg" />';
+  $title = 'Greta Thunberg';
   $msg  = 'Support: <a href="' .$wiki .'" title="' .$title .'"> <b>Greta Thunberg </b> </a>';
   $ftr  = <<< ____EOT
     <p> <br> <br> <br> </p>
@@ -52,9 +52,9 @@ declare(strict_types=1);
     </div>  
 ____EOT;
 
-  if(0 && LOCALHOST):
-    include '/var/www/ci2/vendor/autoload.php';
-    d($_GET, $_POST, $ftr);
+  if(0 && CI_DEBUG && LOCALHOST):
+    # include '/var/www/ci2/vendor/autoload.php';
+    # d($_GET, $_POST, $ftr);
   else:
     echo $ftr;
   endif;    

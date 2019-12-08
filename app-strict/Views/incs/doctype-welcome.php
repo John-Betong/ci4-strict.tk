@@ -22,13 +22,16 @@ $analytics = ! CI_DEBUG ? NULL : $analytics ;
 <html lang="en">
 <head>
 <title> <?= $title ?>  </title>
-<link rel="stylesheet" type="text/css" 
-  href="//fonts.googleapis.com/css?family=Raleway"
-/>
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">   
+<!--
+<link rel="stylesheet" type="text/css" 
+  href="//fonts.googleapis.com/css?family=Raleway">
+-->  
+<link rel="stylesheet" type="text/css" 
+  href="<?= BASEURL ?>assets/css/style-ci4.css" >
+<link rel="stylesheet" type="text/css"   
+  href="<?= BASEURL ?>assets/css/style-pof.css">
 <style>
-<?= file_get_contents(APPPATH . 'Views/css/style-ci4.min.css'); ?>
-<?= file_get_contents(APPPATH . 'Views/css/style-tla.min.css'); ?>
 h1 {
   font-weight: lighter;
   /* letter-spacing: 0.8rem; */

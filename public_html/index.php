@@ -1,29 +1,31 @@
 <?php DECLARE(STRICT_TYPES=1); 
 
-define('LOCALHOST', 'localhost'===$_SERVER['SERVER_NAME']);
-# Toggles server name and other server specific variables, etc
-  error_reporting(-1); // regardless
-  ini_set('display_errors', LOCALHOST ? '1' : '0'); 
+error_reporting(-1); // regardless
 
-$_SERVER['CI_ENVIRONMENT'] = LOCALHOST ? 'development' : 'production';
-# easier than setting directive in two .htaccess files
-
-define('CI_DEBUG', FALSE); // regardless
-# ensures CONST bool set in:
-  # app/Config/oot/development.php
-  # app/Config/oot/production.php
+require '../app-strict/Views/incs/fred.php';
 
 define('jj', "\n<br>");
-  
-# Kint replacements  
-  require '../app-strict/Views/incs/fred.php';
+define('LOGFILE',   '../writable/logs/log-' .date('Y-m-d') .'.php');
+define('LOCALHOST', 'localhost'===$_SERVER['SERVER_NAME']);
+if(LOCALHOST) :
+  define('CI_DEBUG', FALSE); // bypass (bool) app/Config/oot/development.php
+  ini_set('display_errors', '1'); 
+  $_SERVER['CI_ENVIRONMENT'] = 'development'; // bypass .env & .htaccess
+  $useKint = FALSE;
+  # require '../system/ThirdParty/Kint/kint.php';
 
 # CLEANER -  only shows last error logs and debugbar JSON files
-  $ok = @unlink('../writable/logs/log-' .date('Y-m-d') .'.php');
+  $ok = @unlink(LOGFILE);
   $ok = @array_map('unlink', glob("../writable/debugbar/*.json"));
 
-# DOES NOT USE ENV 
-# https://forum.codeigniter.com/thread-74649.html  
+else:  
+  define('CI_DEBUG', FALSE); // bypass (bool) app/Config/oot/prdouction.php
+  ini_set('display_errors', '0'); 
+  $_SERVER['CI_ENVIRONMENT'] = 'production'; // bypass .env & .htaccess
+  $useKint = FALSE;
+endif; 
+
+# dynamic BaseUrl - https://forum.codeigniter.com/thread-74649.html  
   if( 1 || DEFINED('AUTOMATIC_URL_DETECTION') ) :
     $url = (isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) 
         && 
@@ -38,21 +40,18 @@ define('jj', "\n<br>");
       $_SERVER['SCRIPT_NAME']
     );
   endif;  
-  defined('BASEURL') ?: define('BASEURL', $url); 
-  # used in app/Paths.php, etc
+  defined('BASEURL') ?: define('BASEURL', $url); # app/Paths.php, etc
+
+# ORIGINAL index.php scripts below
 
 /* #  Valid PHP Version? - should throw errors if not correct
   $minPHPVersion = '7.2';
   if (phpversion() < $minPHPVersion)
   {
-  	die("Your PHP version must be {$minPHPVersion} or higher to run CodeIgniter. Current version: " . phpversion());
+    die("Your PHP version must be {$minPHPVersion} or higher to run CodeIgniter. Current version: " . phpversion());
   }
   unset($minPHPVersion);
 */
-
-
-# ORIGINAL index.php scripts
-
 
 # Path to the front controller (this file)
   define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);

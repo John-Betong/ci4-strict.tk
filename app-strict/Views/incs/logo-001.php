@@ -1,23 +1,10 @@
 <?php DECLARE(STRICT_TYPES=1);
 
-# cc34771
-
 $clr  = CI_DEBUG ? 'fgr'   : 'fgg';
+$ver  = 'Ver: ' .CodeIgniter\CodeIgniter::CI_VERSION ;                
+$log  = @filesize(LOGFILE);
+$sup  = CI_DEBUG ? '<sup class="fss"> DEBUG</sup>' : NULL;
 
-$ver  = CI_DEBUG ? 'Debug'  : 'Ver';
-$ver  = $ver . ': ' 
-      .  CodeIgniter\CodeIgniter::CI_VERSION 
-      ;                
-
-/*
-$sup  = '<sup class="fss">' 
-      .   $sup . ': ' 
-      .   CodeIgniter\CodeIgniter::CI_VERSION 
-      . '</sup>'
-      ;                
-*/
-
-# title="version <?= CodeIgniter\CodeIgniter::CI_VERSION "      
 ?>
 
   <div class="flr ooo"> 
@@ -29,24 +16,22 @@ $sup  = '<sup class="fss">'
   </div>
     
   <div class="fll logo"> 
-    <a 
-      href="<?= BASEURL ?>" 
-      title="Home"
-    >
+    <a href="<?= BASEURL ?>" title="Home">
       <?= file_get_contents( 'assets/svg/logo.svg'); ?>
     </a>  
   </div>  
    
   <div class="p42 fgg dib tac">
-
     <h1 class="ooo <?= $clr ?>"> 
       <?= $title ?>
+      <?= $sup ?>
     </h1>
 
     <div class="ooo dib fss"> 
       <?= $ver ?>
       -
-      <i> <b>Build:</b> a6cee3d (previous: 9765931)  </i>
+      <i> <b>Build:</b> 7c15ad4 (previous: a6cee3d)  </i>
     </div>
   </div>  
-
+  <br>
+  <i class="flr fss"><?= $log ?> &nbsp; </i>

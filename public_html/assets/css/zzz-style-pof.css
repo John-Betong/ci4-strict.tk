@@ -15,9 +15,9 @@ body {
   border: solid 1px #ccc;
   z-index: 2;
 }
-.header  {top: 0; height: 5.0em; background-color: #eeeefe }
+.header  {top: 0; height: 5.2em; background-color: #eeeefe }
 .nav     {
-    top: 5.0em; height: 100%;  width: 10em; 
+    top: 5.2em; height: 100%;  width: 10em; 
     padding: 0 0 0 0.21em; 
     line-height: 2;
 }
