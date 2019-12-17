@@ -41,6 +41,7 @@ namespace CodeIgniter\Database\Postgre;
 
 use CodeIgniter\Database\BaseBuilder;
 use CodeIgniter\Database\Exceptions\DatabaseException;
+use http\Encoding\Stream\Inflate;
 
 /**
  * Builder for Postgre
@@ -56,6 +57,40 @@ class Builder extends BaseBuilder
 	protected $randomKeyword = [
 		'RANDOM()',
 	];
+
+	/**
+	 * Specifies which sql statements
+	 * support the ignore option.
+	 *
+	 * @var array
+	 */
+	protected $supportedIgnoreStatements = [
+		'insert' => 'ON CONFLICT DO NOTHING',
+	];
+
+	//--------------------------------------------------------------------
+
+	/**
+	 * Compile Ignore Statement
+	 *
+	 * Checks if the ignore option is supported by
+	 * the Database Driver for the specific statement.
+	 *
+	 * @param string $statement
+	 *
+	 * @return string
+	 */
+	protected function compileIgnore(string $statement)
+	{
+		$sql = parent::compileIgnore($statement);
+
+		if (! empty($sql))
+		{
+			$sql = ' ' . trim($sql);
+		}
+
+		return $sql;
+	}
 
 	//--------------------------------------------------------------------
 
@@ -99,6 +134,8 @@ class Builder extends BaseBuilder
 	 * @param string  $column
 	 * @param integer $value
 	 *
+	 * @throws DatabaseException
+	 *
 	 * @return mixed
 	 */
 	public function increment(string $column, int $value = 1)
@@ -117,6 +154,8 @@ class Builder extends BaseBuilder
 	 *
 	 * @param string  $column
 	 * @param integer $value
+	 *
+	 * @throws DatabaseException
 	 *
 	 * @return mixed
 	 */

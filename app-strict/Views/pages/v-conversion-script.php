@@ -19,7 +19,7 @@ require APPPATH .'Views/incs/doctype-001.php';
     <h2 class="ooo"> Source file used to insert DECLARE(STRICT_TYPES=1); </h2>
     <p class="ooo"> &nbsp; </p>
   
-    <i class="fsl">file: </i> <b> STRICT_INSERT.php </b>
+    <em class="fsl">file: </em> <strong> STRICT_INSERT.php </strong>
     <br><br>
     <div class="dib p42 bgE bd1">
       <?php highlight_file('../STRICT-INSERT.php'); ?>

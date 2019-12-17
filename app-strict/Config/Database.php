@@ -36,7 +36,11 @@ class Database extends \CodeIgniter\Database\Config
 		'username' => 'dasabooks',
 		'password' => 'dasa424242',
 		'database' => 'ci4',
-		'DBDriver' => 'MySQLi',
+		'DBDriver' => 'MySQLi', # GOOD
+	#	'DBDriver' => 'SQLite3',
+	#	'DBDriver' => 'Postgre', 		
+	#	'DBDriver' => 'PDO', 		
+	#	'DBDriver' => 'pgsql:host=localhost;port=5432;dbname=ci4',
 		'DBPrefix' => '',
 		'pConnect' => false,
 		'DBDebug'  => (ENVIRONMENT !== 'production'),

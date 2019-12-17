@@ -14,7 +14,7 @@ require APPPATH .'Views/incs/doctype-welcome.php';
 			<?= file_get_contents('assets/svg/logo.svg') ?>
 		</div>
 
-		<h1>Welcome to <b>CodeIgniter</b></h1>
+		<h1>Welcome to <strong>CodeIgniter</strong></h1>
 
 		<p class="version">
 			version <?= CodeIgniter\CodeIgniter::CI_VERSION ?>

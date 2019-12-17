@@ -31,16 +31,18 @@ class BaseController extends Controller
 #	public    $style_tla 	= '';
  
 public $pages = [
+ #  'information'       => 'Info',
+ #  'info'              => 'Information', 
     'conversion-script' => 'Conversion Script',
     'disqus'            => 'Disqus',
     'environment'       => 'Environment', 
- #  'information'       => 'Info',
- #  'info'              => 'Information', 
+    'excel'             => 'Excel', 
     'download-install'  => 'Download &amp; Install',
     'more'              => 'More info',
     'myths'             => 'Myths explained',
     'modified-files'    => 'Modified files', 
     'playground'        => 'Playground',
+    'thumbnails'        => 'Get thumbnails',
     'bugs-fixed'        => 'Bugs Fixed',
     'readme'            => 'Readme',
     'rsync'             => 'Rsync',

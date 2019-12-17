@@ -18,7 +18,11 @@
     <p> &nbsp; </p>
  
     <dl>
-      <dt class="fsl"> TL;DR;  </dt>
+      <dt class="fsl fwb"> 
+        <a class="tdn" href="https://en.wikipedia.org/wiki/Wikipedia:Too_long;_didn%27t_read">
+        TL;DR
+        </a>
+      </dt>
       <dd> 
         <blockquote>
           Instead study the following examples... &nbsp; 
@@ -31,7 +35,7 @@
           class="btn fsl fwb bd1 rad bga fg0 p42"
           href="<?=  BASEURL .'strict-0'; ?>"
           > 
-          <b> Test Strict_types </b>
+          <strong> Test Strict_types </strong>
         </a> 
         <br>
       </dt>
@@ -42,12 +46,12 @@
       <h2 class="dib rad p42 bgg fgg XXXbgr XXXfgy bd1 fsl lh2">
           Declare(Strict_types=1) <br> it's like <br> driving with a seatbelt...
           <br>
-          <i class="fsn XXXfgg">
+          <em>
             and an airbag!
-          </i>
+          </em>
       </h2>    
       <br>
-      <h2> <b> ¯\_(ツ)_/¯ </b> </h2>
+      <h2> <strong> ¯\_(ツ)_/¯ </strong> </h2>
     </div>    
     <p> <br> </p>
 
@@ -90,7 +94,7 @@
         </blockquote>
         
         <p>
-          The strict_types validation checks <b>only</b> apply to the file where the declaration has been set!
+          The strict_types validation checks <strong>only</strong> apply to the file where the declaration has been set!
         </p>
 
         <p>

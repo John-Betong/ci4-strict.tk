@@ -108,21 +108,21 @@ $blurb= <<< ____EOT
     <dt> Points to note: </dt>
     <dd>
     <ol>
-      <li> this <b>"parent"</b> file includes a file with either:
+      <li> this <strong>"parent"</strong> file includes a file with either:
         <ul>
         <li class="fgr"> 
           strict not set  - (fn-strict-0.php) 
           <br>
-          function parameter type declarations <b> NOT SET </b>
+          function parameter type declarations <strong> NOT SET </strong>
         </li>
         <li class="fgg"> 
           strict set  - (fn-strict-1.php)   
           <br>
-          function parameter type declarations <b>SET </b>
+          function parameter type declarations <strong>SET </strong>
         </li>
         </ul>
       </li>  
-      <li> selecting <b>Test</b> calls the relevant file and the function test(...)
+      <li> selecting <strong>Test</strong> calls the relevant file and the function test(...)
       <li> Results are shown  in the table</li>
     </ol>
   </dd>

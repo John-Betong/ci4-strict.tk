@@ -17,7 +17,7 @@ body {
 }
 .header  {top: 0; height: 5.0em; background-color: #eeeefe }
 .nav     {
-    top: 5.0em; height: 100%;  width: 10em; 
+    top: 5.0em; height: 100%;  width: 9.1em; 
     padding: 0 0 0 0.21em; 
     line-height: 2;
 }
@@ -85,6 +85,7 @@ ol li {margin: 1em 1em 1em -1em;}
 .ftt {position: fixed; top:0; left:0;}
 .fwb {font-weight: 700;}
 
+.hg3 {height: 0.32em;}
 .hg7 {min-height: 11em;}
 .hhh {display: none;}
 

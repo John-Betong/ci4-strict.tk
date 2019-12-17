@@ -16,12 +16,12 @@ ____EOT;
   $result = array_fill(0, 9, '');
   $retype = array_fill(0, 9, '');
 
-  $redErr = ''; // <b class="fgr fss">error <sup>#1</sup></b>';  
+  $redErr = ''; // <strong class="fgr fss">error <sup>#1</sup></strong>';  
   $render = '';
 
-  $mat    = '<b class="fgg"> Matched </b>';
-  $jug    = '<b class="fgr"> JUGGLED </b>';
-  $err    = '<b class="fgF"> ERROR   </b>';
+  $mat    = '<strong class="fgg"> Matched </strong>';
+  $jug    = '<strong class="fgr"> JUGGLED </strong>';
+  $err    = '<strong class="fgF"> ERROR   </strong>';
 
   switch($mode) :
     case '0' : 
@@ -48,8 +48,8 @@ ____EOT;
 
   foreach($result as $id => $tmp) :
     if($tmp) :
-      $result[$id] = $tmp; // '<b class="fgg">  </b>';
+      $result[$id] = $tmp; // '<strong class="fgg">  </strong`>';
     else:  
-      $result[$id] = ''; // '<b class="fgg">  </b>';
+      $result[$id] = ''; // '<strong class="fgg">  </strong>';
     endif;
   endforeach;

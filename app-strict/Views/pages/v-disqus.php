@@ -8,7 +8,6 @@ require APPPATH ."Views/incs/doctype-001.php";
 
   <div class="header tac">
     <?php require APPPATH .'Views/incs/logo-001.php'; ?>
-    <h4 class="hhh ooo"> Strict_types=0 </h4>  
   </div><!-- header -->
 
   <div class="nav">

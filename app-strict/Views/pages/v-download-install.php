@@ -30,11 +30,11 @@ require APPPATH .'Views/incs/doctype-001.php';
       <dd>
         <ol>
           <li> download from Github </li>
-          <li> create path to "http://localhost/<b>ANY-NAME</b>/" </li>
-          <li class="fgr fwb"> make writable path "<b>ANY-NAME</b>/writable/"  </li>
-          <li> Browse to "http://localhost/<b>ANY-NAME/public_html/</b>" </li>
+          <li> create path to "http://localhost/<strong>ANY-NAME</strong>/" </li>
+          <li class="fgr fwb"> make writable path "<strong>ANY-NAME</strong>/writable/"  </li>
+          <li> Browse to "http://localhost/<strong>ANY-NAME/public_html/</strong>" </li>
           <li> experiment by adding your own script </li>
-          <li> debug by viewing "<b>ANY-NAME</b>/writable/logs/log-TODAY.php" </li>
+          <li> debug by viewing "<strong>ANY-NAME</strong>/writable/logs/log-TODAY.php" </li>
         </ol>
         Have fun :)
       </dd>  

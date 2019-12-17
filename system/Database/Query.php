@@ -240,9 +240,9 @@ class Query implements QueryInterface
 	{
 		if ($returnRaw)
 		{
-  		# JOHN MODFIED
-    	# return $this->startTime;
-    	return number_format($this->startTime, $decimals);			
+		  # JOHN MODIFIED
+		  # return $this->startTime;
+		  return number_format($this->startTime, $decimals);			
 		}
 
 		return number_format($this->startTime, $decimals);

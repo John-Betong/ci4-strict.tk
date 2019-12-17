@@ -88,7 +88,7 @@ public function getStartTime(bool $returnRaw = false, int $decimals = 6): string
 {
   if ($returnRaw)
   {
-    # JOHN MODFIED
+    # JOHN MODIFIED
     # return $this->startTime;
     return number_format($this->startTime, $decimals);
   }

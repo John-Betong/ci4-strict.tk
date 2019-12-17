@@ -89,8 +89,8 @@ footer   {bottom:0;}
      </main>
 
      <footer class="tac p42">
-      <b class="fll"> Align Left </b>
-      <b class="flr"> Align Right </b>
+      <strong class="fll"> Align Left </strong  >
+      <strong class="flr"> Align Right </strong>
       <span> Fluid height footer can go here: </span>
      </footer>
 

@@ -36,6 +36,11 @@ Options All -Indexes
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </IfModule>
 
+# Jason Knight
+# https://www.codingforum.net/forum/server-side-development/php/2418755-htaccess-modrewrite-and-redirect-301
+RewriteRule !(^(images|assets))|(\.(gif|jpg|png|webp|css|js|html|txt|ico|zip|rar|gz|pdf|xml|mp3|mp4|mpg|webm|flv|swf|mkv|ogg|avi|woff|woff2|svg|eot|ttf|json|webmanifest|ajax.php)$) index.php
+
+
 <IfModule !mod_rewrite.c>
     # If we don't have mod_rewrite installed, all 404's
     # can be sent to index.php, and everything works as normal.

@@ -28,11 +28,11 @@
   </div>
 
   <div class="article tac">
-    <i class="flr">
+    <em class="flr">
         <a href="https://github.com/codeigniter4projects/playground">
             GitHub PlayGround
         </a>
-    </i>
+    </em>
 
     <div class="fss">
       <?php echo $this->renderSection('content') ?>
@@ -60,8 +60,7 @@
   </div><!-- class="article tac" -->
 
   <div class="footer tac p42">
-    <?php require APPPATH .'Views/incs/footer.php';
-    ?> 
+    <?php require APPPATH .'Views/incs/footer.php';?> 
    </div>
 
 </body>

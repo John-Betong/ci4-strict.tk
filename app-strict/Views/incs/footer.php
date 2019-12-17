@@ -41,13 +41,13 @@ declare(strict_types=1);
   $msg  = 'Wonderful place for a footer';
   $wiki = 'https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=6&ved=2ahUKEwjvwq2e0LHkAhVBRY8KHRwQAYwQFjAFegQIARAB&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FGreta_Thunberg&usg=AOvVaw21NdejsloklvSuGIIpDL-U';
   $title = 'Greta Thunberg';
-  $msg  = 'Support: <a href="' .$wiki .'" title="' .$title .'"> <b>Greta Thunberg </b> </a>';
+  $msg  = 'Support: <a href="' .$wiki .'" title="' .$title .'"> <strong>Greta Thunberg </strong> </a>';
   $ftr  = <<< ____EOT
     <p> <br> <br> <br> </p>
 
     <div class="ftr tac w99 XXXfss bgc bd1">
-      <b class="fll"> $vHtml </b>
-      <b class="flr"> $vCss  </b>
+      <strong class="fll"> $vHtml </strong>
+      <strong class="flr"> $vCss  </strong>
       $msg
     </div>  
 ____EOT;
