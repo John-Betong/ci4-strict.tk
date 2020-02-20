@@ -48,12 +48,13 @@ public $pages = [
     'rsync'             => 'Rsync',
     'strict-0'          => 'Test Strict_types',
     'strict-1'          => 'NOT IN MENU',
+    'welcome-amp'       => 'Welcome AMP',
+    'welcome-new'       => 'Welcome New',
+    'welcome-message'   => 'Welcome Original',
     'welcome-strict'    => 'Welcome Strict',
-    'welcome_message'   => 'Welcome Original',
     'heroes'            => 'heroes',
     'dungeons'          => 'dungeons'
   ];
-
 
 	/**
 	 * Constructor.

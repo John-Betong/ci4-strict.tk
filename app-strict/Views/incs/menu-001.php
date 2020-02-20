@@ -1,5 +1,5 @@
 <?php DECLARE(STRICT_TYPES=1);
-
+# fred($pages);die;
 
 # ENHANCE SELECTION 
   $url = $url = $_SERVER['REQUEST_URI'];
@@ -60,8 +60,10 @@ ____EOT;
       <?php # echo getLink($pages, 'download-install') ?>
       <dd class="hg3"> &nbsp; </dd>
 
-    <dt> Welcome pagess  </dt>
-      <?= getLink($pages, 'welcome_message') ?>
+    <dt> Welcome pages  </dt>
+      <?= getLink($pages, 'welcome-amp') ?>
+      <?= getLink($pages, 'welcome-new') ?>
+      <?= getLink($pages, 'welcome-message') ?>
       <?= getLink($pages, 'welcome-strict') ?>
       <dd class="hg3"> &nbsp; </dd>
 

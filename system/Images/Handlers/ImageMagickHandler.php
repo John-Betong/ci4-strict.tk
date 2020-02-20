@@ -9,7 +9,7 @@
  * This content is released under the MIT License (MIT)
  *
  * Copyright (c) 2014-2019 British Columbia Institute of Technology
- * Copyright (c) 2019 CodeIgniter Foundation
+ * Copyright (c) 2019-2020 CodeIgniter Foundation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -31,7 +31,7 @@
  *
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
- * @copyright  2019 CodeIgniter Foundation
+ * @copyright  2019-2020 CodeIgniter Foundation
  * @license    https://opensource.org/licenses/MIT    MIT License
  * @link       https://codeigniter.com
  * @since      Version 4.0.0
@@ -98,7 +98,7 @@ class ImageMagickHandler extends BaseHandler
 	 */
 	public function _resize(bool $maintainRatio = false)
 	{
-		$source      = ! empty($this->resource) ? $this->resource : $this->image->getPathname();
+		$source      = ! empty($this->resource) ? $this->resource : $this->image()->getPathname();
 		$destination = $this->getResourcePath();
 
 		$escape = '\\';
@@ -124,7 +124,7 @@ class ImageMagickHandler extends BaseHandler
 	 */
 	public function _crop()
 	{
-		$source      = ! empty($this->resource) ? $this->resource : $this->image->getPathname();
+		$source      = ! empty($this->resource) ? $this->resource : $this->image()->getPathname();
 		$destination = $this->getResourcePath();
 
 		$action = ' -crop ' . $this->width . 'x' . $this->height . '+' . $this->xAxis . '+' . $this->yAxis . ' "' . $source . '" "' . $destination . '"';
@@ -149,7 +149,7 @@ class ImageMagickHandler extends BaseHandler
 	{
 		$angle = '-rotate ' . $angle;
 
-		$source      = ! empty($this->resource) ? $this->resource : $this->image->getPathname();
+		$source      = ! empty($this->resource) ? $this->resource : $this->image()->getPathname();
 		$destination = $this->getResourcePath();
 
 		$action = ' ' . $angle . ' "' . $source . '" "' . $destination . '"';
@@ -175,7 +175,7 @@ class ImageMagickHandler extends BaseHandler
 	{
 		$flatten = "-background RGB({$red},{$green},{$blue}) -flatten";
 
-		$source      = ! empty($this->resource) ? $this->resource : $this->image->getPathname();
+		$source      = ! empty($this->resource) ? $this->resource : $this->image()->getPathname();
 		$destination = $this->getResourcePath();
 
 		$action = ' ' . $flatten . ' "' . $source . '" "' . $destination . '"';
@@ -199,7 +199,7 @@ class ImageMagickHandler extends BaseHandler
 	{
 		$angle = $direction === 'horizontal' ? '-flop' : '-flip';
 
-		$source      = ! empty($this->resource) ? $this->resource : $this->image->getPathname();
+		$source      = ! empty($this->resource) ? $this->resource : $this->image()->getPathname();
 		$destination = $this->getResourcePath();
 
 		$action = ' ' . $angle . ' "' . $source . '" "' . $destination . '"';
@@ -287,7 +287,7 @@ class ImageMagickHandler extends BaseHandler
 	 */
 	public function save(string $target = null, int $quality = 90): bool
 	{
-		$target = empty($target) ? $this->image : $target;
+		$target = empty($target) ? $this->image() : $target;
 
 		// If no new resource has been created, then we're
 		// simply copy the existing one.
@@ -296,7 +296,7 @@ class ImageMagickHandler extends BaseHandler
 			$name = basename($target);
 			$path = pathinfo($target, PATHINFO_DIRNAME);
 
-			return $this->image->copy($path, $name);
+			return $this->image()->copy($path, $name);
 		}
 
 		// Copy the file through ImageMagick so that it has
@@ -434,7 +434,7 @@ class ImageMagickHandler extends BaseHandler
 		// Text
 		$cmd .= " -annotate 0 '{$text}'";
 
-		$source      = ! empty($this->resource) ? $this->resource : $this->image->getPathname();
+		$source      = ! empty($this->resource) ? $this->resource : $this->image()->getPathname();
 		$destination = $this->getResourcePath();
 
 		$cmd = " '{$source}' {$cmd} '{$destination}'";

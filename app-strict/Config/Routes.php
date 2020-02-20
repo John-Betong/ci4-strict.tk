@@ -1,5 +1,6 @@
 <?php DECLARE(STRICT_TYPES=1);  namespace Config;
 
+
 /**
  * --------------------------------------------------------------------
  * URI Routing

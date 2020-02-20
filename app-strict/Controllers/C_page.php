@@ -38,7 +38,6 @@ ____EOT;
     echo file_get_contents($whoops);
     die;
   endif;
-
   $data['vPage']  =  $page; 
   # f red($data); die;
   # echo $page ; die;

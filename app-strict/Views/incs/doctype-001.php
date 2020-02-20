@@ -2,6 +2,8 @@
 
 $analytics = CI_DEBUG ? NULL : $analytics;
 
+header("Link: </assets/css/style-pof.css>; rel=preload; as=style");
+
 $CSS = BASEURL .'assets/css/style-pof.css'; 
 
 ?>

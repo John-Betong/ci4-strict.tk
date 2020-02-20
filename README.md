@@ -22,11 +22,10 @@ enjoy :)
 
 The following files were obtained from the CodeIgniter4 Repository and now have the strict types declaration included.
 
-
 Source: CodeIgniter4
     sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
-    Build: 7c15ad4
-       
+    Build: dfd3555  
+      
 Source: John-Betong/ci4-strict
     sudo git clone https://github.com/John-Betong/ci4-strict.git 
       
@@ -54,7 +53,7 @@ NOT PHP files: 19
      
 
      
-Strict_types=1 inserted into following PHP files: 316
+Strict_types=1 inserted into PHP files: 317
 
     app/Common.php
     app/Config/App.php
@@ -136,6 +135,7 @@ Strict_types=1 inserted into following PHP files: 316
     system/Database/Forge.php
     system/Database/Migration.php
     system/Database/MigrationRunner.php
+    system/Database/ModelFactory.php
     system/Database/PreparedQueryInterface.php
     system/Database/Query.php
     system/Database/QueryInterface.php
@@ -342,8 +342,8 @@ Strict_types=1 inserted into following PHP files: 316
     system/Session/Handlers/MemcachedHandler.php
     system/Session/Handlers/RedisHandler.php
     system/Test/Filters/CITestStreamFilter.php
+    system/ThirdParty/Escaper/Escaper.php
     system/ThirdParty/Kint/kint.php
-    system/ThirdParty/ZendEscaper/Escaper.php
     system/Validation/Exceptions/ValidationException.php
     system/Validation/Views/list.php
     system/Validation/Views/single.php
@@ -361,6 +361,9 @@ Strict_types=1 inserted into following PHP files: 316
     system/Debug/Toolbar/Collectors/Views.php
     system/Debug/Toolbar/Views/toolbar.tpl.php
     system/Debug/Toolbar/Views/toolbarloader.js.php
+    system/ThirdParty/Escaper/Exception/ExceptionInterface.php
+    system/ThirdParty/Escaper/Exception/InvalidArgumentException.php
+    system/ThirdParty/Escaper/Exception/RuntimeException.php
     system/ThirdParty/PSR/Log/AbstractLogger.php
     system/ThirdParty/PSR/Log/InvalidArgumentException.php
     system/ThirdParty/PSR/Log/LogLevel.php
@@ -369,6 +372,6 @@ Strict_types=1 inserted into following PHP files: 316
     system/ThirdParty/PSR/Log/LoggerInterface.php
     system/ThirdParty/PSR/Log/LoggerTrait.php
     system/ThirdParty/PSR/Log/NullLogger.php
-    system/ThirdParty/ZendEscaper/Exception/ExceptionInterface.php
-    system/ThirdParty/ZendEscaper/Exception/InvalidArgumentException.php
-    system/ThirdParty/ZendEscaper/Exception/RuntimeException.php
+     
+
+     

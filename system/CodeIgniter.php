@@ -8,7 +8,7 @@
  * This content is released under the MIT License (MIT)
  *
  * Copyright (c) 2014-2019 British Columbia Institute of Technology
- * Copyright (c) 2019 CodeIgniter Foundation
+ * Copyright (c) 2019-2020 CodeIgniter Foundation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -30,7 +30,7 @@
  *
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
- * @copyright  2019 CodeIgniter Foundation
+ * @copyright  2019-2020 CodeIgniter Foundation
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
  * @since      Version 4.0.0
@@ -67,7 +67,7 @@ class CodeIgniter
 	/**
 	 * The current version of CodeIgniter Framework
 	 */
-	const CI_VERSION = '4.0.0-rc.3';
+	const CI_VERSION = '4.0.0-rc.4';
 
 	/**
 	 * App startup time.
@@ -253,7 +253,7 @@ class CodeIgniter
 
 			// If the route is a 'redirect' route, it throws
 			// the exception with the $to as the message
-			$this->response->redirect($e->getMessage(), 'auto', $e->getCode());
+			$this->response->redirect(base_url($e->getMessage()), 'auto', $e->getCode());
 			$this->sendResponse();
 
 			$this->callExit(EXIT_SUCCESS);
@@ -839,13 +839,16 @@ class CodeIgniter
 	 */
 	protected function runController($class)
 	{
+		// If this is a console request then use the input segments as parameters
+		$params = defined('SPARKED') ? $this->request->getSegments() : $this->router->params();
+
 		if (method_exists($class, '_remap'))
 		{
-			$output = $class->_remap($this->method, ...$this->router->params());
+			$output = $class->_remap($this->method, ...$params);
 		}
 		else
 		{
-			$output = $class->{$this->method}(...$this->router->params());
+			$output = $class->{$this->method}(...$params);
 		}
 
 		$this->benchmark->stop('controller');

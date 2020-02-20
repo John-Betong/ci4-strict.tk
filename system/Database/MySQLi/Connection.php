@@ -9,7 +9,7 @@
  * This content is released under the MIT License (MIT)
  *
  * Copyright (c) 2014-2019 British Columbia Institute of Technology
- * Copyright (c) 2019 CodeIgniter Foundation
+ * Copyright (c) 2019-2020 CodeIgniter Foundation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -31,7 +31,7 @@
  *
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
- * @copyright  2019 CodeIgniter Foundation
+ * @copyright  2019-2020 CodeIgniter Foundation
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
  * @since      Version 4.0.0
@@ -102,11 +102,14 @@ class Connection extends BaseConnection implements ConnectionInterface
 		}
 		else
 		{
+			# $hostname = ($persistent === true) ? 'p:' . $this->hostname : $this->hostname;
+			# $port     = empty($this->port) ? null : $this->port;
+			# $socket   = null;
 			$hostname = ($persistent === true) ? 'p:' . $this->hostname : $this->hostname;
 			$port     = empty($this->port) ? null : $this->port;
-		  # JOHN MODIFIED
-		  # $socket = null;
-		  $socket   = '';			
+			# JOHN MODIFIED
+			# $socket = null;
+			$socket   = '';			
 		}
 
 		$client_flags = ($this->compress === true) ? MYSQLI_CLIENT_COMPRESS : 0;
@@ -206,7 +209,7 @@ class Connection extends BaseConnection implements ConnectionInterface
 						"Database: Unable to set the configured connection charset ('{$this->charset}').");
 					$this->mysqli->close();
 
-					if ($this->db->debug)
+					if ($this->DBDebug)
 					{
 						throw new DatabaseException('Unable to set client connection character set: ' . $this->charset);
 					}
