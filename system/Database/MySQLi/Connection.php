@@ -102,14 +102,11 @@ class Connection extends BaseConnection implements ConnectionInterface
 		}
 		else
 		{
-			# $hostname = ($persistent === true) ? 'p:' . $this->hostname : $this->hostname;
-			# $port     = empty($this->port) ? null : $this->port;
-			# $socket   = null;
 			$hostname = ($persistent === true) ? 'p:' . $this->hostname : $this->hostname;
 			$port     = empty($this->port) ? null : $this->port;
-			# JOHN MODIFIED
-			# $socket = null;
-			$socket   = '';			
+ 			# JOHN MODIFIED
+  		# $socket = null;
+  		$socket   = '';			
 		}
 
 		$client_flags = ($this->compress === true) ? MYSQLI_CLIENT_COMPRESS : 0;

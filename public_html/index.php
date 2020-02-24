@@ -12,6 +12,7 @@ if(LOCALHOST) :
   ini_set('display_errors', '1'); 
   $_SERVER['CI_ENVIRONMENT'] = 'development'; // bypass .env & .htaccess
   $useKint = FALSE;
+
   # require '../system/ThirdParty/Kint/kint.php';
 
 # CLEANER -  only shows last error logs and debugbar JSON files

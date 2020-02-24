@@ -45,7 +45,7 @@ use Config\Services;
 use CodeIgniter\HTTP\URI;
 use Laminas\Escaper\Escaper;
 use CodeIgniter\Config\Config;
-use Tests\Support\Log\TestLogger;
+use CodeIgniter\Test\TestLogger;
 use CodeIgniter\HTTP\RedirectResponse;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
@@ -1061,7 +1061,7 @@ if (! function_exists('view'))
 		 */
 		$renderer = Services::renderer();
 
-		$saveData = null;
+		$saveData = true;
 		if (array_key_exists('saveData', $options) && $options['saveData'] === true)
 		{
 			$saveData = (bool) $options['saveData'];

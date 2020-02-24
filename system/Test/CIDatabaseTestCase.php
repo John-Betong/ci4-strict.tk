@@ -53,7 +53,6 @@ use CodeIgniter\Exceptions\ConfigException;
  */
 class CIDatabaseTestCase extends CIUnitTestCase
 {
-
 	/**
 	 * Should the db be refreshed before
 	 * each test?
@@ -63,27 +62,30 @@ class CIDatabaseTestCase extends CIUnitTestCase
 	protected $refresh = true;
 
 	/**
-	 * The name of the fixture used for all tests
-	 * within this test case.
+	 * The seed file(s) used for all tests within this test case.
+	 * Should be fully-namespaced or relative to $basePath
 	 *
-	 * @var string
+	 * @var string|array
 	 */
 	protected $seed = '';
 
 	/**
-	 * The path to where we can find the seeds directory.
+	 * The path to the seeds directory.
 	 * Allows overriding the default application directories.
 	 *
 	 * @var string
 	 */
-	protected $basePath = TESTPATH . '_support/Database';
+	protected $basePath = SUPPORTPATH . 'Database';
 
 	/**
-	 * The namespace to help us find the migration classes.
+	 * The namespace(s) to help us find the migration classes.
+	 * Empty is equivalent to running `spark migrate -all`.
+	 * Note that running "all" runs migrations in date order,
+	 * but specifying namespaces runs them in namespace order (then date)
 	 *
-	 * @var string
+	 * @var string|array|null
 	 */
-	protected $namespace = 'Tests\Support\DatabaseTestMigrations';
+	protected $namespace = 'Tests\Support';
 
 	/**
 	 * The name of the database group to connect to.
@@ -164,19 +166,10 @@ class CIDatabaseTestCase extends CIUnitTestCase
 	{
 		parent::setUp();
 
-		// Add namespaces we need for testing
-		Services::autoloader()->addNamespace('Tests\Support\DatabaseTestMigrations', TESTPATH . '_support/DatabaseTestMigrations');
-
 		$this->loadDependencies();
 
 		if ($this->refresh === true)
 		{
-			if (! empty($this->namespace))
-			{
-				$this->migrations->setNamespace($this->namespace);
-			}
-			$this->migrations->regress(0, 'tests');
-
 			// Delete all of the tables to ensure we're at a clean start.
 			$tables = $this->db->listTables();
 
@@ -188,6 +181,7 @@ class CIDatabaseTestCase extends CIUnitTestCase
 				{
 					if ($table === $this->db->DBPrefix . 'migrations')
 					{
+						$this->db->table($table)->truncate();
 						continue;
 					}
 
@@ -195,7 +189,23 @@ class CIDatabaseTestCase extends CIUnitTestCase
 				}
 			}
 
-			$this->migrations->latest('tests');
+			// If no namespace was specified then migrate all
+			if (empty($this->namespace))
+			{
+				$this->migrations->setNamespace(null);
+				$this->migrations->latest('tests');
+			}
+
+			// Run migrations for each specified namespace
+			else
+			{
+				$namespaces = is_array($this->namespace) ? $this->namespace : [$this->namespace];
+				foreach ($namespaces as $namespace)
+				{
+					$this->migrations->setNamespace($namespace);
+					$this->migrations->latest('tests');
+				}
+			}
 		}
 
 		if (! empty($this->seed))
@@ -205,7 +215,11 @@ class CIDatabaseTestCase extends CIUnitTestCase
 				$this->seeder->setPath(rtrim($this->basePath, '/') . '/Seeds');
 			}
 
-			$this->seed($this->seed);
+			$seeds = is_array($this->seed) ? $this->seed : [$this->seed];
+			foreach ($seeds as $seed)
+			{
+				$this->seed($seed);
+			}
 		}
 	}
 
@@ -240,7 +254,6 @@ class CIDatabaseTestCase extends CIUnitTestCase
 		return $this->seeder->call($name);
 	}
 
-	//--------------------------------------------------------------------
 	//--------------------------------------------------------------------
 	// Database Test Helpers
 	//--------------------------------------------------------------------

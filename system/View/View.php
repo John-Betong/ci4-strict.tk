@@ -499,7 +499,7 @@ class View implements RendererInterface
 	 *
 	 * @return string
 	 */
-	public function include(string $view, array $options = null, $saveData = null): string
+	public function include(string $view, array $options = null, $saveData = true): string
 	{
 		return $this->render($view, $options, $saveData);
 	}

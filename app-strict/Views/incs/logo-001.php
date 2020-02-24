@@ -30,7 +30,7 @@ $sup  = CI_DEBUG ? '<sup class="fss"> DEBUG</sup>' : NULL;
     <div class="ooo dib fss"> 
       <?= $ver ?>
       -
-      <em> <strong>Build:</strong> dfd3555  (previous: dbf36b8)  </em>
+      <em> <strong>Build:</strong> 47dbb16 - 2018-02-24 (previous: dfd3555)  </em>
     </div>
   </div>  
   <br>

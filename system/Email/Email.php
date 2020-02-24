@@ -511,7 +511,7 @@ class Email
 	/**
 	 * Set Recipients
 	 *
-	 * @param string $to
+	 * @param string|array $to
 	 *
 	 * @return Email
 	 */
@@ -893,7 +893,7 @@ class Email
 	/**
 	 * Validate Email Address
 	 *
-	 * @param string $email
+	 * @param string|array $email
 	 *
 	 * @return boolean
 	 */
@@ -908,7 +908,7 @@ class Email
 		{
 			if (! $this->isValidEmail($val))
 			{
-				$this->setErrorMessage(lang('Email.invalidAddress', $val));
+				$this->setErrorMessage(lang('Email.invalidAddress', [$val]));
 				return false;
 			}
 		}

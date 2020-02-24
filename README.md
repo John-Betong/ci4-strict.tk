@@ -24,12 +24,12 @@ The following files were obtained from the CodeIgniter4 Repository and now have 
 
 Source: CodeIgniter4
     sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
-    Build: dfd3555  
+    Ver: 4.0.0 - Build: 47dbb16 - 2018-02-24 (previous: dfd3555) 
       
 Source: John-Betong/ci4-strict
     sudo git clone https://github.com/John-Betong/ci4-strict.git 
       
-NOT PHP files: 19
+NOT PHP files: 28
 
     app/index.html
     app/Views/errors/html/debug.css
@@ -46,6 +46,15 @@ NOT PHP files: 19
     system/Debug/Toolbar/Views/_routes.tpl
     system/Debug/Toolbar/Views/toolbar.css
     system/Debug/Toolbar/Views/toolbar.js
+    system/ThirdParty/Kint/resources/compiled/aante-light.css
+    system/ThirdParty/Kint/resources/compiled/microtime.js
+    system/ThirdParty/Kint/resources/compiled/original.css
+    system/ThirdParty/Kint/resources/compiled/plain.css
+    system/ThirdParty/Kint/resources/compiled/plain.js
+    system/ThirdParty/Kint/resources/compiled/rich.js
+    system/ThirdParty/Kint/resources/compiled/shared.js
+    system/ThirdParty/Kint/resources/compiled/solarized-dark.css
+    system/ThirdParty/Kint/resources/compiled/solarized.css
     writable/cache/index.html
     writable/logs/index.html
     writable/session/index.html
@@ -53,7 +62,7 @@ NOT PHP files: 19
      
 
      
-Strict_types=1 inserted into PHP files: 317
+Strict_types=1 inserted into PHP files: 424
 
     app/Common.php
     app/Config/App.php
@@ -72,6 +81,7 @@ Strict_types=1 inserted into PHP files: 317
     app/Config/Format.php
     app/Config/Honeypot.php
     app/Config/Images.php
+    app/Config/Kint.php
     app/Config/Logger.php
     app/Config/Migrations.php
     app/Config/Mimes.php
@@ -222,6 +232,8 @@ Strict_types=1 inserted into PHP files: 317
     system/Test/FeatureResponse.php
     system/Test/FeatureTestCase.php
     system/Test/ReflectionHelper.php
+    system/Test/TestLogger.php
+    system/Test/bootstrap.php
     system/Throttle/Throttler.php
     system/Throttle/ThrottlerInterface.php
     system/Typography/Typography.php
@@ -342,8 +354,36 @@ Strict_types=1 inserted into PHP files: 317
     system/Session/Handlers/MemcachedHandler.php
     system/Session/Handlers/RedisHandler.php
     system/Test/Filters/CITestStreamFilter.php
+    system/Test/Mock/MockAppConfig.php
+    system/Test/Mock/MockAutoload.php
+    system/Test/Mock/MockBuilder.php
+    system/Test/Mock/MockCLIConfig.php
+    system/Test/Mock/MockCURLRequest.php
+    system/Test/Mock/MockCache.php
+    system/Test/Mock/MockChromeLogger.php
+    system/Test/Mock/MockCodeIgniter.php
+    system/Test/Mock/MockCommon.php
+    system/Test/Mock/MockConnection.php
+    system/Test/Mock/MockEvents.php
+    system/Test/Mock/MockFileLogger.php
+    system/Test/Mock/MockIncomingRequest.php
+    system/Test/Mock/MockLanguage.php
+    system/Test/Mock/MockLogger.php
+    system/Test/Mock/MockQuery.php
+    system/Test/Mock/MockResourceController.php
+    system/Test/Mock/MockResourcePresenter.php
+    system/Test/Mock/MockResponse.php
+    system/Test/Mock/MockResult.php
+    system/Test/Mock/MockSecurity.php
+    system/Test/Mock/MockServices.php
+    system/Test/Mock/MockSession.php
+    system/Test/Mock/MockTable.php
     system/ThirdParty/Escaper/Escaper.php
-    system/ThirdParty/Kint/kint.php
+    system/ThirdParty/Kint/CallFinder.php
+    system/ThirdParty/Kint/Kint.php
+    system/ThirdParty/Kint/Utils.php
+    system/ThirdParty/Kint/init.php
+    system/ThirdParty/Kint/init_helpers.php
     system/Validation/Exceptions/ValidationException.php
     system/Validation/Views/list.php
     system/Validation/Views/single.php
@@ -364,6 +404,52 @@ Strict_types=1 inserted into PHP files: 317
     system/ThirdParty/Escaper/Exception/ExceptionInterface.php
     system/ThirdParty/Escaper/Exception/InvalidArgumentException.php
     system/ThirdParty/Escaper/Exception/RuntimeException.php
+    system/ThirdParty/Kint/Object/BasicObject.php
+    system/ThirdParty/Kint/Object/BlobObject.php
+    system/ThirdParty/Kint/Object/ClosureObject.php
+    system/ThirdParty/Kint/Object/DateTimeObject.php
+    system/ThirdParty/Kint/Object/InstanceObject.php
+    system/ThirdParty/Kint/Object/MethodObject.php
+    system/ThirdParty/Kint/Object/ParameterObject.php
+    system/ThirdParty/Kint/Object/ResourceObject.php
+    system/ThirdParty/Kint/Object/StreamObject.php
+    system/ThirdParty/Kint/Object/ThrowableObject.php
+    system/ThirdParty/Kint/Object/TraceFrameObject.php
+    system/ThirdParty/Kint/Object/TraceObject.php
+    system/ThirdParty/Kint/Parser/ArrayObjectPlugin.php
+    system/ThirdParty/Kint/Parser/Base64Plugin.php
+    system/ThirdParty/Kint/Parser/BinaryPlugin.php
+    system/ThirdParty/Kint/Parser/BlacklistPlugin.php
+    system/ThirdParty/Kint/Parser/ClassMethodsPlugin.php
+    system/ThirdParty/Kint/Parser/ClassStaticsPlugin.php
+    system/ThirdParty/Kint/Parser/ClosurePlugin.php
+    system/ThirdParty/Kint/Parser/ColorPlugin.php
+    system/ThirdParty/Kint/Parser/DOMDocumentPlugin.php
+    system/ThirdParty/Kint/Parser/DateTimePlugin.php
+    system/ThirdParty/Kint/Parser/FsPathPlugin.php
+    system/ThirdParty/Kint/Parser/IteratorPlugin.php
+    system/ThirdParty/Kint/Parser/JsonPlugin.php
+    system/ThirdParty/Kint/Parser/MicrotimePlugin.php
+    system/ThirdParty/Kint/Parser/MysqliPlugin.php
+    system/ThirdParty/Kint/Parser/Parser.php
+    system/ThirdParty/Kint/Parser/Plugin.php
+    system/ThirdParty/Kint/Parser/ProxyPlugin.php
+    system/ThirdParty/Kint/Parser/SerializePlugin.php
+    system/ThirdParty/Kint/Parser/SimpleXMLElementPlugin.php
+    system/ThirdParty/Kint/Parser/SplFileInfoPlugin.php
+    system/ThirdParty/Kint/Parser/SplObjectStoragePlugin.php
+    system/ThirdParty/Kint/Parser/StreamPlugin.php
+    system/ThirdParty/Kint/Parser/TablePlugin.php
+    system/ThirdParty/Kint/Parser/ThrowablePlugin.php
+    system/ThirdParty/Kint/Parser/TimestampPlugin.php
+    system/ThirdParty/Kint/Parser/ToStringPlugin.php
+    system/ThirdParty/Kint/Parser/TracePlugin.php
+    system/ThirdParty/Kint/Parser/XmlPlugin.php
+    system/ThirdParty/Kint/Renderer/CliRenderer.php
+    system/ThirdParty/Kint/Renderer/PlainRenderer.php
+    system/ThirdParty/Kint/Renderer/Renderer.php
+    system/ThirdParty/Kint/Renderer/RichRenderer.php
+    system/ThirdParty/Kint/Renderer/TextRenderer.php
     system/ThirdParty/PSR/Log/AbstractLogger.php
     system/ThirdParty/PSR/Log/InvalidArgumentException.php
     system/ThirdParty/PSR/Log/LogLevel.php
@@ -372,6 +458,33 @@ Strict_types=1 inserted into PHP files: 317
     system/ThirdParty/PSR/Log/LoggerInterface.php
     system/ThirdParty/PSR/Log/LoggerTrait.php
     system/ThirdParty/PSR/Log/NullLogger.php
-     
-
-     
+    system/ThirdParty/Kint/Object/Representation/ColorRepresentation.php
+    system/ThirdParty/Kint/Object/Representation/DocstringRepresentation.php
+    system/ThirdParty/Kint/Object/Representation/MicrotimeRepresentation.php
+    system/ThirdParty/Kint/Object/Representation/Representation.php
+    system/ThirdParty/Kint/Object/Representation/SourceRepresentation.php
+    system/ThirdParty/Kint/Object/Representation/SplFileInfoRepresentation.php
+    system/ThirdParty/Kint/Renderer/Rich/BinaryPlugin.php
+    system/ThirdParty/Kint/Renderer/Rich/BlacklistPlugin.php
+    system/ThirdParty/Kint/Renderer/Rich/CallablePlugin.php
+    system/ThirdParty/Kint/Renderer/Rich/ClosurePlugin.php
+    system/ThirdParty/Kint/Renderer/Rich/ColorPlugin.php
+    system/ThirdParty/Kint/Renderer/Rich/DepthLimitPlugin.php
+    system/ThirdParty/Kint/Renderer/Rich/DocstringPlugin.php
+    system/ThirdParty/Kint/Renderer/Rich/MicrotimePlugin.php
+    system/ThirdParty/Kint/Renderer/Rich/ObjectPluginInterface.php
+    system/ThirdParty/Kint/Renderer/Rich/Plugin.php
+    system/ThirdParty/Kint/Renderer/Rich/PluginInterface.php
+    system/ThirdParty/Kint/Renderer/Rich/RecursionPlugin.php
+    system/ThirdParty/Kint/Renderer/Rich/SimpleXMLElementPlugin.php
+    system/ThirdParty/Kint/Renderer/Rich/SourcePlugin.php
+    system/ThirdParty/Kint/Renderer/Rich/TabPluginInterface.php
+    system/ThirdParty/Kint/Renderer/Rich/TablePlugin.php
+    system/ThirdParty/Kint/Renderer/Rich/TimestampPlugin.php
+    system/ThirdParty/Kint/Renderer/Rich/TraceFramePlugin.php
+    system/ThirdParty/Kint/Renderer/Text/BlacklistPlugin.php
+    system/ThirdParty/Kint/Renderer/Text/DepthLimitPlugin.php
+    system/ThirdParty/Kint/Renderer/Text/MicrotimePlugin.php
+    system/ThirdParty/Kint/Renderer/Text/Plugin.php
+    system/ThirdParty/Kint/Renderer/Text/RecursionPlugin.php
+    system/ThirdParty/Kint/Renderer/Text/TracePlugin.php

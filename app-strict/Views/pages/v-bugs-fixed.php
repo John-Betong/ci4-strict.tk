@@ -69,6 +69,44 @@ endif;
 # ORIGINAL index.php scripts below
 </pre></dd></dl>
 
+
+<!-- ############################################################# -->   
+    <dl class="dib"> 
+    <dt class="fsl bgg fgg"> file: system/CodeIgniter.php </dt>
+    <dd><pre class="ooo p42 bgE bd1">
+  # JOHN MODIFIED 
+  # PREVENTED \Kint loading if CI_DEBUG is FALSE
+  if( defined('CI_DEBUG') && CI_DEBUG):
+    $config = config('Config\Kint');
+
+    \Kint::$max_depth           = $config->maxDepth;
+    \Kint::$display_called_from = $config->displayCalledFrom;
+    \Kint::$expanded            = $config->expanded;
+
+    if (! empty($config->plugins) && is_array($config->plugins))
+    {
+      \Kint::$plugins = $config->plugins;
+    }
+
+    \Kint\Renderer\RichRenderer::$theme  = $config->richTheme;
+    \Kint\Renderer\RichRenderer::$folder = $config->richFolder;
+    \Kint\Renderer\RichRenderer::$sort   = $config->richSort;
+    if (! empty($config->richObjectPlugins) && is_array($config->richObjectPlugins))
+    {
+      \Kint\Renderer\RichRenderer::$object_plugins = $config->richObjectPlugins;
+    }
+    if (! empty($config->richTabPlugins) && is_array($config->richTabPlugins))
+    {
+      \Kint\Renderer\RichRenderer::$tab_plugins = $config->richTabPlugins;
+    }
+
+    \Kint\Renderer\CliRenderer::$cli_colors         = $config->cliColors;
+    \Kint\Renderer\CliRenderer::$force_utf8         = $config->cliForceUTF8;
+    \Kint\Renderer\CliRenderer::$detect_width       = $config->cliDetectWidth;
+    \Kint\Renderer\CliRenderer::$min_terminal_width = $config->cliMinWidth;
+  endif; // ($useKint):
+</pre></dd></dl>  
+//
 <!-- ############################################################# -->   
     <dl class="dib"> 
     <dt class="fsl bgg fgg"> file: app-strict/Views/errors/error_exception.php </dt>
