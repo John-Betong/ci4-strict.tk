@@ -1,13 +1,5 @@
 Source files:
-
-Special notes:
-
-<h2>      
-  <a href="https://ci4-strict.tk/">
-    Online Demo
-  </a>
-</h2>    
-
+<h2> <a href="https://ci4-strict.tk/">Online Demo</a></h2>    
 
 Gitub CodeIgniter4 source files
    DECLARE(STRICT_TYPES=1); inserted into every PHP file. 
@@ -24,7 +16,7 @@ The following files were obtained from the CodeIgniter4 Repository and now have 
 
 Source: CodeIgniter4
     sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
-    Ver: 4.0.0 - Build: 47dbb16 - 2018-02-24 (previous: dfd3555) 
+    Build: 28e7183 - last build 2c04e1c 
       
 Source: John-Betong/ci4-strict
     sudo git clone https://github.com/John-Betong/ci4-strict.git 
@@ -488,3 +480,4 @@ Strict_types=1 inserted into PHP files: 424
     system/ThirdParty/Kint/Renderer/Text/Plugin.php
     system/ThirdParty/Kint/Renderer/Text/RecursionPlugin.php
     system/ThirdParty/Kint/Renderer/Text/TracePlugin.php
+     

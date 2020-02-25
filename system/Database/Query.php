@@ -235,17 +235,18 @@ class Query implements QueryInterface
 	 * @param integer $decimals
 	 *
 	 * @return string
-	 */
+	 */ 
 	public function getStartTime(bool $returnRaw = false, int $decimals = 6): string
 	{
 		if ($returnRaw)
-		{
-			return $this->startTime;
+		  {
+		    # JOHN MODIFIED
+		    # return $this->startTime;
+		    return number_format($this->startTime, $decimals);
+		  }
+
+		  return number_format($this->startTime, $decimals);
 		}
-
-		return number_format($this->startTime, $decimals);
-	}
-
 	//--------------------------------------------------------------------
 	/**
 	 * Returns the duration of this query during execution, or null if

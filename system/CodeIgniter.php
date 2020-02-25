@@ -67,7 +67,7 @@ class CodeIgniter
 	/**
 	 * The current version of CodeIgniter Framework
 	 */
-	const CI_VERSION = '4.0.0';
+	const CI_VERSION = '4.0.1';
 
 	/**
 	 * App startup time.
@@ -227,8 +227,9 @@ class CodeIgniter
 
 		/**
 		 * Config\Kint
-		*/
-	if( defined('CI_DEBUG') && CI_DEBUG):
+		 */
+# JOHN 
+	if(defined('CI_DEBUG') && CI_DEBUG):		
 		$config = config('Config\Kint');
 
 		\Kint::$max_depth           = $config->maxDepth;
@@ -256,7 +257,7 @@ class CodeIgniter
 		\Kint\Renderer\CliRenderer::$force_utf8         = $config->cliForceUTF8;
 		\Kint\Renderer\CliRenderer::$detect_width       = $config->cliDetectWidth;
 		\Kint\Renderer\CliRenderer::$min_terminal_width = $config->cliMinWidth;
-	endif; // ($useKint):
+	endif; // if(defined('CI_DEBUG') && CI_DEBUG):		
 	}
 
 	//--------------------------------------------------------------------

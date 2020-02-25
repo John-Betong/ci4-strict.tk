@@ -8,7 +8,7 @@
   foreach($pages as $id => $val):
     if( $url === $id ) :
       $pages[$id] = '<strong class="tdn tar dib bga fgb ">'
-    . strtoupper($pages[$id]) 
+    . $pages[$id]  
     . '</strong>'
     ;
     endif;  
@@ -53,7 +53,9 @@ ____EOT;
       <?= getLink($pages, 'download-install') ?>
       <?= getLink($pages, 'more') ?> 
       <?= getLink($pages, 'readme') ?> 
+      <!--
       <?= getLink($pages, 'excel') ?> 
+    -->
       <dd class="hg3"> &nbsp; </dd>
 
     <dt class="hhh"> Download & install  </dt>

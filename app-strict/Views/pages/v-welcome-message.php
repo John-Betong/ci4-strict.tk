@@ -1,5 +1,4 @@
 <?php DECLARE(STRICT_TYPES=1); ?>
-<?php DECLARE(STRICT_TYPES=1); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
