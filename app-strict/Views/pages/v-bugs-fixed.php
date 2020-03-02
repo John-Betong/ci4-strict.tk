@@ -19,7 +19,7 @@ require APPPATH ."Views/incs/doctype-001.php";
     </h2>
    
 <!-- ############################################################# -->   
-  <dl class="dib"> 
+  <dl class="clb dib"> 
   <dt class="fsl XXXbgg fgg"> file: /public_html/index.php </dt>
   <dd><pre class="ooo p42 bgE bd1">
 &lt;?php DECLARE(STRICT_TYPES=1); 
@@ -71,7 +71,7 @@ endif;
 
 
 <!-- ############################################################# -->   
-    <dl class="dib"> 
+    <dl class="clb dib"> 
     <dt class="fsl bgg fgg"> file: system/CodeIgniter.php </dt>
     <dd><pre class="ooo p42 bgE bd1">
   # JOHN MODIFIED 
@@ -108,7 +108,7 @@ endif;
 </pre></dd></dl>  
 //
 <!-- ############################################################# -->   
-    <dl class="dib"> 
+    <dl class="clb dib"> 
     <dt class="fsl bgg fgg"> file: app-strict/Views/errors/error_exception.php </dt>
     <dd><pre class="ooo p42 bgE bd1">
 # JOHN MODIFIED
@@ -119,7 +119,7 @@ endif;
 
 
 <!-- ############################################################# -->   
-    <dl class="dib"> 
+    <dl class="clb dib"> 
     <dt class="fsl bgg fgg"> file: system/Database/Query.php </dt>
     <dd><pre class="ooo p42 bgE bd1">
 public function getStartTime(bool $returnRaw = false, int $decimals = 6): string
@@ -138,7 +138,7 @@ public function getStartTime(bool $returnRaw = false, int $decimals = 6): string
 
 
 <!-- ############################################################# -->   
-  <dl class="dib"> 
+  <dl class="clb dib"> 
   <dt class="fsl bgg fgg "> file: system/Database/MySQLi/Connection.php </dt>
   <dd><pre class="ooo p42 bgE bd1">
 public function connect(bool $persistent = false)
