@@ -118,7 +118,6 @@ class Controller
 		$this->request  = $request;
 		$this->response = $response;
 		$this->logger   = $logger;
-		$this->logger->info('Controller "' . get_class($this) . '" loaded.');
 
 		if ($this->forceHTTPS > 0)
 		{

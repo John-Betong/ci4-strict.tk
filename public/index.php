@@ -1,5 +1,10 @@
-<?php DECLARE(STRICT_TYPES=1); ?>
-<?php
+<?php DECLARE(STRICT_TYPES=1); 
+
+define('CI_DEBUG', FALSE); // bypass (bool) app/Config/oot/development.php
+  
+  # ini_set('display_errors', '1'); 
+  # $_SERVER['CI_ENVIRONMENT'] = 'development'; // bypass .env & .htaccess
+  # $useKint = FALSE;
 
 // Valid PHP Version?
 $minPHPVersion = '7.2';

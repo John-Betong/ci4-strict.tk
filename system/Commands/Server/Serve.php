@@ -98,14 +98,14 @@ class Serve extends BaseCommand
 	/**
 	 * The current port offset.
 	 *
-	 * @var int
+	 * @var integer
 	 */
 	protected $portOffset = 0;
 
 	/**
 	 * The max number of ports to attempt to serve from
 	 *
-	 * @var int
+	 * @var integer
 	 */
 	protected $tries = 10;
 
@@ -137,7 +137,7 @@ class Serve extends BaseCommand
 		}
 
 		// Collect any user-supplied options and apply them.
-		$php  = CLI::getOption('php') ?? PHP_BINARY;
+		$php  = escapeshellarg(CLI::getOption('php') ?? PHP_BINARY);
 		$host = CLI::getOption('host') ?? 'localhost';
 		$port = (int) (CLI::getOption('port') ?? '8080') + $this->portOffset;
 
@@ -156,7 +156,8 @@ class Serve extends BaseCommand
 		// to ensure our environment is set and it simulates basic mod_rewrite.
 		passthru($php . ' -S ' . $host . ':' . $port . ' -t ' . $docroot . ' ' . $rewrite, $status);
 
-		if ($status && $this->portOffset < $this->tries) {
+		if ($status && $this->portOffset < $this->tries)
+		{
 			$this->portOffset += 1;
 
 			$this->run($params);

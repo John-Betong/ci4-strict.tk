@@ -105,7 +105,7 @@ class CommandRunner extends Controller
 
 		if (is_null($command))
 		{
-			$command = 'help';
+			$command = 'list';
 		}
 
 		return $this->runCommand($command, $params);

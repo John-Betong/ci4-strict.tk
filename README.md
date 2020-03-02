@@ -1,4 +1,4 @@
-Source files:
+<strong>Source files:</strong>
 <h2> <a href="https://ci4-strict.tk/">Online Demo</a></h2>    
 
 Gitub CodeIgniter4 source files
@@ -15,13 +15,13 @@ enjoy :)
 The following files were obtained from the CodeIgniter4 Repository and now have the strict types declaration included.
 
 Source: CodeIgniter4
-    sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
-    Build: 28e7183 - last build 2c04e1c 
+  sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
+  Build: 2c04e1c 
       
 Source: John-Betong/ci4-strict
-    sudo git clone https://github.com/John-Betong/ci4-strict.git 
+  sudo git clone https://github.com/John-Betong/ci4-strict.git 
       
-NOT PHP files: 28
+<strong>NOT PHP files: 28 </strong>
 
     app/index.html
     app/Views/errors/html/debug.css
@@ -54,7 +54,7 @@ NOT PHP files: 28
      
 
      
-Strict_types=1 inserted into PHP files: 424
+<strong>Strict_types=1 inserted into PHP files: 424 </strong>
 
     app/Common.php
     app/Config/App.php

@@ -1,6 +1,6 @@
 <?php DECLARE(STRICT_TYPES=1); ?>
 <?php
- 
+
 /**
  * CodeIgniter
  *
@@ -106,7 +106,7 @@ class Connection extends BaseConnection implements ConnectionInterface
 			$port     = empty($this->port) ? null : $this->port;
   		# JOHN MODIFIED
   		# $socket = null;
-  		$socket   = '';			
+  		$socket   = '';
 		}
 
 		$client_flags = ($this->compress === true) ? MYSQLI_CLIENT_COMPRESS : 0;

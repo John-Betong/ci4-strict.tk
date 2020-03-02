@@ -67,7 +67,7 @@ class CodeIgniter
 	/**
 	 * The current version of CodeIgniter Framework
 	 */
-	const CI_VERSION = '4.0.1';
+	const CI_VERSION = '4.0.2';
 
 	/**
 	 * App startup time.
@@ -225,11 +225,11 @@ class CodeIgniter
 			require_once SYSTEMPATH . 'ThirdParty/Kint/init.php';
 		}
 
+// John - DEBUG
+	if(CI_DEBUG) :		
 		/**
 		 * Config\Kint
 		 */
-# JOHN 
-	if(defined('CI_DEBUG') && CI_DEBUG):		
 		$config = config('Config\Kint');
 
 		\Kint::$max_depth           = $config->maxDepth;
@@ -257,7 +257,7 @@ class CodeIgniter
 		\Kint\Renderer\CliRenderer::$force_utf8         = $config->cliForceUTF8;
 		\Kint\Renderer\CliRenderer::$detect_width       = $config->cliDetectWidth;
 		\Kint\Renderer\CliRenderer::$min_terminal_width = $config->cliMinWidth;
-	endif; // if(defined('CI_DEBUG') && CI_DEBUG):		
+	endif; // if(CI_DEBUG) :		
 	}
 
 	//--------------------------------------------------------------------
