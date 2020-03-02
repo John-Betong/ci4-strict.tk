@@ -13,7 +13,7 @@ require APPPATH ."Views/incs/doctype-001.php";
     <?php require APPPATH .'Views/incs/menu-001.php' ?>
   </div>
 
-  <div class="article">
+  <div class="article w88 mga">
     <h2 class="ooo"> 
       Bugs Fixed in App and System 
     </h2>
@@ -106,7 +106,7 @@ endif;
     \Kint\Renderer\CliRenderer::$min_terminal_width = $config->cliMinWidth;
   endif; // ($useKint):
 </pre></dd></dl>  
-//
+
 <!-- ############################################################# -->   
     <dl class="clb dib"> 
     <dt class="fsl bgg fgg"> file: app-strict/Views/errors/error_exception.php </dt>

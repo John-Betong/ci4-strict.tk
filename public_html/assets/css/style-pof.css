@@ -100,7 +100,7 @@ ol li {margin: 1em 1em 1em -1em;}
 .spc {height:  0.88em;}
 .tac {text-align: center;} .tal {text-align: left;}
 .tdn {text-decoration: none;}
-.w88 {width: 88%;} .w99 {width: 100%;}
+.w88 {width: 88%; max-width: 888px;} .w99 {width: 100%;}
 .z02 {z-index: 222;}
 
 /* ========================================== */
