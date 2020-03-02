@@ -14,7 +14,7 @@ require APPPATH ."Views/incs/doctype-001.php";
   </div>
 
   <div class="article w88 mga">
-    <h2 class="ooo"> 
+    <h2> 
       Bugs Fixed in App and System 
     </h2>
    
