@@ -225,13 +225,11 @@ class CodeIgniter
 			require_once SYSTEMPATH . 'ThirdParty/Kint/init.php';
 		}
 
-// John - DEBUG
-	if(CI_DEBUG) :		
 		/**
 		 * Config\Kint
 		 */
 		$config = config('Config\Kint');
-
+if(CI_DEBUG):
 		\Kint::$max_depth           = $config->maxDepth;
 		\Kint::$display_called_from = $config->displayCalledFrom;
 		\Kint::$expanded            = $config->expanded;
@@ -257,7 +255,7 @@ class CodeIgniter
 		\Kint\Renderer\CliRenderer::$force_utf8         = $config->cliForceUTF8;
 		\Kint\Renderer\CliRenderer::$detect_width       = $config->cliDetectWidth;
 		\Kint\Renderer\CliRenderer::$min_terminal_width = $config->cliMinWidth;
-	endif; // if(CI_DEBUG) :		
+endif; // (CI_DEBUG):
 	}
 
 	//--------------------------------------------------------------------

@@ -14,14 +14,14 @@ enjoy :)
 
 The following files were obtained from the CodeIgniter4 Repository and now have the strict types declaration included.
 
-Source: CodeIgniter4
-  sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
-  Build: 2c04e1c 
+ Source: CodeIgniter4
+    sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
+    Build: 9506609
       
 Source: John-Betong/ci4-strict
-  sudo git clone https://github.com/John-Betong/ci4-strict.git 
+    sudo git clone https://github.com/John-Betong/ci4-strict.git 
       
-<strong>NOT PHP files: 28 </strong>
+NOT PHP files: 33
 
     app/index.html
     app/Views/errors/html/debug.css
@@ -48,13 +48,18 @@ Source: John-Betong/ci4-strict
     system/ThirdParty/Kint/resources/compiled/solarized-dark.css
     system/ThirdParty/Kint/resources/compiled/solarized.css
     writable/cache/index.html
+    writable/debugbar/debugbar_1584155257.json
+    writable/debugbar/debugbar_1584155275.json
+    writable/debugbar/debugbar_1584155277.json
+    writable/debugbar/debugbar_1584155278.json
+    writable/debugbar/debugbar_1584155279.json
     writable/logs/index.html
     writable/session/index.html
     writable/uploads/index.html
      
 
      
-<strong>Strict_types=1 inserted into PHP files: 424 </strong>
+Strict_types=1 inserted into PHP files: 424
 
     app/Common.php
     app/Config/App.php

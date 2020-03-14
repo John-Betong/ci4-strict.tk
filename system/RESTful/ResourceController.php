@@ -67,12 +67,6 @@ class ResourceController extends Controller
 	 */
 	protected $model = null;
 
-	/**
-	 *
-	 * @var string the representation format to return resource data in (json/xml)
-	 */
-	protected $format = 'json';
-
 	//--------------------------------------------------------------------
 
 	public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)

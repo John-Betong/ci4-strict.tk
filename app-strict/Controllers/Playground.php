@@ -1,5 +1,9 @@
 <?php DECLARE(STRICT_TYPES=1); 
+
 namespace App\Controllers;
+
+error_reporting(-1);
+ini_set('display_errors', '1');
 
 use App\Models\DungeonModel;
 use App\Models\HeroModel;
@@ -21,6 +25,9 @@ public function index()
   $heroes   = new HeroModel();
   $dungeons = new DungeonModel();
   $dbName   = 'ci4';    
+
+  # $ok = $heroes->kill_0011(); // die;
+  # var_dump($ok); die;
 
 # MAYBE DROP DATABASE
   if(0) :

@@ -1,5 +1,5 @@
 <?php DECLARE(STRICT_TYPES=1); 
-
+ 
 error_reporting(-1); // regardless
 
 require '../app-strict/Views/incs/fred.php';
@@ -10,6 +10,7 @@ define('LOCALHOST', 'localhost'===$_SERVER['SERVER_NAME']);
 if(LOCALHOST) :
   define('CI_DEBUG', FALSE); // bypass (bool) app/Config/oot/development.php
   ini_set('display_errors', '1'); 
+  $_SERVER['CI_ENVIRONMENT'] = 'production';  // bypass .env & .htaccess
   $_SERVER['CI_ENVIRONMENT'] = 'development'; // bypass .env & .htaccess
   $useKint = FALSE;
 
@@ -18,7 +19,6 @@ if(LOCALHOST) :
 # CLEANER -  only shows last error logs and debugbar JSON files
   $ok = @unlink(LOGFILE);
   $ok = @array_map('unlink', glob("../writable/debugbar/*.json"));
-
 else:  
   define('CI_DEBUG', FALSE); // bypass (bool) app/Config/oot/prdouction.php
   ini_set('display_errors', '0'); 

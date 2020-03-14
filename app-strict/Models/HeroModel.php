@@ -21,4 +21,14 @@ class HeroModel extends Model
 	];
 	protected $validationMessages = [];
 	protected $skipValidation     = false;
+
+//=====================================
+public function kill_001()
+{
+	$result = '<h1>' .__method__ .'</h1>';
+
+	return $result;
+}	
+
 }
+
