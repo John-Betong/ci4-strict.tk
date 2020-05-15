@@ -110,9 +110,7 @@ class Database
 			$db->initialize();
 		}
 
-		$class = new $className($db);
-
-		return $class;
+		return new $className($db);
 	}
 
 	//--------------------------------------------------------------------
@@ -134,9 +132,7 @@ class Database
 			$db->initialize();
 		}
 
-		$class = new $className($db);
-
-		return $class;
+		return new $className($db);
 	}
 
 	//--------------------------------------------------------------------

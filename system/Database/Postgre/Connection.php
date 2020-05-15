@@ -188,11 +188,23 @@ class Connection extends BaseConnection implements ConnectionInterface
 	 *
 	 * @param string $sql
 	 *
-	 * @return resource
+	 * @return mixed
 	 */
 	public function execute(string $sql)
 	{
-		return pg_query($this->connID, $sql);
+		try
+		{
+			return pg_query($this->connID, $sql);
+		}
+		catch (\ErrorException $e)
+		{
+			log_message('error', $e);
+			if ($this->DBDebug)
+			{
+				throw $e;
+			}
+		}
+		return false;
 	}
 
 	//--------------------------------------------------------------------

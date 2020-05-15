@@ -1,9 +1,14 @@
 <?php DECLARE(STRICT_TYPES=1);
 
-$clr  = CI_DEBUG ? 'fgr'   : 'fgg';
-$ver  = 'Ver: ' .CodeIgniter\CodeIgniter::CI_VERSION ;                
-$log  = @filesize(LOGFILE);
-$sup  = CI_DEBUG ? '<sup class="fss"> DEBUG</sup>' : NULL;
+  $clr    = CI_DEBUG ? 'fgr'   : 'fgg';
+  $ver    = 'Ver: ' .CodeIgniter\CodeIgniter::CI_VERSION ;                
+  $log    = @filesize(LOGFILE);
+  $debug  = 'development'===$_SERVER['CI_ENVIRONMENT'] 
+          ? '<sup class="fss fgr"> DEBUG </sup>' 
+          : NULL
+          ;
+  $bld    = 'ace3f2c'; // 'c529d4f';
+
 
 ?>
 
@@ -17,20 +22,28 @@ $sup  = CI_DEBUG ? '<sup class="fss"> DEBUG</sup>' : NULL;
     
   <div class="fll logo"> 
     <a href="<?= BASEURL ?>" title="Home">
-      <?= file_get_contents( 'assets/svg/logo.svg'); ?>
+      <?php 
+        $tmp = 'assets/svg/logo.svg';
+        if(file_exists($tmp)):
+          //
+        else:
+          $tmp = '../assets/svg/logo.svg';
+        endif;  
+        file_get_contents($tmp); 
+      ?>
     </a>  
   </div>  
    
   <div class="p42 fgg dib tac">
     <h1 class="ooo <?= $clr ?>"> 
       <?= $title ?>
-      <?= $sup ?>
+      <?= $debug ?>
     </h1>
 
     <div class="ooo dib fss"> 
       <?= $ver ?>
       -
-      <em> <strong>Build:</strong> 9506609 </em>
+      <em> <strong>Build:</strong> <?= $bld ?> </em>
     </div>
   </div>  
   <br>

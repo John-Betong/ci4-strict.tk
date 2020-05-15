@@ -40,20 +40,20 @@
 namespace CodeIgniter;
 
 use Closure;
+use CodeIgniter\Debug\Timer;
+use CodeIgniter\Events\Events;
+use CodeIgniter\Exceptions\PageNotFoundException;
+use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\DownloadResponse;
 use CodeIgniter\HTTP\RedirectResponse;
 use CodeIgniter\HTTP\Request;
-use CodeIgniter\HTTP\ResponseInterface;
-use Config\Services;
-use Config\Cache;
-use CodeIgniter\HTTP\URI;
-use CodeIgniter\Debug\Timer;
-use CodeIgniter\Events\Events;
 use CodeIgniter\HTTP\Response;
-use CodeIgniter\HTTP\CLIRequest;
+use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\HTTP\URI;
 use CodeIgniter\Router\Exceptions\RedirectException;
 use CodeIgniter\Router\RouteCollectionInterface;
-use CodeIgniter\Exceptions\PageNotFoundException;
+use Config\Cache;
+use Config\Services;
 use Exception;
 
 /**
@@ -67,7 +67,7 @@ class CodeIgniter
 	/**
 	 * The current version of CodeIgniter Framework
 	 */
-	const CI_VERSION = '4.0.2';
+	const CI_VERSION = '4.0.3';
 
 	/**
 	 * App startup time.
@@ -195,7 +195,9 @@ class CodeIgniter
 
 		if (! CI_DEBUG)
 		{
+			// @codeCoverageIgnoreStart
 			\Kint::$enabled_mode = false;
+			// @codeCoverageIgnoreEnd
 		}
 	}
 
@@ -229,7 +231,7 @@ class CodeIgniter
 		 * Config\Kint
 		 */
 		$config = config('Config\Kint');
-if(CI_DEBUG):
+
 		\Kint::$max_depth           = $config->maxDepth;
 		\Kint::$display_called_from = $config->displayCalledFrom;
 		\Kint::$expanded            = $config->expanded;
@@ -255,7 +257,6 @@ if(CI_DEBUG):
 		\Kint\Renderer\CliRenderer::$force_utf8         = $config->cliForceUTF8;
 		\Kint\Renderer\CliRenderer::$detect_width       = $config->cliDetectWidth;
 		\Kint\Renderer\CliRenderer::$min_terminal_width = $config->cliMinWidth;
-endif; // (CI_DEBUG):
 	}
 
 	//--------------------------------------------------------------------
@@ -498,9 +499,11 @@ endif; // (CI_DEBUG):
 		}
 		else
 		{
+			// @codeCoverageIgnoreStart
 			header('HTTP/1.1 503 Service Unavailable.', true, 503);
 			echo 'The application environment is not set correctly.';
 			exit(1); // EXIT_ERROR
+			// @codeCoverageIgnoreEnd
 		}
 	}
 
@@ -552,9 +555,11 @@ endif; // (CI_DEBUG):
 			return;
 		}
 
-		if (is_cli() && ! (ENVIRONMENT === 'testing'))
+		if (is_cli() && ENVIRONMENT !== 'testing')
 		{
+			// @codeCoverageIgnoreStart
 			$this->request = Services::clirequest($this->config);
+			// @codeCoverageIgnoreEnd
 		}
 		else
 		{
@@ -749,9 +754,7 @@ endif; // (CI_DEBUG):
 	{
 		$this->totalTime = $this->benchmark->getElapsedTime('total_execution');
 
-		$output = str_replace('{elapsed_time}', $this->totalTime, $output);
-
-		return $output;
+		return str_replace('{elapsed_time}', $this->totalTime, $output);
 	}
 
 	//--------------------------------------------------------------------
@@ -960,10 +963,12 @@ endif; // (CI_DEBUG):
 
 		if (ENVIRONMENT !== 'testing')
 		{
+			// @codeCoverageIgnoreStart
 			if (ob_get_level() > 0)
 			{
 				ob_end_flush();
 			}
+			// @codeCoverageIgnoreEnd
 		}
 		else
 		{
@@ -974,7 +979,7 @@ endif; // (CI_DEBUG):
 			}
 		}
 
-		throw PageNotFoundException::forPageNotFound($e->getMessage());
+		throw PageNotFoundException::forPageNotFound(ENVIRONMENT !== 'production' || is_cli() ? $e->getMessage() : '');
 	}
 
 	//--------------------------------------------------------------------
@@ -1112,7 +1117,9 @@ endif; // (CI_DEBUG):
 	 */
 	protected function callExit($code)
 	{
+		// @codeCoverageIgnoreStart
 		exit($code);
+		// @codeCoverageIgnoreEnd
 	}
 
 	//--------------------------------------------------------------------

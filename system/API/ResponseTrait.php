@@ -40,8 +40,8 @@
 
 namespace CodeIgniter\API;
 
-use Config\Format;
 use CodeIgniter\HTTP\Response;
+use Config\Format;
 
 /**
  * Response trait.
@@ -57,7 +57,6 @@ use CodeIgniter\HTTP\Response;
  */
 trait ResponseTrait
 {
-
 	/**
 	 * Allows child classes to override the
 	 * status code that is used in their API.
@@ -67,6 +66,7 @@ trait ResponseTrait
 	protected $codes = [
 		'created'                   => 201,
 		'deleted'                   => 200,
+		'updated'                   => 200,
 		'no_content'                => 204,
 		'invalid_request'           => 400,
 		'unsupported_response_type' => 400,
@@ -95,8 +95,11 @@ trait ResponseTrait
 	];
 
 	/**
+	 * How to format the response data.
+	 * Either 'json' or 'xml'. If blank will be
+	 * determine through content negotiation.
 	 *
-	 * @var string the representation format to return resource data in (json/xml)
+	 * @var string
 	 */
 	protected $format = 'json';
 
@@ -195,6 +198,19 @@ trait ResponseTrait
 	public function respondDeleted($data = null, string $message = '')
 	{
 		return $this->respond($data, $this->codes['deleted'], $message);
+	}
+
+	/**
+	 * Used after a resource has been successfully updated.
+	 *
+	 * @param mixed  $data    Data.
+	 * @param string $message Message.
+	 *
+	 * @return mixed
+	 */
+	public function respondUpdated($data = null, string $message = '')
+	{
+		return $this->respond($data, $this->codes['updated'], $message);
 	}
 
 	//--------------------------------------------------------------------
@@ -371,16 +387,13 @@ trait ResponseTrait
 			return $data;
 		}
 
-		// Determine correct response type through content negotiation
 		$config = new Format();
+		$format = "application/$this->format";
 
-		if (! in_array($this->format, ['json', 'xml']))
+		// Determine correct response type through content negotiation if not explicitly declared
+		if (empty($this->format) || ! in_array($this->format, ['json', 'xml']))
 		{
 			$format = $this->request->negotiate('media', $config->supportedResponseFormats, false);
-		}
-		else
-		{
-			$format = "application/$this->format";
 		}
 
 		$this->response->setContentType($format);
@@ -402,4 +415,17 @@ trait ResponseTrait
 		return $this->formatter->format($data);
 	}
 
+	/**
+	 * Sets the format the response should be in.
+	 *
+	 * @param string $format
+	 *
+	 * @return $this
+	 */
+	public function setResponseFormat(string $format = null)
+	{
+		$this->format = strtolower($format);
+
+		return $this;
+	}
 }

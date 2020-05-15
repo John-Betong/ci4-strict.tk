@@ -256,30 +256,3 @@ ____TMP;
 	return $table;
 }
 
-/*
-//========================================
-// ORIGINAL
-//========================================
-function vd42($val='Nothing passed???')
-{
-  list($callee) = debug_backtrace();
-
-  $arguments = func_get_args();
-
-  $totalArguments = func_num_args();
-
-  echo '<div><fieldset style="background: #fefefe !important; border:1px red solid; padding:15px">';
-  echo '<legend style="background:lightgrey; padding:5px;">'.$callee['file'].' @line: '.$callee['line'].'</legend><pre><code>';
-
-  $i = 0;
-  foreach ($arguments as $argument)
-  {
-      echo '<strong>Debug #'.++$i.' of '.$totalArguments.'</strong>: '.'<br>';
-      
-      // this cam be changed to print_r() if you prefer that.
-      var_dump($argument);
-  }
-
-  echo "</code></pre></fieldset><div><br>";
-}
-*/

@@ -59,13 +59,13 @@ class ResourceController extends Controller
 	 *
 	 * @var string Name of the model class managing this resource's data
 	 */
-	protected $modelName = null;
+	protected $modelName;
 
 	/**
 	 *
 	 * @var \CodeIgniter\Model the model holding this resource's data
 	 */
-	protected $model = null;
+	protected $model;
 
 	//--------------------------------------------------------------------
 
@@ -177,7 +177,7 @@ class ResourceController extends Controller
 		{
 			if (class_exists($this->modelName))
 			{
-				$this->model = new $this->modelName;
+				$this->model = model($this->modelName);
 			}
 		}
 

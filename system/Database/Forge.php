@@ -111,14 +111,14 @@ class Forge
 	 *
 	 * @var string
 	 */
-	protected $createDatabaseIfStr = null;
+	protected $createDatabaseIfStr;
 
 	/**
 	 * CHECK DATABASE EXIST statement
 	 *
 	 * @var string
 	 */
-	protected $checkDatabaseExistStr = null;
+	protected $checkDatabaseExistStr;
 
 	/**
 	 * DROP DATABASE statement
@@ -718,9 +718,7 @@ class Forge
 			}
 		}
 
-		$sql = $sql . ' ' . $this->db->escapeIdentifiers($table);
-
-		return $sql;
+		return $sql . ' ' . $this->db->escapeIdentifiers($table);
 	}
 
 	//--------------------------------------------------------------------

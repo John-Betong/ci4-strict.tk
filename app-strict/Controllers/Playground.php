@@ -2,9 +2,6 @@
 
 namespace App\Controllers;
 
-error_reporting(-1);
-ini_set('display_errors', '1');
-
 use App\Models\DungeonModel;
 use App\Models\HeroModel;
 
@@ -25,24 +22,26 @@ public function index()
   $heroes   = new HeroModel();
   $dungeons = new DungeonModel();
   $dbName   = 'ci4';    
-
+  $pWORD    = LOCALHOST ? 'nana' : 'dO033614625035';
   # $ok = $heroes->kill_0011(); // die;
   # var_dump($ok); die;
 
 # MAYBE DROP DATABASE
+/*  
   if(0) :
     $ok   = $this->newDatabase($dbName);
     $conn = mysqli_connect
     (
       "localhost", 
-      $user="dasabooks", 
-      $pass="dasa424242", 
+      $user   = 'root', //"dasabooks", 
+      $pass   = 'dO 033614625035', // nana "dasa424242", 
       $dbName
     );
     $sql='DROP DATABASE '. $dbName;
       $conn->query($sql);  
     die($sql);
   endif;  
+*/
 
 # MAYBE OPEN DATABASE B GET DATA
   if($this->isConnected($dbName) ) :
@@ -66,8 +65,8 @@ public function index()
       $conn = mysqli_connect
       (
         "localhost", 
-        $user="dasabooks", 
-        $pass="dasa424242", 
+        $user = 'root', 
+        $pass = $pWORD,
         $dbName
       );
       $ok = $this->newTable($conn, $dbName, 'heroes') ;
@@ -97,9 +96,9 @@ private function isConnected
 {
   $result = FALSE;
     
-  error_reporting(0);  
-    $link = mysqli_connect("localhost", "dasabooks", "dasa424242", $dbName);
-  error_reporting(-1);
+  $pWORD = LOCALHOST ? 'nana' : 'dO033614625035';  
+
+  $link = mysqli_connect("localhost", "root", $pWORD, $dbName);
 
   $result = isset($link->errno) ;
   
@@ -116,7 +115,8 @@ private function newDatabase
 {
   $result = FALSE;
 
-  $conn   = mysqli_connect("localhost", "dasabooks", "dasa424242");
+# $conn   = mysqli_connect("localhost", "dasabooks", "dasa424242");
+  $conn   = mysqli_connect("localhost", "root", "nana");
   $sql    = 'CREATE DATABASE ' . $dbName ;
   $result = $conn->query($sql);
 
@@ -140,12 +140,13 @@ private function newTable
     foreach( $aSqls as $key => $sql) :
       $sql    = file_get_contents($sql);
       $result = $conn->query($sql);
-      # fred($result, '$result');
     endforeach;
     $result = TRUE;
   } catch(Exception $e) {
-    fred($e, '$e');
-    fred('BIG PROBLEM', __method__);
+    echo '<pre>$e ==> '; 
+      print_r($e); 
+      print_r('BIG PROBLEM ==> ' .__method__);
+    echo '</pre>';
   }
 
   return $result;

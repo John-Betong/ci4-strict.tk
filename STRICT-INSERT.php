@@ -1,6 +1,8 @@
 <?php DECLARE(STRICT_TYPES=1);
 
-  $path   = ['app', 'public', 'system', 'writable'] ; 
+  $path   = ['app_srict', 'app', 'public', 'system', 'writable'] ; 
+# $path   = ['system', 'writable'] ; 
+
   $link   = '<h2 class="flr">show: <a href="?strict">CI4_Strict</a> &nbsp; </h2>';
   $title  = 'CodeIgniter4';
   if(0 && isset($_GET['strict']) ):
@@ -144,7 +146,8 @@ function scandir_through($dir)
 }
 
 //====== DEBUG ===========================================
-function fred(
+function fred
+(
   $val='', 
   string $title=NULL
 )

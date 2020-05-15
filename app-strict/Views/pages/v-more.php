@@ -36,7 +36,7 @@ $aConsts = [
           GitHub CodeIgniter4
         </a>
       </dt>
-      <dd> Gihub CodeIgniter4  System Files Repository </dd>
+      <dd> Gihub CodeIgniter4 System Files Repository </dd>
       <dd> &nbsp; </dd>
 
       <dt class="fsl">
@@ -65,24 +65,6 @@ $aConsts = [
     </dl>
     <p> <br><br><br><br><br><br><br><br><br><br> </p>
   
-    <?php 
-      # f red( $default, '$default' );
-      # table($aConsts, 'My Wonderful Constants');
-      /*
-      echo '<dl><dt>Whatever </dt>';
-      echo '<dd class="bgr">';
-      echo '<pre class="p42 bgE bd1">';
-        #echo print_r($aConsts, true);
-         # table($aConsts, 'My Wonderful Constants');
-      echo '</pre>';  
-
-      echo '</dd></dl>';  
-      # fred($_ENV, '$_ENV');
-      */
-      # echo env('app.TimeZone'); // , $default='Asia/Bangkok'
-      # fred($_SERVER, '$_SERVER');
-    ?>
- 
   </div><!-- article -->
   
   <div class="footer tac p42">

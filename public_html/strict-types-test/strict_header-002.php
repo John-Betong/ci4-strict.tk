@@ -18,7 +18,6 @@
     define('CI_ENVIRONMENT', $tmpEnv);
 // DEBUG MODIFICATIONNS END ===========================================
 
-# $title    = 'FUCK-types=0';
 $logoSvg  = file_get_contents('../assets/svg/logo.svg');
 $css      = file_get_contents('../assets/css/style-tla.css');
 

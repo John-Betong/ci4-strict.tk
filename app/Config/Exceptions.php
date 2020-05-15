@@ -1,13 +1,14 @@
 <?php DECLARE(STRICT_TYPES=1); ?>
 <?php namespace Config;
 
+use CodeIgniter\Config\BaseConfig;
+
 /**
  * Setup how the exception handler works.
  *
  * @package Config
  */
-
-class Exceptions
+class Exceptions extends BaseConfig
 {
 	/*
 	 |--------------------------------------------------------------------------

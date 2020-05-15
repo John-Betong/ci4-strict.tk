@@ -1,5 +1,4 @@
 <?php DECLARE(STRICT_TYPES=1);
-# fred($pages);die;
 
 # ENHANCE SELECTION 
   $url = $url = $_SERVER['REQUEST_URI'];
@@ -65,12 +64,14 @@ ____EOT;
     <dt> Welcome pages  </dt>
       <?= getLink($pages, 'welcome-amp') ?>
       <?= getLink($pages, 'welcome-new') ?>
+      <!--
       <?= getLink($pages, 'welcome-message') ?>
       <?= getLink($pages, 'welcome-strict') ?>
+    -->
       <dd class="hg3"> &nbsp; </dd>
 
     <?php 
-      if(LOCALHOST) : 
+      if(1 || LOCALHOST) : 
         echo '<dt class="fgr"> LOCALHOST  </dt>';
         echo getLink($pages, 'environment');
       # echo getLink($pages, 'disqus');

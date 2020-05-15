@@ -1,33 +1,22 @@
 <?php DECLARE(STRICT_TYPES=1); 
- 
-error_reporting(-1); // regardless
+  
+  define('LOG_FILE',  '../writable/logs/log-' .date('Y-m-d') .'.log');
+  define('LOCALHOST', 'localhost'===$_SERVER['SERVER_NAME']);
+  if(LOCALHOST) :
+    $_SERVER['CI_ENVIRONMENT'] = 'development'; 
 
-require '../app-strict/Views/incs/fred.php';
-
-define('jj', "\n<br>");
-define('LOGFILE',   '../writable/logs/log-' .date('Y-m-d') .'.php');
-define('LOCALHOST', 'localhost'===$_SERVER['SERVER_NAME']);
-if(LOCALHOST) :
-  define('CI_DEBUG', FALSE); // bypass (bool) app/Config/oot/development.php
-  ini_set('display_errors', '1'); 
-  $_SERVER['CI_ENVIRONMENT'] = 'production';  // bypass .env & .htaccess
-  $_SERVER['CI_ENVIRONMENT'] = 'development'; // bypass .env & .htaccess
-  $useKint = FALSE;
-
-  # require '../system/ThirdParty/Kint/kint.php';
-
-# CLEANER -  only shows last error logs and debugbar JSON files
-  $ok = @unlink(LOGFILE);
-  $ok = @array_map('unlink', glob("../writable/debugbar/*.json"));
-else:  
-  define('CI_DEBUG', FALSE); // bypass (bool) app/Config/oot/prdouction.php
-  ini_set('display_errors', '0'); 
-  $_SERVER['CI_ENVIRONMENT'] = 'production'; // bypass .env & .htaccess
-  $useKint = FALSE;
-endif; 
+  # CLEANER -  only shows last error logs and debugbar JSON files
+    if(file_exists(LOG_FILE)):
+      $ok = unlink(LOG_FILE);
+    endif;
+   # $ok = unlink(LOG_FILE);
+    $ok = @array_map('unlink', glob("../writable/debugbar/*.json"));
+  else:  
+    $_SERVER['CI_ENVIRONMENT'] = 'production';
+  endif; 
 
 # dynamic BaseUrl - https://forum.codeigniter.com/thread-74649.html  
-  if( 1 || DEFINED('AUTOMATIC_URL_DETECTION') ) :
+  if( TRUE || DEFINED('AUTOMATIC_URL_DETECTION') ) :
     $url = (isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) 
         && 
         ('on' == $_SERVER['HTTPS']) 
@@ -43,7 +32,11 @@ endif;
   endif;  
   defined('BASEURL') ?: define('BASEURL', $url); # app/Paths.php, etc
 
+
+
 # ORIGINAL index.php scripts below
+
+
 
 #  Valid PHP Version? - should throw errors if not correct
   $minPHPVersion = '7.2';
@@ -75,14 +68,6 @@ endif;
   $paths = new Config\Paths();
   # Location of the framework bootstrap file.
   $app = require rtrim($paths->systemDirectory, '/ ') . '/bootstrap.php';
-
-if(0) :
-  fred($paths,   'function fred($paths, $title=""))');
-  table( $paths, 'function table((array) $paths), $title="")');
-  vd($paths,     'function vd($paths), $title="")' );
-  vd3($paths);
-  die();
-endif;  
 
 /*
  *---------------------------------------------------------------

@@ -321,6 +321,16 @@ class GDHandler extends BaseHandler
 	{
 		$target = empty($target) ? $this->image()->getPathname() : $target;
 
+		// If no new resource has been created, then we're
+		// simply copy the existing one.
+		if (empty($this->resource))
+		{
+			$name = basename($target);
+			$path = pathinfo($target, PATHINFO_DIRNAME);
+
+			return $this->image()->copy($path, $name);
+		}
+
 		switch ($this->image()->imageType)
 		{
 			case IMAGETYPE_GIF:
@@ -358,7 +368,6 @@ class GDHandler extends BaseHandler
 				break;
 			default:
 				throw ImageException::forInvalidImageCreate();
-				break;
 		}
 
 		imagedestroy($this->resource);
@@ -423,6 +432,32 @@ class GDHandler extends BaseHandler
 				return imagecreatefrompng($path);
 			default:
 				throw ImageException::forInvalidImageCreate('Ima');
+		}
+	}
+
+	//--------------------------------------------------------------------
+
+	/**
+	 * Make the image resource object if needed
+	 */
+	protected function ensureResource()
+	{
+		if ($this->resource === null)
+		{
+			$path = $this->image()->getPathname();
+			// if valid image type, make corresponding image resource
+			switch ($this->image()->imageType)
+			{
+				case IMAGETYPE_GIF:
+					$this->resource = imagecreatefromgif($path);
+					break;
+				case IMAGETYPE_JPEG:
+					$this->resource = imagecreatefromjpeg($path);
+					break;
+				case IMAGETYPE_PNG:
+					$this->resource = imagecreatefrompng($path);
+					break;
+			}
 		}
 	}
 
@@ -520,7 +555,7 @@ class GDHandler extends BaseHandler
 			$this->textOverlay($text, $options, true);
 		}
 
-		$this->textOverlay($text, $options, false);
+		$this->textOverlay($text, $options);
 	}
 
 	//--------------------------------------------------------------------

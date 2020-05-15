@@ -33,8 +33,8 @@ class Database extends \CodeIgniter\Database\Config
 	public $default = [
 		'DSN'      => '',
 		'hostname' => 'localhost',
-		'username' => 'dasabooks',
-		'password' => 'dasa424242',
+		'username' => 'root',
+		'password' => LOCALHOST ? 'nana' : 'dO033614625035',
 		'database' => 'ci4',
 		'DBDriver' => 'MySQLi', # GOOD
 	#	'DBDriver' => 'SQLite3',

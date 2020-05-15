@@ -1,7 +1,7 @@
 <?php DECLARE(STRICT_TYPES=1); ?>
 <?php namespace Config;
 
-require_once SYSTEMPATH . 'Config/AutoloadConfig.php';
+use CodeIgniter\Config\AutoloadConfig;
 
 /**
  * -------------------------------------------------------------------
@@ -10,7 +10,7 @@ require_once SYSTEMPATH . 'Config/AutoloadConfig.php';
  * This file defines the namespaces and class maps so the Autoloader
  * can find the files as needed.
  */
-class Autoload extends \CodeIgniter\Config\AutoloadConfig
+class Autoload extends AutoloadConfig
 {
 	public $psr4 = [];
 

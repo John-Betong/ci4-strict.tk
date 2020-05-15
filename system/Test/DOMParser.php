@@ -299,9 +299,7 @@ class DOMParser
 
 		$xpath = new \DOMXPath($this->dom);
 
-		$result = $xpath->query($path);
-
-		return $result;
+		return $xpath->query($path);
 	}
 
 	/**

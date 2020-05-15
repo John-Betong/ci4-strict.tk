@@ -39,10 +39,10 @@
 
 namespace CodeIgniter\Database;
 
-use Config\Services;
 use CodeIgniter\CLI\CLI;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Exceptions\ConfigException;
+use Config\Services;
 
 /**
  * Class MigrationRunner
@@ -1031,8 +1031,10 @@ class MigrationRunner
 		// Skip tests db group when not running in testing environment
 		if (ENVIRONMENT !== 'testing' && $group === 'tests' && $this->groupFilter !== 'tests')
 		{
+			// @codeCoverageIgnoreStart
 			$this->groupSkip = true;
 			return true;
+			// @codeCoverageIgnoreEnd
 		}
 
 		// Skip migration if group filtering was set

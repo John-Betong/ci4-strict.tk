@@ -1,5 +1,6 @@
-<strong>Source files:</strong>
-<h2> <a href="https://ci4-strict.tk/">Online Demo</a></h2>    
+Source files:
+Online Demo
+    
 
 Gitub CodeIgniter4 source files
    DECLARE(STRICT_TYPES=1); inserted into every PHP file. 
@@ -10,18 +11,14 @@ The CodeIgniter4 Repository, for some strange reason, does not DECLARE(STRICT_TY
 No doubt when modifying this Repository validation type errors will appear but they will be far easier to fix because rendering fails fast and all error must be fixed before proceeding!
 
 enjoy :)
-
-
-The following files were obtained from the CodeIgniter4 Repository and now have the strict types declaration included.
-
  Source: CodeIgniter4
     sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
-    Build: 9506609
+    Build: ace3f2c
       
 Source: John-Betong/ci4-strict
     sudo git clone https://github.com/John-Betong/ci4-strict.git 
       
-NOT PHP files: 33
+NOT PHP files: 28
 
     app/index.html
     app/Views/errors/html/debug.css
@@ -48,11 +45,6 @@ NOT PHP files: 33
     system/ThirdParty/Kint/resources/compiled/solarized-dark.css
     system/ThirdParty/Kint/resources/compiled/solarized.css
     writable/cache/index.html
-    writable/debugbar/debugbar_1584155257.json
-    writable/debugbar/debugbar_1584155275.json
-    writable/debugbar/debugbar_1584155277.json
-    writable/debugbar/debugbar_1584155278.json
-    writable/debugbar/debugbar_1584155279.json
     writable/logs/index.html
     writable/session/index.html
     writable/uploads/index.html
@@ -357,10 +349,10 @@ Strict_types=1 inserted into PHP files: 424
     system/Test/Mock/MockCLIConfig.php
     system/Test/Mock/MockCURLRequest.php
     system/Test/Mock/MockCache.php
-    system/Test/Mock/MockChromeLogger.php
     system/Test/Mock/MockCodeIgniter.php
     system/Test/Mock/MockCommon.php
     system/Test/Mock/MockConnection.php
+    system/Test/Mock/MockEmail.php
     system/Test/Mock/MockEvents.php
     system/Test/Mock/MockFileLogger.php
     system/Test/Mock/MockIncomingRequest.php

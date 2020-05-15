@@ -40,8 +40,8 @@
 
 namespace CodeIgniter\Debug\Toolbar\Collectors;
 
-use Config\Services;
 use CodeIgniter\View\RendererInterface;
+use Config\Services;
 
 /**
  * Views collector
@@ -112,7 +112,7 @@ class Events extends BaseCollector
 
 		$rows = $this->viewer->getPerformanceData();
 
-		foreach ($rows as $name => $info)
+		foreach ($rows as $info)
 		{
 			$data[] = [
 				'name'      => 'View: ' . $info['view'],

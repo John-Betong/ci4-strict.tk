@@ -1,17 +1,30 @@
 <?php DECLARE(STRICT_TYPES=1); 
 
 require APPPATH ."Views/incs/doctype-001.php";
+require APPPATH .'/Views/incs/fred.php';
 
 $showDbugBackTrace  = defined('SHOW_DEBUG_BACKTRACE') 
                     ? 'TRUE' 
                     : 'NOT DEFINED';
 $aConsts = [
-  'APPPATH'       => APPPATH,
-  'CI_DEBUG'      => CI_DEBUG ? 'TRUE' : 'FALSE',  
-  'ENVIRONMENT'   => ENVIRONMENT,  
-  'FCPATH'        => FCPATH,
-  'SYSTEMPATH'    => SYSTEMPATH,
-  'WRITEPATH'     => WRITEPATH,
+  'APPPATH'         => APPPATH,
+  'CI_DEBUG'        => CI_DEBUG ? 'TRUE' : 'FALSE',  
+# 'CI_ENVIRONMENT'  => 'Not set - CI_ENVIRONMENT',  
+# 'CIPATH'          => 'Not set - CIPATH',  
+# 'COMPOSERPATH'    => 'Not set - COMPOSERPATH',  
+  'ENVIRONMENT'     => ENVIRONMENT,  
+  'KINT_DIR'        => KINT_DIR,  
+# 'MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT' => MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT,
+  'FCPATH'          => FCPATH,
+  'LOCALHOST'       => LOCALHOST,
+  'LOG_FILE'        => LOG_FILE,
+  'ROOTPATH'        => ROOTPATH,
+# 'SPARKED'         => 'Not set - SPARKED',
+# 'STDIN'           => 'Not set - STDIN',
+# 'SUPPORTPATH'     => 'Not set - SUPPORTPATH',
+  'SYSTEMPATH'      => SYSTEMPATH,
+  'TESTPATH'        => TESTPATH,
+  'WRITEPATH'       => WRITEPATH,
   'SHOW_DEBUG_BACKTRACE' => $showDbugBackTrace,
 ];
 
@@ -28,23 +41,16 @@ $aConsts = [
 
   <div class="article">
     <h2 class="ooo"> Constants Stuff goes here </h2>
-    <h4> <?= getenv('app.baseURL') ?> </h4>
+    <?php if(0): ?>
+      <h4> app.baseURL ==> <?= getenv('app.baseURL') ?> </h4>
+    <?php endif; ?>  
   
     <?php 
-      # f red( $default, '$default' );
       table($aConsts, 'My Wonderful Constants');
-      /*
-      echo '<dl><dt>Whatever </dt>';
-      echo '<dd class="bgr">';
-      echo '<pre class="p42 bgE bd1">';
-        #echo print_r($aConsts, true);
-         # table($aConsts, 'My Wonderful Constants');
-      echo '</pre>';  
-      echo '</dd></dl>';  
-      # fred($_ENV, '$_ENV');
-      */
       echo env('app.TimeZone'); // , $default='Asia/Bangkok'
-      fred($_SERVER, '$_SERVER');
+      echo '<pre>'; 
+        print_r($_SERVER); 
+      echo '</pre>'; 
     ?>
  
   </div><!-- article -->

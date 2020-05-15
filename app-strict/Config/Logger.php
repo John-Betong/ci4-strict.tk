@@ -16,13 +16,13 @@ class Logger extends BaseConfig
 	|	0 = Disables logging, Error logging TURNED OFF
 	|	1 = Emergency Messages  - System is unusable
 	|	2 = Alert Messages      - Action Must Be Taken Immediately
-	|   3 = Critical Messages   - Application component unavailable, unexpected exception.
-	|   4 = Runtime Errors      - Don't need immediate action, but should be monitored.
-	|   5 = Warnings               - Exceptional occurrences that are not errors.
-	|   6 = Notices            - Normal but significant events.
-	|   7 = Info             - Interesting events, like user logging in, etc.
-	|   8 = Debug                - Detailed debug information.
-	|   9 = All Messages
+	| 3 = Critical Messages   - Application component unavailable, unexpected exception.
+	| 4 = Runtime Errors      - Don't need immediate action, but should be monitored.
+	| 5 = Warnings            - Exceptional occurrences that are not errors.
+	| 6 = Notices            	- Normal but significant events.
+	| 7 = Info             		- Interesting events, like user logging in, etc.
+	| 8 = Debug               - Detailed debug information.
+	| 9 = All Messages
 	|
 	| You can also pass an array with threshold levels to show individual error types
 	|
@@ -32,7 +32,7 @@ class Logger extends BaseConfig
 	| your log files will fill up very fast.
 	|
 	*/
-	public $threshold = 9;
+	public $threshold = 8;
 
 	/*
 	|--------------------------------------------------------------------------

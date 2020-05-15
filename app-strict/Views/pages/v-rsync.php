@@ -6,7 +6,9 @@ require APPPATH ."Views/incs/doctype-001.php";
 
   $commands = [];
   $src = '/var/www/ci4-strict.tk';
-  $dst = 'root@139.162.244.63:/var/www/ci4-strict.tk';
+  $dst = 'root@178.128.25.230:/var/www/ci4-strict.tk';
+  $dst = 'root@167.71.222.214:/var/www/ci4-strict.tk';
+  
 
   $commands['rsync .env-THELOT'] = <<< ____EOT
   rsync -avz  {$src}/ -e ssh {$dst}/

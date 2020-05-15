@@ -42,7 +42,6 @@ namespace CodeIgniter\Commands\Database;
 use CodeIgniter\CLI\BaseCommand;
 use CodeIgniter\CLI\CLI;
 use Config\Services;
-use Config\Migrations;
 
 /**
  * Creates a new migration file.
@@ -178,7 +177,7 @@ EOD;
 		helper('filesystem');
 		if (! write_file($path, $template))
 		{
-			CLI::error(lang('Migrations.writeError'));
+			CLI::error(lang('Migrations.writeError', [$path]));
 			return;
 		}
 

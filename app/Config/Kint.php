@@ -1,8 +1,8 @@
 <?php DECLARE(STRICT_TYPES=1); ?>
 <?php namespace Config;
 
-use Kint\Renderer\Renderer;
 use CodeIgniter\Config\BaseConfig;
+use Kint\Renderer\Renderer;
 
 class Kint extends BaseConfig
 {

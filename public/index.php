@@ -1,10 +1,6 @@
-<?php DECLARE(STRICT_TYPES=1); ?>
-<?php declare(strict_types=1);
-error_reporting(-1);
-ini_set('display_errors','1');
-define('CI_DEBUG', TRUE);
- 
-# $_SERVER['CI_ENVIRONMENT'] = 'development'; // 'production';
+<?php
+
+define('CI_DEBUG', ! FALSE);
 
 // Valid PHP Version?
 $minPHPVersion = '7.2';
@@ -19,7 +15,7 @@ define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
 
 // Location of the Paths config file.
 // This is the line that might need to be changed, depending on your folder structure.
-$pathsPath = FCPATH . '../app/Config/Paths.php';
+$pathsPath = realpath(FCPATH . '../app/Config/Paths.php');
 // ^^^ Change this if you move your application folder
 
 /*
@@ -48,4 +44,5 @@ $app = require rtrim($paths->systemDirectory, '/ ') . '/bootstrap.php';
  * Now that everything is setup, it's time to actually fire
  * up the engines and make this app do its thang.
  */
+
 $app->run();

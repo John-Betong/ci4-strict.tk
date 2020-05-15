@@ -1,7 +1,4 @@
-<?php 
-declare(strict_types=1);
-error_reporting(-1);
-ini_set('display_errors', '1');
+<?php DECLARE(STRICT_TYPES=1);
 
 ?><!DOCTYPE HTML><html ⚡>
 <head>

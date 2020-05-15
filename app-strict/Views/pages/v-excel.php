@@ -27,7 +27,9 @@ function convertXlsToCsv
       $writer->save($csv);
 
   }catch (Exception $e){
-    fred($e->message(), '$e->message()', 'red');
+    echo '<pre>$e ==> '; 
+      print_r($e);
+    echo '</pre>'; 
   }
 
   $result = file_exists($csv);

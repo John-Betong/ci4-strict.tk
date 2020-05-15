@@ -40,9 +40,9 @@
 
 namespace CodeIgniter\Database;
 
+use Closure;
 use CodeIgniter\Database\Exceptions\DatabaseException;
 use CodeIgniter\Database\Exceptions\DataException;
-use Closure;
 
 /**
  * Class BaseBuilder
@@ -104,7 +104,7 @@ class BaseBuilder
 	 *
 	 * @var array
 	 */
-	protected $QBGroupBy = [];
+	public $QBGroupBy = [];
 
 	/**
 	 * QB HAVING data
@@ -253,6 +253,20 @@ class BaseBuilder
 	 */
 	protected $testMode = false;
 
+	/**
+	 * Tables relation types
+	 *
+	 * @var array
+	 */
+	protected $joinTypes = [
+		'LEFT',
+		'RIGHT',
+		'OUTER',
+		'INNER',
+		'LEFT OUTER',
+		'RIGHT OUTER',
+	];
+
 	//--------------------------------------------------------------------
 
 	/**
@@ -397,7 +411,7 @@ class BaseBuilder
 	 */
 	public function selectMax(string $select = '', string $alias = '')
 	{
-		return $this->maxMinAvgSum($select, $alias, 'MAX');
+		return $this->maxMinAvgSum($select, $alias);
 	}
 
 	//--------------------------------------------------------------------
@@ -624,7 +638,7 @@ class BaseBuilder
 		{
 			$type = strtoupper(trim($type));
 
-			if (! in_array($type, ['LEFT', 'RIGHT', 'OUTER', 'INNER', 'LEFT OUTER', 'RIGHT OUTER'], true))
+			if (! in_array($type, $this->joinTypes, true))
 			{
 				$type = '';
 			}
@@ -982,12 +996,12 @@ class BaseBuilder
 	 * @used-by whereNotIn()
 	 * @used-by orWhereNotIn()
 	 *
-	 * @param string        $key    The field to search
-	 * @param array|Closure $values The values searched on, or anonymous function with subquery
-	 * @param boolean       $not    If the statement would be IN or NOT IN
-	 * @param string        $type
-	 * @param boolean       $escape
-	 * @param string        $clause (Internal use only)
+	 * @param  string        $key    The field to search
+	 * @param  array|Closure $values The values searched on, or anonymous function with subquery
+	 * @param  boolean       $not    If the statement would be IN or NOT IN
+	 * @param  string        $type
+	 * @param  boolean       $escape
+	 * @param  string        $clause (Internal use only)
 	 * @throws InvalidArgumentException
 	 *
 	 * @return BaseBuilder
@@ -998,20 +1012,22 @@ class BaseBuilder
 		{
 			if (CI_DEBUG)
 			{
-				throw new InvalidArgumentException(sprintf('%s() expects $key to be a non-empty string', debug_backtrace(0, 2)[1]['function']));
-			} 
-			
+				throw new \InvalidArgumentException(sprintf('%s() expects $key to be a non-empty string', debug_backtrace(0, 2)[1]['function']));
+			}
+			// @codeCoverageIgnoreStart
 			return $this;
+			// @codeCoverageIgnoreEnd
 		}
 
 		if ($values === null || (! is_array($values) && ! ($values instanceof Closure)))
 		{
 			if (CI_DEBUG)
 			{
-				throw new InvalidArgumentException(sprintf('%s() expects $values to be of type array or closure', debug_backtrace(0, 2)[1]['function']));
+				throw new \InvalidArgumentException(sprintf('%s() expects $values to be of type array or closure', debug_backtrace(0, 2)[1]['function']));
 			}
-			
+			// @codeCoverageIgnoreStart
 			return $this;
+			// @codeCoverageIgnoreEnd
 		}
 
 		is_bool($escape) || $escape = $this->db->protectIdentifiers;
@@ -1326,7 +1342,7 @@ class BaseBuilder
 	 */
 	public function groupStart()
 	{
-		return $this->groupStartPrepare('', 'AND ', 'QBWhere');
+		return $this->groupStartPrepare();
 	}
 
 	//--------------------------------------------------------------------
@@ -1338,7 +1354,7 @@ class BaseBuilder
 	 */
 	public function orGroupStart()
 	{
-		return $this->groupStartPrepare('', 'OR ', 'QBWhere');
+		return $this->groupStartPrepare('', 'OR ');
 	}
 
 	//--------------------------------------------------------------------
@@ -1350,7 +1366,7 @@ class BaseBuilder
 	 */
 	public function notGroupStart()
 	{
-		return $this->groupStartPrepare('NOT ', 'AND ', 'QBWhere');
+		return $this->groupStartPrepare('NOT ');
 	}
 
 	//--------------------------------------------------------------------
@@ -1362,7 +1378,7 @@ class BaseBuilder
 	 */
 	public function orNotGroupStart()
 	{
-		return $this->groupStartPrepare('NOT ', 'OR ', 'QBWhere');
+		return $this->groupStartPrepare('NOT ', 'OR ');
 	}
 
 	//--------------------------------------------------------------------
@@ -1374,7 +1390,7 @@ class BaseBuilder
 	 */
 	public function groupEnd()
 	{
-		return $this->groupEndPrepare('QBWhere');
+		return $this->groupEndPrepare();
 	}
 
 	// --------------------------------------------------------------------
@@ -1707,9 +1723,9 @@ class BaseBuilder
 	 *
 	 * @return string
 	 */
-	protected function _limit(string $sql): string
+	protected function _limit(string $sql, bool $offsetIgnore = false): string
 	{
-		return $sql . ' LIMIT ' . ($this->QBOffset ? $this->QBOffset . ', ' : '') . $this->QBLimit;
+		return $sql . ' LIMIT ' . (false === $offsetIgnore && $this->QBOffset ? $this->QBOffset . ', ' : '') . $this->QBLimit;
 	}
 
 	//--------------------------------------------------------------------
@@ -1922,7 +1938,7 @@ class BaseBuilder
 		$limit         = $this->QBLimit;
 		$this->QBLimit = false;
 
-		$sql = ($this->QBDistinct === true)
+		$sql = ($this->QBDistinct === true || ! empty($this->QBGroupBy))
 			?
 			$this->countString . $this->db->protectIdentifiers('numrows') . "\nFROM (\n" . $this->compileSelect() . "\n) CI_count_all_results"
 			:
@@ -2037,8 +2053,9 @@ class BaseBuilder
 				{
 					throw new DatabaseException('You must use the "set" method to update an entry.');
 				}
-
+				// @codeCoverageIgnoreStart
 				return false;
+				// @codeCoverageIgnoreEnd
 			}
 		}
 		else
@@ -2049,8 +2066,9 @@ class BaseBuilder
 				{
 					throw new DatabaseException('insertBatch() called with no data');
 				}
-
+				// @codeCoverageIgnoreStart
 				return false;
+				// @codeCoverageIgnoreEnd
 			}
 
 			$this->setInsertBatch($set, '', $escape);
@@ -2259,8 +2277,9 @@ class BaseBuilder
 			{
 				throw new DatabaseException('You must use the "set" method to update an entry.');
 			}
-
+			// @codeCoverageIgnoreStart
 			return false;
+			// @codeCoverageIgnoreEnd
 		}
 
 		return true;
@@ -2309,7 +2328,9 @@ class BaseBuilder
 			{
 				throw new DatabaseException('You must use the "set" method to update an entry.');
 			}
+			// @codeCoverageIgnoreStart
 			return false;
+			// @codeCoverageIgnoreEnd
 		}
 
 		$table = $this->QBFrom[0];
@@ -2470,7 +2491,7 @@ class BaseBuilder
 		return 'UPDATE ' . $this->compileIgnore('update') . $table . ' SET ' . implode(', ', $valStr)
 				. $this->compileWhereHaving('QBWhere')
 				. $this->compileOrderBy()
-				. ($this->QBLimit ? $this->_limit(' ') : '');
+				. ($this->QBLimit ? $this->_limit(' ', true) : '');
 	}
 
 	//--------------------------------------------------------------------
@@ -2493,8 +2514,9 @@ class BaseBuilder
 			{
 				throw new DatabaseException('You must use the "set" method to update an entry.');
 			}
-
+			// @codeCoverageIgnoreStart
 			return false;
+			// @codeCoverageIgnoreEnd
 		}
 
 		return true;
@@ -2522,8 +2544,9 @@ class BaseBuilder
 			{
 				throw new DatabaseException('You must specify an index to match on for batch updates.');
 			}
-
+			// @codeCoverageIgnoreStart
 			return false;
+			// @codeCoverageIgnoreEnd
 		}
 
 		if ($set === null)
@@ -2534,7 +2557,9 @@ class BaseBuilder
 				{
 					throw new DatabaseException('You must use the "set" method to update an entry.');
 				}
+				// @codeCoverageIgnoreStart
 				return false;
+				// @codeCoverageIgnoreEnd
 			}
 		}
 		else
@@ -2545,7 +2570,9 @@ class BaseBuilder
 				{
 					throw new DatabaseException('updateBatch() called with no data');
 				}
+				// @codeCoverageIgnoreStart
 				return false;
+				// @codeCoverageIgnoreEnd
 			}
 
 			$this->setUpdateBatch($set, $index);
@@ -2598,7 +2625,7 @@ class BaseBuilder
 		$ids   = [];
 		$final = [];
 
-		foreach ($values as $key => $val)
+		foreach ($values as $val)
 		{
 			$ids[] = $val[$index];
 
@@ -2647,7 +2674,7 @@ class BaseBuilder
 
 		is_bool($escape) || $escape = $this->db->protectIdentifiers;
 
-		foreach ($key as $k => $v)
+		foreach ($key as $v)
 		{
 			$index_set = false;
 			$clean     = [];
@@ -2794,8 +2821,9 @@ class BaseBuilder
 			{
 				throw new DatabaseException('Deletes are not allowed unless they contain a "where" or "like" clause.');
 			}
-
+			// @codeCoverageIgnoreStart
 			return false;
+			// @codeCoverageIgnoreEnd
 		}
 
 		$sql = $this->_delete($table);
@@ -2812,7 +2840,7 @@ class BaseBuilder
 				throw new DatabaseException('SQLite3 does not allow LIMITs on DELETE queries.');
 			}
 
-			$sql = $this->_limit($sql);
+			$sql = $this->_limit($sql, true);
 		}
 
 		if ($reset_data)
@@ -2874,8 +2902,7 @@ class BaseBuilder
 	 */
 	protected function _delete(string $table): string
 	{
-		return 'DELETE ' . $this->compileIgnore('delete') . 'FROM ' . $table . $this->compileWhereHaving('QBWhere')
-				. ($this->QBLimit ? ' LIMIT ' . $this->QBLimit : '');
+		return 'DELETE ' . $this->compileIgnore('delete') . 'FROM ' . $table . $this->compileWhereHaving('QBWhere');
 	}
 
 	//--------------------------------------------------------------------
@@ -3329,6 +3356,12 @@ class BaseBuilder
 		{
 			$this->db->setAliasedTables([]);
 		}
+
+		// Reset QBFrom part
+		if (! empty($this->QBFrom))
+		{
+			$this->from(array_shift($this->QBFrom), true);
+		}
 	}
 
 	//--------------------------------------------------------------------
@@ -3427,7 +3460,7 @@ class BaseBuilder
 			return $key;
 		}
 
-		if (!array_key_exists($key, $this->bindsKeyCount))
+		if (! array_key_exists($key, $this->bindsKeyCount))
 		{
 			$this->bindsKeyCount[$key] = 0;
 		}

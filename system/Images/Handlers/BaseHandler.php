@@ -61,12 +61,12 @@ abstract class BaseHandler implements ImageHandlerInterface
 	 *
 	 * @var \CodeIgniter\Images\Image
 	 */
-	protected $image = null;
+	protected $image;
 
 	/**
 	 * Whether the image file has been confirmed.
 	 *
-	 * @var bool
+	 * @var boolean
 	 */
 	protected $verified = false;
 
@@ -182,26 +182,7 @@ abstract class BaseHandler implements ImageHandlerInterface
 	/**
 	 * Make the image resource object if needed
 	 */
-	protected function ensureResource()
-	{
-		if ($this->resource === null)
-		{
-			$path = $this->image()->getPathname();
-			// if valid image type, make corresponding image resource
-			switch ($this->image()->imageType)
-			{
-				case IMAGETYPE_GIF:
-					$this->resource = imagecreatefromgif($path);
-					break;
-				case IMAGETYPE_JPEG:
-					$this->resource = imagecreatefromjpeg($path);
-					break;
-				case IMAGETYPE_PNG:
-					$this->resource = imagecreatefrompng($path);
-					break;
-			}
-		}
-	}
+	protected abstract function ensureResource();
 
 	//--------------------------------------------------------------------
 
@@ -265,6 +246,21 @@ abstract class BaseHandler implements ImageHandlerInterface
 	{
 		$this->ensureResource();
 		return $this->resource;
+	}
+
+	//--------------------------------------------------------------------
+
+	/**
+	 * Load the temporary image used during the image processing.
+	 * Some functions e.g. save() will only copy and not compress
+	 * your image otherwise.
+	 *
+	 * @return $this
+	 */
+	public function withResource()
+	{
+		$this->ensureResource();
+		return $this;
 	}
 
 	//--------------------------------------------------------------------
@@ -532,28 +528,21 @@ abstract class BaseHandler implements ImageHandlerInterface
 		{
 			case 2:
 				return $this->flip('horizontal');
-				break;
 			case 3:
 				return $this->rotate(180);
-				break;
 			case 4:
 				return $this->rotate(180)
 								->flip('horizontal');
-				break;
 			case 5:
 				return $this->rotate(270)
 								->flip('horizontal');
-				break;
 			case 6:
 				return $this->rotate(270);
-				break;
 			case 7:
 				return $this->rotate(90)
 								->flip('horizontal');
-				break;
 			case 8:
 				return $this->rotate(90);
-				break;
 			default:
 				return $this;
 		}

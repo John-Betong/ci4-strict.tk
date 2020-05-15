@@ -240,9 +240,7 @@ class Query implements QueryInterface
 	{
 		if ($returnRaw)
 		{
-   		# JOHN MODIFIED
-    	# return $this->startTime;
-    	return number_format($this->startTime, $decimals);			
+			return $this->startTime;
 		}
 
 		return number_format($this->startTime, $decimals);
@@ -371,7 +369,7 @@ class Query implements QueryInterface
 	{
 		$sql = $this->finalQueryString;
 
-		$hasNamedBinds = strpos($sql, ':') !== false;
+		$hasNamedBinds = strpos($sql, ':') !== false && strpos($sql, ':=') === false;
 
 		if (empty($this->binds) || empty($this->bindMarker) ||
 				(strpos($sql, $this->bindMarker) === false &&
@@ -443,9 +441,7 @@ class Query implements QueryInterface
 			$replacers[":{$placeholder}:"] = $escapedValue;
 		}
 
-		$sql = strtr($sql, $replacers);
-
-		return $sql;
+		return strtr($sql, $replacers);
 	}
 
 	//--------------------------------------------------------------------

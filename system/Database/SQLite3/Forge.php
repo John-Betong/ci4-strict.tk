@@ -168,7 +168,6 @@ class Forge extends \CodeIgniter\Database\Forge
 					->run();
 
 				return '';
-				break;
 			case 'CHANGE':
 				$sqlTable = new Table($this->db, $this);
 
@@ -177,7 +176,6 @@ class Forge extends \CodeIgniter\Database\Forge
 						 ->run();
 
 				return null;
-				break;
 			default:
 				return parent::_alterTable($alter_type, $table, $field);
 		}

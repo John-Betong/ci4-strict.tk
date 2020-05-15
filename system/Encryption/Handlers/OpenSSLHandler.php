@@ -115,9 +115,8 @@ class OpenSSLHandler extends BaseHandler
 		$result = $iv . $data;
 
 		$hmacKey = \hash_hmac($this->digest, $result, $secret, true);
-		$result  = $hmacKey . $result;
 
-		return $result;
+		return $hmacKey . $result;
 	}
 
 	// --------------------------------------------------------------------

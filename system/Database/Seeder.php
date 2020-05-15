@@ -123,6 +123,8 @@ class Seeder
 		}
 
 		$this->db = & $db;
+
+		$this->forge = \Config\Database::forge($this->DBGroup);
 	}
 
 	//--------------------------------------------------------------------

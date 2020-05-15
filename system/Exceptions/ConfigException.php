@@ -17,6 +17,6 @@ class ConfigException extends CriticalError
 
 	public static function forDisabledMigrations()
 	{
-		throw new static(lang('Migrations.disabled'));
+		return new static(lang('Migrations.disabled'));
 	}
 }

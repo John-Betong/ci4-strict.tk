@@ -60,6 +60,11 @@ class View implements RendererInterface
 	protected $data = [];
 
 	/**
+	 * Merge savedData and userData
+	 */
+	protected $tempData = null;
+
+	/**
 	 * The base directory to look in for our Views.
 	 *
 	 * @var string
@@ -190,11 +195,10 @@ class View implements RendererInterface
 		// Store the results here so even if
 		// multiple views are called in a view, it won't
 		// clean it unless we mean it to.
-		if ($saveData !== null)
+		if (is_null($saveData))
 		{
-			$this->saveData = $saveData;
+			$saveData = $this->saveData;
 		}
-
 		$fileExt                     = pathinfo($view, PATHINFO_EXTENSION);
 		$realPath                    = empty($fileExt) ? $view . '.php' : $view; // allow Views as .html, .tpl, etc (from CI3)
 		$this->renderVars['view']    = $realPath;
@@ -226,11 +230,17 @@ class View implements RendererInterface
 		}
 
 		// Make our view data available to the view.
-		extract($this->data);
 
-		if (! $this->saveData)
+		if (is_null($this->tempData))
 		{
-			$this->data = [];
+			$this->tempData = $this->data;
+		}
+
+		extract($this->tempData);
+
+		if ($saveData)
+		{
+			$this->data = $this->tempData;
 		}
 
 		ob_start();
@@ -278,6 +288,8 @@ class View implements RendererInterface
 			cache()->save($this->renderVars['cacheName'], $output, (int) $this->renderVars['options']['cache']);
 		}
 
+		$this->tempData = null;
+
 		return $output;
 	}
 
@@ -301,16 +313,22 @@ class View implements RendererInterface
 	public function renderString(string $view, array $options = null, bool $saveData = null): string
 	{
 		$start = microtime(true);
+
 		if (is_null($saveData))
 		{
-			$saveData = $this->config->saveData;
+			$saveData = $this->saveData;
 		}
 
-		extract($this->data);
-
-		if (! $saveData)
+		if (is_null($this->tempData))
 		{
-			$this->data = [];
+			$this->tempData = $this->data;
+		}
+
+		extract($this->tempData);
+
+		if ($saveData)
+		{
+			$this->data = $this->tempData;
 		}
 
 		ob_start();
@@ -320,6 +338,8 @@ class View implements RendererInterface
 		@ob_end_clean();
 
 		$this->logPerformance($start, microtime(true), $this->excerpt($view));
+
+		$this->tempData = null;
 
 		return $output;
 	}
@@ -356,7 +376,8 @@ class View implements RendererInterface
 			$data = \esc($data, $context);
 		}
 
-		$this->data = array_merge($this->data, $data);
+		$this->tempData = $this->tempData ?? $this->data;
+		$this->tempData = array_merge($this->tempData, $data);
 
 		return $this;
 	}
@@ -380,7 +401,8 @@ class View implements RendererInterface
 			$value = \esc($value, $context);
 		}
 
-		$this->data[$name] = $value;
+		$this->tempData        = $this->tempData ?? $this->data;
+		$this->tempData[$name] = $value;
 
 		return $this;
 	}
@@ -408,7 +430,7 @@ class View implements RendererInterface
 	 */
 	public function getData(): array
 	{
-		return $this->data;
+		return is_null($this->tempData) ? $this->data : $this->tempData;
 	}
 
 	//--------------------------------------------------------------------

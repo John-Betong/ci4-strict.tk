@@ -39,10 +39,10 @@
 
 namespace CodeIgniter\Filters;
 
+use CodeIgniter\Honeypot\Exceptions\HoneypotException;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Config\Services;
-use CodeIgniter\Honeypot\Exceptions\HoneypotException;
 
 /**
  * Honeypot filter

@@ -256,7 +256,6 @@ class MockConnection extends BaseConnection
 	 */
 	protected function _close()
 	{
-		return;
 	}
 
 	//--------------------------------------------------------------------
