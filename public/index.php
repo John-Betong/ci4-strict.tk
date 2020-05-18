@@ -1,6 +1,5 @@
+<?php DECLARE(STRICT_TYPES=1); ?>
 <?php
-
-define('CI_DEBUG', ! FALSE);
 
 // Valid PHP Version?
 $minPHPVersion = '7.2';
@@ -44,5 +43,4 @@ $app = require rtrim($paths->systemDirectory, '/ ') . '/bootstrap.php';
  * Now that everything is setup, it's time to actually fire
  * up the engines and make this app do its thang.
  */
-
 $app->run();

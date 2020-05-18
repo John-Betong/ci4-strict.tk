@@ -11,9 +11,10 @@ The CodeIgniter4 Repository, for some strange reason, does not DECLARE(STRICT_TY
 No doubt when modifying this Repository validation type errors will appear but they will be far easier to fix because rendering fails fast and all error must be fixed before proceeding!
 
 enjoy :)
+
  Source: CodeIgniter4
     sudo git clone https://github.com/codeigniter4/CodeIgniter4.git 
-    Build: ace3f2c
+    Build: 77a32b0 
       
 Source: John-Betong/ci4-strict
     sudo git clone https://github.com/John-Betong/ci4-strict.git 
@@ -477,4 +478,4 @@ Strict_types=1 inserted into PHP files: 424
     system/ThirdParty/Kint/Renderer/Text/Plugin.php
     system/ThirdParty/Kint/Renderer/Text/RecursionPlugin.php
     system/ThirdParty/Kint/Renderer/Text/TracePlugin.php
-     
+

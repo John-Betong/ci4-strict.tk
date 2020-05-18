@@ -228,7 +228,7 @@ class Forge extends \CodeIgniter\Database\Forge
 	{
 		if (! empty($attributes['AUTO_INCREMENT']) && $attributes['AUTO_INCREMENT'] === true)
 		{
-			$field['type'] = $field['type'] === 'NUMERIC' ? 'BIGSERIAL' : 'SERIAL';
+			$field['type'] = $field['type'] === 'NUMERIC' || $field['type'] === 'BIGINT' ? 'BIGSERIAL' : 'SERIAL';
 		}
 	}
 

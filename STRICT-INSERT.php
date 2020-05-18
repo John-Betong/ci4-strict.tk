@@ -1,6 +1,6 @@
 <?php DECLARE(STRICT_TYPES=1);
 
-  $path   = ['app_srict', 'app', 'public', 'system', 'writable'] ; 
+  $path   = ['app_strict', 'app', 'public', 'system', 'writable'] ; 
 # $path   = ['system', 'writable'] ; 
 
   $link   = '<h2 class="flr">show: <a href="?strict">CI4_Strict</a> &nbsp; </h2>';
