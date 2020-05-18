@@ -13,6 +13,7 @@
     $ok = @array_map('unlink', glob("../writable/debugbar/*.json"));
   else:  
     $_SERVER['CI_ENVIRONMENT'] = 'production';
+    $_SERVER['CI_ENVIRONMENT'] = 'development'; 
   endif; 
 
 # dynamic BaseUrl - https://forum.codeigniter.com/thread-74649.html  

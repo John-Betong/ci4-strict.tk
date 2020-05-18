@@ -47,13 +47,13 @@ require APPPATH .'Views/incs/doctype-001.php';
       <dd>
         <ol>
           <li> 
-            <a href="../system-strict.tar.xz"> 
+            <a href="zips/system-strict.tar.xz"> 
               Linux 
             </a>
             <sup> system-strict.tar.xz </sup>  
           </li>
           <li> 
-            <a href="../system-strict.zip"> 
+            <a href="zips/system-strict.zip"> 
               Windows  
             </a>
             <sup> system-strict.zip </sup>
