@@ -625,7 +625,7 @@ class Validation implements ValidationInterface
 			throw ValidationException::forGroupNotArray($group);
 		}
 
-		$this->rules = $this->config->$group;
+		$this->setRules($this->config->$group);
 
 		// If {group}_errors exists in the config file,
 		// then override our custom errors with them.

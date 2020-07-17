@@ -22,7 +22,7 @@ body {background: #f8f8f8; color: #0a0;}
     <ol class="dib mga lh2 tal">
       <li> git status </li>
       <li> git add    </li>
-      <li> git commit -m "whatever" </li>
+      <li> git commit -m "Version: " </li>
     </ol>
   </div>    
 

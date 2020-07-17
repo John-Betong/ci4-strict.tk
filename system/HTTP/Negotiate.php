@@ -1,7 +1,6 @@
 <?php DECLARE(STRICT_TYPES=1); ?>
 <?php
 
-
 /**
  * CodeIgniter
  *
@@ -68,7 +67,7 @@ class Negotiate
 	/**
 	 * Constructor
 	 *
-	 * @param \CodeIgniter\HTTP\RequestInterface $request
+	 * @param \CodeIgniter\HTTP\RequestInterface|null $request
 	 */
 	public function __construct(RequestInterface $request = null)
 	{
@@ -419,14 +418,10 @@ class Negotiate
 	 */
 	public function matchTypes(array $acceptable, array $supported): bool
 	{
-		[
-			$aType,
-			$aSubType,
-		] = explode('/', $acceptable['value']);
-		[
-			$sType,
-			$sSubType,
-		] = explode('/', $supported['value']);
+		// PHPDocumentor v2 cannot parse yet the shorter list syntax,
+		// causing no API generation for the file.
+		list($aType, $aSubType) = explode('/', $acceptable['value']);
+		list($sType, $sSubType) = explode('/', $supported['value']);
 
 		// If the types don't match, we're done.
 		if ($aType !== $sType)

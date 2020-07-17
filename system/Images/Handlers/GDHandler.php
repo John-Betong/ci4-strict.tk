@@ -50,8 +50,8 @@ class GDHandler extends BaseHandler
 	/**
 	 * Constructor.
 	 *
-	 * @param  type $config
-	 * @throws type
+	 * @param  \Config\Images|null $config
+	 * @throws ImageException
 	 */
 	public function __construct($config = null)
 	{
@@ -152,49 +152,9 @@ class GDHandler extends BaseHandler
 	{
 		$srcImg = $this->createImage();
 
-		$width  = $this->image()->origWidth;
-		$height = $this->image()->origHeight;
+		$angle = $direction === 'horizontal' ? IMG_FLIP_HORIZONTAL : IMG_FLIP_VERTICAL;
 
-		if ($direction === 'horizontal')
-		{
-			for ($i = 0; $i < $height; $i ++)
-			{
-				$left  = 0;
-				$right = $width - 1;
-
-				while ($left < $right)
-				{
-					$cl = imagecolorat($srcImg, $left, $i);
-					$cr = imagecolorat($srcImg, $right, $i);
-
-					imagesetpixel($srcImg, $left, $i, $cr);
-					imagesetpixel($srcImg, $right, $i, $cl);
-
-					$left ++;
-					$right --;
-				}
-			}
-		}
-		else
-		{
-			for ($i = 0; $i < $width; $i ++)
-			{
-				$top    = 0;
-				$bottom = $height - 1;
-
-				while ($top < $bottom)
-				{
-					$ct = imagecolorat($srcImg, $i, $top);
-					$cb = imagecolorat($srcImg, $i, $bottom);
-
-					imagesetpixel($srcImg, $i, $top, $cb);
-					imagesetpixel($srcImg, $i, $bottom, $ct);
-
-					$top ++;
-					$bottom --;
-				}
-			}
-		}
+		imageflip($srcImg, $angle);
 
 		$this->resource = $srcImg;
 
@@ -225,7 +185,7 @@ class GDHandler extends BaseHandler
 	/**
 	 * Resizes the image.
 	 *
-	 * @return boolean|\CodeIgniter\Images\Handlers\GDHandler
+	 * @return \CodeIgniter\Images\Handlers\GDHandler
 	 */
 	public function _resize()
 	{
@@ -237,7 +197,7 @@ class GDHandler extends BaseHandler
 	/**
 	 * Crops the image.
 	 *
-	 * @return boolean|\CodeIgniter\Images\Handlers\GDHandler
+	 * @return \CodeIgniter\Images\Handlers\GDHandler
 	 */
 	public function _crop()
 	{
@@ -251,7 +211,7 @@ class GDHandler extends BaseHandler
 	 *
 	 * @param string $action
 	 *
-	 * @return $this|bool
+	 * @return $this
 	 */
 	protected function process(string $action)
 	{
@@ -319,17 +279,25 @@ class GDHandler extends BaseHandler
 	 */
 	public function save(string $target = null, int $quality = 90): bool
 	{
-		$target = empty($target) ? $this->image()->getPathname() : $target;
+		$original = $target;
+		$target   = empty($target) ? $this->image()->getPathname() : $target;
 
 		// If no new resource has been created, then we're
 		// simply copy the existing one.
-		if (empty($this->resource))
+		if (empty($this->resource) && $quality === 100)
 		{
+			if ($original === null)
+			{
+				return true;
+			}
+
 			$name = basename($target);
 			$path = pathinfo($target, PATHINFO_DIRNAME);
 
 			return $this->image()->copy($path, $name);
 		}
+
+		$this->ensureResource();
 
 		switch ($this->image()->imageType)
 		{
@@ -362,6 +330,17 @@ class GDHandler extends BaseHandler
 				}
 
 				if (! @imagepng($this->resource, $target))
+				{
+					throw ImageException::forSaveFailed();
+				}
+				break;
+			case IMAGETYPE_WEBP:
+				if (! function_exists('imagewebp'))
+				{
+					throw ImageException::forInvalidImageCreate(lang('images.webpNotSupported'));
+				}
+
+				if (! @imagewebp($this->resource, $target))
 				{
 					throw ImageException::forSaveFailed();
 				}
@@ -407,6 +386,38 @@ class GDHandler extends BaseHandler
 			$imageType = $this->image()->imageType;
 		}
 
+		return $this->getImageResource($path, $imageType);
+	}
+
+	//--------------------------------------------------------------------
+
+	/**
+	 * Make the image resource object if needed
+	 */
+	protected function ensureResource()
+	{
+		if ($this->resource === null)
+		{
+			// if valid image type, make corresponding image resource
+			$this->resource = $this->getImageResource(
+				$this->image()->getPathname(), $this->image()->imageType
+			);
+		}
+	}
+
+	//--------------------------------------------------------------------
+
+	/**
+	 * Check if image type is supported and return image resource
+	 *
+	 * @param string  $path      Image path
+	 * @param integer $imageType Image type
+	 *
+	 * @return resource|boolean
+	 * @throws ImageException
+	 */
+	protected function getImageResource(string $path, int $imageType)
+	{
 		switch ($imageType)
 		{
 			case IMAGETYPE_GIF:
@@ -430,34 +441,15 @@ class GDHandler extends BaseHandler
 				}
 
 				return imagecreatefrompng($path);
+			case IMAGETYPE_WEBP:
+				if (! function_exists('imagecreatefromwebp'))
+				{
+					throw ImageException::forInvalidImageCreate(lang('images.webpNotSupported'));
+				}
+
+				return imagecreatefromwebp($path);
 			default:
 				throw ImageException::forInvalidImageCreate('Ima');
-		}
-	}
-
-	//--------------------------------------------------------------------
-
-	/**
-	 * Make the image resource object if needed
-	 */
-	protected function ensureResource()
-	{
-		if ($this->resource === null)
-		{
-			$path = $this->image()->getPathname();
-			// if valid image type, make corresponding image resource
-			switch ($this->image()->imageType)
-			{
-				case IMAGETYPE_GIF:
-					$this->resource = imagecreatefromgif($path);
-					break;
-				case IMAGETYPE_JPEG:
-					$this->resource = imagecreatefromjpeg($path);
-					break;
-				case IMAGETYPE_PNG:
-					$this->resource = imagecreatefrompng($path);
-					break;
-			}
 		}
 	}
 
@@ -566,6 +558,8 @@ class GDHandler extends BaseHandler
 	 * @param string  $text
 	 * @param array   $options
 	 * @param boolean $isShadow Whether we are drawing the dropshadow or actual text
+	 *
+	 * @return void
 	 */
 	protected function textOverlay(string $text, array $options = [], bool $isShadow = false)
 	{

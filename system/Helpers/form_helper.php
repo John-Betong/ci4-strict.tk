@@ -844,7 +844,7 @@ if (! function_exists('set_checkbox'))
 		}
 
 		// Unchecked checkbox and radio inputs are not even submitted by browsers ...
-		if (intval($input) === 0 || ! empty($request->getPost()) || ! empty(old($field)))
+		if ((string) $input === '0' || ! empty($request->getPost()) || ! empty(old($field)))
 		{
 			return ($input === $value) ? ' checked="checked"' : '';
 		}
@@ -896,7 +896,7 @@ if (! function_exists('set_radio'))
 
 		// Unchecked checkbox and radio inputs are not even submitted by browsers ...
 		$result = '';
-		if (intval($input) === 0 || ! empty($input = $request->getPost($field)) || ! empty($input = old($field)))
+		if ((string) $input === '0' || ! empty($input = $request->getPost($field)) || ! empty($input = old($field)))
 		{
 			$result = ($input === $value) ? ' checked="checked"' : '';
 		}

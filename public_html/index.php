@@ -1,19 +1,21 @@
 <?php DECLARE(STRICT_TYPES=1); 
-  
+
   define('LOG_FILE',  '../writable/logs/log-' .date('Y-m-d') .'.log');
   define('LOCALHOST', 'localhost'===$_SERVER['SERVER_NAME']);
+
+# SET DEFAULT TO PROD"UCTION
+  $_SERVER['CI_ENVIRONMENT'] = 'production';
   if(LOCALHOST) :
     $_SERVER['CI_ENVIRONMENT'] = 'development'; 
-
+    $_SERVER['CI_ENVIRONMENT'] = 'production';
   # CLEANER -  only shows last error logs and debugbar JSON files
     if(file_exists(LOG_FILE)):
       $ok = unlink(LOG_FILE);
     endif;
    # $ok = unlink(LOG_FILE);
     $ok = @array_map('unlink', glob("../writable/debugbar/*.json"));
-  else:  
+  else:
     $_SERVER['CI_ENVIRONMENT'] = 'production';
-    $_SERVER['CI_ENVIRONMENT'] = 'development'; 
   endif; 
 
 # dynamic BaseUrl - https://forum.codeigniter.com/thread-74649.html  
@@ -36,6 +38,11 @@
 
 
 # ORIGINAL index.php scripts below
+# BEWARE CHANGED $pathsPath 
+
+
+
+
 
 
 
@@ -49,8 +56,17 @@
 
 # Path to the front controller (this file)
   define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
+
+
+
+
+  // BEWARE: CHANGED
   $pathsPath = FCPATH . '../app-strict/Config/Paths.php';
   # ^^^ Change this if you move your application folder
+
+
+
+
 
 /*
  *---------------------------------------------------------------

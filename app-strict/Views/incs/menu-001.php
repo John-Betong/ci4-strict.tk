@@ -47,6 +47,10 @@ ____EOT;
       <?php endif ?> 
       <dd class="hg3"> &nbsp; </dd>
 
+	<dt> Built with CI4 </dt>
+      <?= getLink($pages, 'builtwith') ?> 
+      <dd class="hg3"> &nbsp; </dd>
+
     <dt> Info </dt>
       <?= getLink($pages, 'conversion-script') ?> 
       <?= getLink($pages, 'download-install') ?>

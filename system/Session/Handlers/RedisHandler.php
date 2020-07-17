@@ -126,7 +126,9 @@ class RedisHandler extends BaseHandler implements \SessionHandlerInterface
 			$this->keyPrefix .= $this->ipAddress . ':';
 		}
 
-				$this->sessionExpiration = $config->sessionExpiration;
+		$this->sessionExpiration = empty($config->sessionExpiration)
+			? (int) ini_get('session.gc_maxlifetime')
+			: (int) $config->sessionExpiration;
 	}
 
 	//--------------------------------------------------------------------

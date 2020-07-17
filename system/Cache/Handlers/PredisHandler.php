@@ -58,8 +58,7 @@ class PredisHandler implements CacheInterface
 	/**
 	 * Default config
 	 *
-	 * @static
-	 * @var    array
+	 * @var array
 	 */
 	protected $config = [
 		'scheme'   => 'tcp',
@@ -72,7 +71,7 @@ class PredisHandler implements CacheInterface
 	/**
 	 * Predis connection
 	 *
-	 * @var Predis
+	 * @var \Predis\Client
 	 */
 	protected $redis;
 
@@ -81,8 +80,7 @@ class PredisHandler implements CacheInterface
 	/**
 	 * Constructor.
 	 *
-	 * @param  type $config
-	 * @throws type
+	 * @param \Config\Cache $config
 	 */
 	public function __construct($config)
 	{
@@ -204,7 +202,7 @@ class PredisHandler implements CacheInterface
 	 *
 	 * @param string $key Cache item name
 	 *
-	 * @return mixed
+	 * @return boolean
 	 */
 	public function delete(string $key)
 	{
@@ -246,11 +244,11 @@ class PredisHandler implements CacheInterface
 	/**
 	 * Will delete all items in the entire cache.
 	 *
-	 * @return mixed
+	 * @return boolean
 	 */
 	public function clean()
 	{
-		return $this->redis->flushdb();
+		return $this->redis->flushdb()->getPayload() === 'OK';
 	}
 
 	//--------------------------------------------------------------------
@@ -283,13 +281,15 @@ class PredisHandler implements CacheInterface
 
 		if (isset($data['__ci_value']) && $data['__ci_value'] !== false)
 		{
+			$time = time();
 			return [
-				'expire' => time() + $this->redis->ttl($key),
+				'expire' => $time + $this->redis->ttl($key),
+				'mtime'  => $time,
 				'data'   => $data['__ci_value'],
 			];
 		}
 
-		return false;
+		return null;
 	}
 
 	//--------------------------------------------------------------------

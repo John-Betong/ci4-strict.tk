@@ -53,8 +53,10 @@ public $pages = [
     'welcome-message'   => 'Welcome Original',
     'welcome-strict'    => 'Welcome Strict',
     'heroes'            => 'heroes',
-    'dungeons'          => 'dungeons'
+    'dungeons'          => 'dungeons',
+    'builtwith'         => 'Built with CI4',
   ];
+	
 
 	/**
 	 * Constructor.

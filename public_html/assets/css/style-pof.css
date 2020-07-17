@@ -89,6 +89,9 @@ ol li {margin: 1em 1em 1em -1em;}
 .hg7 {min-height: 11em;}
 .hhh {display: none;}
 
+.img {float: left; max-width: 200px; max-height: 180px; display: inline-block; margin-bottom: 2em }
+
+.img:hover {background-color: cyan;} 
 .lh2 {line-height: 1.88;}
 .mga {margin: 0 auto;}
 .ooo {margin: 0; padding: 0;}

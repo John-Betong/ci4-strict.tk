@@ -295,8 +295,7 @@ class IncomingRequest extends Request
 	 */
 	public function isAJAX(): bool
 	{
-		return ( ! empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
-				strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest');
+		return $this->hasHeader('X-Requested-With') && strtolower($this->getHeader('X-Requested-With')->getValue()) === 'xmlhttprequest';
 	}
 
 	//--------------------------------------------------------------------
@@ -313,11 +312,11 @@ class IncomingRequest extends Request
 		{
 			return true;
 		}
-		elseif (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
+		elseif ($this->hasHeader('X-Forwarded-Proto') && $this->getHeader('X-Forwarded-Proto')->getValue() === 'https')
 		{
 			return true;
 		}
-		elseif (! empty($_SERVER['HTTP_FRONT_END_HTTPS']) && strtolower($_SERVER['HTTP_FRONT_END_HTTPS']) !== 'off')
+		elseif ($this->hasHeader('Front-End-Https') && ! empty($this->getHeader('Front-End-Https')->getValue()) && strtolower($this->getHeader('Front-End-Https')->getValue()) !== 'off')
 		{
 			return true;
 		}
@@ -428,7 +427,7 @@ class IncomingRequest extends Request
 		// Use $_POST directly here, since filter_has_var only
 		// checks the initial POST data, not anything that might
 		// have been added since.
-		return isset($_POST[$index]) ? $this->getPost($index, $filter, $flags) : (isset($_GET[$index]) ? $this->getGet($index, $filter, $flags) : $this->getPost());
+		return isset($_POST[$index]) ? $this->getPost($index, $filter, $flags) : (isset($_GET[$index]) ? $this->getGet($index, $filter, $flags) : $this->getPost($index, $filter, $flags));
 	}
 
 	//--------------------------------------------------------------------
@@ -447,7 +446,7 @@ class IncomingRequest extends Request
 		// Use $_GET directly here, since filter_has_var only
 		// checks the initial GET data, not anything that might
 		// have been added since.
-		return isset($_GET[$index]) ? $this->getGet($index, $filter, $flags) : (isset($_POST[$index]) ? $this->getPost($index, $filter, $flags) : $this->getGet());
+		return isset($_GET[$index]) ? $this->getGet($index, $filter, $flags) : (isset($_POST[$index]) ? $this->getPost($index, $filter, $flags) : $this->getGet($index, $filter, $flags));
 	}
 
 	//--------------------------------------------------------------------
