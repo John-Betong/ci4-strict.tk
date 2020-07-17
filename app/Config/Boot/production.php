@@ -8,8 +8,13 @@
   | Don't show ANY in production environments. Instead, let the system catch
   | it and display a generic error message.
  */
-ini_set('display_errors', '0');
-error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
+if(0):
+	ini_set('display_errors', '0');
+	error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
+endif;	
+
+error_reporting(-1);
+ini_set('display_errors', '1');
 
 /*
   |--------------------------------------------------------------------------
@@ -21,3 +26,4 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE &
  */
 
 defined('CI_DEBUG') || define('CI_DEBUG', false);
+# echo __file__;die;
