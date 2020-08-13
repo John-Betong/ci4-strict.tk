@@ -1,0 +1,209 @@
+/* 
+  file: "incs/style.css"
+*/
+
+/* http://cssshrink.com/ */
+p, div, ul {outline:dotted 0px #ff0;}
+.grad1 { 
+  height: 13em;
+  margin: 2em 0 0em;
+  background: blue; /* For browsers that do not support gradients */
+  background: 
+    linear-gradient(to right, rgba(0,0,255,1), 
+    rgba(0,0,255,0)); /* Standard syntax (must be last) */
+}
+.cliptop  {
+  height:  2em; 
+  background-image: linear-gradient(90deg, blue, cyan, royalblue); 
+  -webkit-clip-path: polygon(100% 0, 0% 100%, 0 0);
+  clip-path: polygon(100% 0,  0% 100%,   0 0);
+}
+.clipbot {
+  height: 2em;
+  background-image: linear-gradient(270deg, royalblue, cyan, blue); 
+  clip-path: polygon(0 100%,  100% 0, 100% 100%);
+}
+
+h1,h2,h3,h4,h5,h6 {font-family: Roboto;}
+h1 {font-size: 1.88em;}
+h2 {font-size: 1.22em;}
+table th {font-weight:700;}
+table td, 
+table th {border: 1px solid black; padding: 0 1em;}
+.table   {border-collapse: separate; /* DEFAULT = double lines */}
+.table   {border-collapse: collapse;}
+
+html {box-sizing:border-box}
+*, *:before, 
+*:after {box-sizing:inherit}
+#debug {height:1.88em; height:2em}
+body {
+  font: 16px/1.42 
+    BlinkMacSystemFont, system-ui, "Segoe UI", Roboto,
+    "-apple-system",
+    Helvetica, Arial, sans-serif 
+  ;
+  border:0; margin:0; outline:0; padding:0; 
+  background-color:#fff; color:#333;
+  background-color:snow; color:#333;
+}
+.foot {position:fixed; left: 0; bottom:0; height:2em;}
+.hg9  {width:100%; height:8.8em;}
+.hg9  {width:100%; height:6.5em;}
+.subs {margin:3.0em auto 0; height:1em;}
+.subs li {
+  display:inline-block; margin:0 1em 1em; font-size:small; 
+  padding: 0.12em 0.88em; 
+  background-color:#9ff; color: #f00;
+}
+li a:link  {color:#f00; text-decoration: none;}
+li a:active {background-color:royalblue; color:#ff0; border-radius:1em;}
+.subs li:hover {background-color:snow; color:#000; border-radius:1em}
+
+.bdr {border-radius:0.88em}
+.bd1 {border:solid 1px #333}
+.bd2 {border:solid 1px #ddf}
+.bd3 {margin:-0.22em 0 2em; border-bottom:solid 1px #ccc;}
+.bd4 {border-top:solid 1px #99f;}
+.bgc {background-color: #eef;}
+.bg0 {background-color: #fff;}
+.bg1 {background-color: #ffe4e1;}
+.bg2 {background-color: #dfd;}
+.bg3 {background-color: cyan;} 
+.bg4 {background-color: #efffff;}
+.bg5 {background-color: royalblue;} 
+.bg6 {background-color: #f0ead6;} 
+.bg7 {background-color: #008;} 
+.bg8 {background-color: #080;} 
+.bg9 {background-color: #ff0;} /* WARNING */
+.btn {
+  border: solid 1px #000; 
+  padding: 0.42em 0.42em; 
+  margin-bottom: 2em;
+  display: inline-block;
+  background-color: #9ff;
+  text-decoration: none;
+}
+.btn:hover {background-color: #bff;}
+.clb {clear:both}
+.cll {clear:left;}
+.clr {clear:right;}
+.dib {display:inline-block}
+.fg0 {color:#000}
+.fg1 {color:#008}
+.fg3 {color:#666}
+.fg4 {color:cyan}
+.fg5 {color:#bbb}
+.fg6 {color:#ff0}
+.fg7 {color:lime;}
+.fg8 {color:#090;}
+.fg9 {color:#f00;}
+.fll {float:left}
+.flr {float:right}
+.fss {font-size:small}
+.fsl,
+.fs2 {font-size:large}
+.fsx {font-size:xx-small}
+.ftr {position: fixed; left: 0; bottom: 0;} 
+.fwb {font-weight: 700;}
+.hhh {display:none}
+.h15 {margin: 5.5em 0 0;}
+.h25 {margin: 0.42em 0 3em;}
+.h19 {height:19em;}
+.lh2 {line-height:2;} 
+.lsn {list-style:none;}
+.mga {margin:auto;}
+.mgb-10 {margin-bottom:-10px}
+.mg2 {margin:2em auto 0}
+.mg3 {margin: -21.90em 0 2em;}  /* HIGH */
+.mg3 {margin: -20.75em 0 2em;}  /* LOW */
+.mgX {margin: -20.75em 0 1em;}
+.mg4 {margin: 4em auto 12em; height:10em;}
+.mg42{margin: 3.91em auto 12em; height:10em;}
+.mg5 {margin: 5em 0 11em;}
+.ooo {border: 0; margin:0;padding:0}
+.p42 {padding:0.42em}
+.pof {position:fixed;} .por {position:relative;} .poa {position:absolute;}
+.POA {top:0; left:0}
+.tac {text-align:center;} .tal {text-align:left}  .tar {text-align:right}
+.tdn {text-decoration:none;}
+.vam {vertical-align:middle;}
+.w88 {width:88%; max-width:1088px;} 
+.w42 {width:42%; min-height:320px;}  
+.w99 {width:100%;}
+.w22 {width:22%;} .w08 {width:8%;}
+.z02 {z-index:2}
+
+
+
+/*
+  Courtesy of Paul O'Brien 
+  file: /incs/style-paul,css
+*/  
+.dot {
+  display: block;
+  padding: 0;
+  position: absolute;
+  bottom: 0; left: 0; right: auto;
+  margin-left: -10px; 
+  width: 32px; height: 32px; 
+  border-radius: 50%;
+  background: transparent; 
+  transition: left .8s ease; 
+  background-image: url(https://ci4-strict.tk/assets/svg/logo.svg);
+  background-image: url(https://ci4-strict.tk/favicon.ico);
+}
+.menu {
+  position: relative;
+  width: 100%; height: 3.0em;
+  margin: 0 auto 0;
+  padding: 0 20px;
+  display: table;
+  table-layout: fixed;
+  overflow: hidden;
+  background-color: royalblue;
+}
+.menu a {
+  font-size: 88%; 
+  display: table-cell; 
+  text-align: center;
+  width: 20%;
+  padding: 10px 0 32px;
+  color: #cff;
+}
+.menu a:link {
+  color: cyan;
+  text-decoration: none
+}
+.menu a:hover {
+  color: #fff;
+  font-weight: 700; font-size: 94%;
+} 
+.menu:before {
+  content: "";
+  position: absolute; 
+  bottom: 20px; left: 20px; right: 20px;
+  height: 1px;
+}
+
+/* FLOATING DOT POSITIONS */
+.home.current ~ .dot, 
+.menu .home:hover ~ .dot, 
+.menu .home:focus ~ .dot {left: 11%}
+
+.bwci4.current ~ .dot, 
+.menu .bwci4:hover ~ .dot, 
+.menu .bwci4:focus ~ .dot {left: 30%}
+
+.playground.current ~ .dot, 
+.menu .playground:hover ~ .dot, 
+.menu .playground:focus ~ .dot {left: 50%}
+
+.info.current ~ .dot, 
+.menu .info:hover ~ .dot, 
+.menu .info:focus ~ .dot {left: 69.0%}
+
+.lhost.current ~ .dot, 
+.menu .lhost:hover ~ .dot, 
+.menu .lhost:focus ~ .dot {left: 88%}
+

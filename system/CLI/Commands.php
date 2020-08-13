@@ -42,6 +42,8 @@ namespace CodeIgniter\CLI;
 
 use CodeIgniter\Log\Logger;
 use Config\Services;
+use ReflectionClass;
+use ReflectionException;
 
 /**
  * Class Commands
@@ -73,7 +75,7 @@ class Commands
 	 */
 	public function __construct($logger = null)
 	{
-		$this->logger = $logger ?? service('logger');
+		$this->logger = $logger ?? Services::logger();
 	}
 
 	/**
@@ -86,10 +88,8 @@ class Commands
 	{
 		$this->discoverCommands();
 
-		if (! isset($this->commands[$command]))
+		if (! $this->verifyCommand($command, $this->commands))
 		{
-			CLI::error(lang('CLI.commandNotFound', [$command]));
-			CLI::newLine();
 			return;
 		}
 
@@ -148,7 +148,7 @@ class Commands
 
 			try
 			{
-				$class = new \ReflectionClass($className);
+				$class = new ReflectionClass($className);
 
 				if (! $class->isInstantiable() || ! $class->isSubclassOf(BaseCommand::class))
 				{
@@ -158,7 +158,7 @@ class Commands
 				$class = new $className($this->logger, $this);
 
 				// Store it!
-				if ($class->group !== null)
+				if (! is_null($class->group))
 				{
 					$this->commands[$class->name] = [
 						'class'       => $className,
@@ -171,12 +171,78 @@ class Commands
 				$class = null;
 				unset($class);
 			}
-			catch (\ReflectionException $e)
+			catch (ReflectionException $e)
 			{
 				$this->logger->error($e->getMessage());
 			}
 		}
 
 		asort($this->commands);
+	}
+
+	/**
+	 * Verifies if the command being sought is found
+	 * in the commands list.
+	 *
+	 * @param string $command
+	 * @param array  $commands
+	 *
+	 * @return boolean
+	 */
+	public function verifyCommand(string $command, array $commands): bool
+	{
+		if (isset($commands[$command]))
+		{
+			return true;
+		}
+
+		$message = lang('CLI.commandNotFound', [$command]);
+
+		if ($alternatives = $this->getCommandAlternatives($command, $commands))
+		{
+			if (count($alternatives) === 1)
+			{
+				$message .= "\n\n" . lang('CLI.altCommandSingular') . "\n    ";
+			}
+			else
+			{
+				$message .= "\n\n" . lang('CLI.altCommandPlural') . "\n    ";
+			}
+
+			$message .= implode("\n    ", $alternatives);
+		}
+
+		CLI::error($message);
+		CLI::newLine();
+
+		return false;
+	}
+
+	/**
+	 * Finds alternative of `$name` among collection
+	 * of commands.
+	 *
+	 * @param string $name
+	 * @param array  $collection
+	 *
+	 * @return array
+	 */
+	protected function getCommandAlternatives(string $name, array $collection): array
+	{
+		$alternatives = [];
+
+		foreach ($collection as $commandName => $attributes)
+		{
+			$lev = levenshtein($name, $commandName);
+
+			if ($lev <= strlen($commandName) / 3 || strpos($commandName, $name) !== false)
+			{
+				$alternatives[$commandName] = $lev;
+			}
+		}
+
+		ksort($alternatives, SORT_NATURAL | SORT_FLAG_CASE);
+
+		return array_keys($alternatives);
 	}
 }

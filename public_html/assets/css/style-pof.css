@@ -21,6 +21,11 @@ body {
     padding: 0 0 0 0.21em; 
     line-height: 2;
 }
+#pagelinks li {
+  background-color: lime;
+  display: inline-block;
+  margin: 0 2em;
+}
 .footer  {bottom:0; height:0;}
 .article {
   margin: 1.2em 2em 4.2em 1em; padding:4.2em 1em 2em 12em;
@@ -35,10 +40,11 @@ body {
   z-index: 99;
 }
 
-.menu-001 dd  {margin-left:0.88em;}
+.menu-001 dd  {margin-left: 0.88em;}
 .menu-001 dd a{text-decoration: none;}
-.menu-001 dd:hover {background-color:#ddd;}
+.menu-001 dd:hover {background-color: #ddd;}
 
+.bwci4 label {display: inline-block; width: 4em; background-color: #ddd;}
 .h1 {margin: 0.088em 0 0 0;}
 
 dl dt {font-weight: 700; font-size: .88em;}

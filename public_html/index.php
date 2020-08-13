@@ -1,13 +1,20 @@
 <?php DECLARE(STRICT_TYPES=1); 
 
+  define('BUILD', "Build: 2020-08-12 - 36600ae");
+
+  define('jj', "<br>\n");
   define('LOG_FILE',  '../writable/logs/log-' .date('Y-m-d') .'.log');
   define('LOCALHOST', 'localhost'===$_SERVER['SERVER_NAME']);
+  $kint = FALSE;
 
-# SET DEFAULT TO PROD"UCTION
+require '../app-pob/Views/incs/fred.php';
+
+# fred(__file__);die;
   $_SERVER['CI_ENVIRONMENT'] = 'production';
   if(LOCALHOST) :
-    $_SERVER['CI_ENVIRONMENT'] = 'development'; 
     $_SERVER['CI_ENVIRONMENT'] = 'production';
+    $_SERVER['CI_ENVIRONMENT'] = 'development'; 
+   #$_SERVER['CI_ENVIRONMENT'] = 'production';
   # CLEANER -  only shows last error logs and debugbar JSON files
     if(file_exists(LOG_FILE)):
       $ok = unlink(LOG_FILE);
@@ -62,6 +69,9 @@
 
   // BEWARE: CHANGED
   $pathsPath = FCPATH . '../app-strict/Config/Paths.php';
+  if(1) :
+    $pathsPath = FCPATH . '../app-pob/Config/Paths.php';
+  endif;
   # ^^^ Change this if you move your application folder
 
 

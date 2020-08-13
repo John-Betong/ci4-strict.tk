@@ -54,7 +54,7 @@ class Connection extends BaseConnection implements ConnectionInterface
 	 *
 	 * @var string
 	 */
-	public $DBDriver = 'postgre';
+	public $DBDriver = 'Postgre';
 
 	//--------------------------------------------------------------------
 

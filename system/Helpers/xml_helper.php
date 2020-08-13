@@ -1,5 +1,6 @@
 <?php DECLARE(STRICT_TYPES=1); ?>
 <?php
+
 /**
  * CodeIgniter
  *
@@ -65,7 +66,7 @@ if (! function_exists('xml_convert'))
 			$str = preg_replace('/&(\w+);/', $temp . '\\1;', $str);
 		}
 
-		$original    = [
+		$original = [
 			'&',
 			'<',
 			'>',
@@ -73,6 +74,7 @@ if (! function_exists('xml_convert'))
 			"'",
 			'-',
 		];
+
 		$replacement = [
 			'&amp;',
 			'&lt;',
@@ -81,7 +83,8 @@ if (! function_exists('xml_convert'))
 			'&apos;',
 			'&#45;',
 		];
-		$str         = str_replace($original, $replacement, $str);
+
+		$str = str_replace($original, $replacement, $str);
 
 		// Decode the temp markers back to entities
 		$str = preg_replace('/' . $temp . '(\d+);/', '&#\\1;', $str);

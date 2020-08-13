@@ -45,11 +45,11 @@ class ClearCache extends BaseCommand
 	];
 
 	/**
-	 * Creates a new migration file with the current timestamp.
+	 * Clears the cache
 	 *
 	 * @param array $params
 	 */
-	public function run(array $params = [])
+	public function run(array $params)
 	{
 		$config = config('Cache');
 

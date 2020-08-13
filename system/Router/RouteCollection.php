@@ -727,7 +727,7 @@ class RouteCollection implements RouteCollectionInterface
 	 *     });
 	 *
 	 * @param string $name      The name to group/prefix the routes with.
-	 * @param array  ...$params
+	 * @param mixed  ...$params
 	 *
 	 * @return void
 	 */
@@ -807,8 +807,7 @@ class RouteCollection implements RouteCollectionInterface
 		// In order to allow customization of the route the
 		// resources are sent to, we need to have a new name
 		// to store the values in.
-		$new_name = ucfirst($name);
-
+		$new_name = implode("\\", array_map('ucfirst', explode('/', $name)));
 		// If a new controller is specified, then we replace the
 		// $name value with the name of the new controller.
 		if (isset($options['controller']))
@@ -921,8 +920,7 @@ class RouteCollection implements RouteCollectionInterface
 		// In order to allow customization of the route the
 		// resources are sent to, we need to have a new name
 		// to store the values in.
-		$newName = ucfirst($name);
-
+		$newName = implode("\\", array_map('ucfirst', explode('/', $name)));
 		// If a new controller is specified, then we replace the
 		// $name value with the name of the new controller.
 		if (isset($options['controller']))
@@ -1345,18 +1343,15 @@ class RouteCollection implements RouteCollectionInterface
 		// the appropriate places.
 		foreach ($matches[0] as $index => $pattern)
 		{
-			// Ensure that the param we're inserting matches
-			// the expected param type.
-			$pos = strpos($from, $pattern);
-
-			if (preg_match('#^' . $pattern . '$#u', $params[$index]))
-			{
-				$from = substr_replace($from, $params[$index], $pos, strlen($pattern));
-			}
-			else
+			if (! preg_match('#^' . $pattern . '$#u', $params[$index]))
 			{
 				throw RouterException::forInvalidParameterType();
 			}
+
+			// Ensure that the param we're inserting matches
+			// the expected param type.
+			$pos  = strpos($from, $pattern);
+			$from = substr_replace($from, $params[$index], $pos, strlen($pattern));
 		}
 
 		return '/' . ltrim($from, '/');
@@ -1443,17 +1438,17 @@ class RouteCollection implements RouteCollectionInterface
 		//If is redirect, No processing
 		if (! isset($options['redirect']))
 		{
-			// If no namespace found, add the default namespace
-			if (is_string($to) && (strpos($to, '\\') === false || strpos($to, '\\') > 0))
-			{
-				$namespace = $options['namespace'] ?? $this->defaultNamespace;
-				$to        = trim($namespace, '\\') . '\\' . $to;
-			}
-
-			// Always ensure that we escape our namespace so we're not pointing to
-			// \CodeIgniter\Routes\Controller::method.
 			if (is_string($to))
 			{
+				// If no namespace found, add the default namespace
+				if (strpos($to, '\\') === false || strpos($to, '\\') > 0)
+				{
+					$namespace = $options['namespace'] ?? $this->defaultNamespace;
+					$to        = trim($namespace, '\\') . '\\' . $to;
+				}
+
+				// Always ensure that we escape our namespace so we're not pointing to
+				// \CodeIgniter\Routes\Controller::method.
 				$to = '\\' . ltrim($to, '\\');
 			}
 		}

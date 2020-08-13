@@ -46,7 +46,7 @@ use Config\Services;
 
 /**
  * Runs all of the migrations in reverse order, until they have
- * all been un-applied.
+ * all been unapplied.
  *
  * @package CodeIgniter\Commands
  */
@@ -80,14 +80,7 @@ class MigrateRollback extends BaseCommand
 	 *
 	 * @var string
 	 */
-	protected $usage = 'migrate:rollback [Options]';
-
-	/**
-	 * the Command's Arguments
-	 *
-	 * @var array
-	 */
-	protected $arguments = [];
+	protected $usage = 'migrate:rollback [options]';
 
 	/**
 	 * the Command's Options
@@ -106,11 +99,11 @@ class MigrateRollback extends BaseCommand
 	 *
 	 * @param array $params
 	 */
-	public function run(array $params = [])
+	public function run(array $params)
 	{
 		if (ENVIRONMENT === 'production')
 		{
-			$force = $params['-f'] ?? CLI::getOption('f');
+			$force = array_key_exists('f', $params) || CLI::getOption('f');
 			if (is_null($force) && CLI::prompt(lang('Migrations.rollBackConfirm'), ['y', 'n']) === 'n')
 			{
 				return;
@@ -119,7 +112,7 @@ class MigrateRollback extends BaseCommand
 
 		$runner = Services::migrations();
 
-		$group = $params['-g'] ?? CLI::getOption('g');
+		$group = $params['g'] ?? CLI::getOption('g');
 
 		if (! is_null($group))
 		{
@@ -128,7 +121,7 @@ class MigrateRollback extends BaseCommand
 
 		try
 		{
-			$batch = $params['-b'] ?? CLI::getOption('b') ?? $runner->getLastBatch() - 1;
+			$batch = $params['b'] ?? CLI::getOption('b') ?? $runner->getLastBatch() - 1;
 			CLI::write(lang('Migrations.rollingBack') . ' ' . $batch, 'yellow');
 
 			if (! $runner->regress($batch))
@@ -144,7 +137,7 @@ class MigrateRollback extends BaseCommand
 
 			CLI::write('Done');
 		}
-		catch (\Exception $e)
+		catch (\Throwable $e)
 		{
 			$this->showError($e);
 		}

@@ -11,7 +11,6 @@ unset($minPHPVersion);
 
 // Path to the front controller (this file)
 define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
-define('CI_DEBUG', FALSE);
 
 // Location of the Paths config file.
 // This is the line that might need to be changed, depending on your folder structure.
@@ -35,7 +34,7 @@ require $pathsPath;
 $paths = new Config\Paths();
 
 // Location of the framework bootstrap file.
-$app = require rtrim($paths->systemDirectory, '/ ') . '/bootstrap.php';
+$app = require realpath(rtrim($paths->systemDirectory, '/ ') . '/bootstrap.php');
 
 /*
  *---------------------------------------------------------------

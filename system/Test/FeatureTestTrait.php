@@ -1,5 +1,6 @@
 <?php DECLARE(STRICT_TYPES=1); ?>
 <?php
+
 /**
  * CodeIgniter
  *
@@ -103,6 +104,25 @@ trait FeatureTestTrait
 	}
 
 	/**
+	 * Set request's headers
+	 *
+	 * Example of use
+	 * withHeaders([
+	 *  'Authorization' => 'Token'
+	 * ])
+	 *
+	 * @param array Array of headers
+	 *
+	 * @return $this
+	 */
+	public function withHeaders(array $headers = [])
+	{
+		$this->headers = $headers;
+
+		return $this;
+	}
+
+	/**
 	 * Don't run any events while running this test.
 	 *
 	 * @return $this
@@ -144,6 +164,7 @@ trait FeatureTestTrait
 		$_SERVER['REQUEST_METHOD'] = $method;
 
 		$request = $this->setupRequest($method, $path);
+		$request = $this->setupHeaders($request);
 		$request = $this->populateGlobals($method, $request, $params);
 
 		// Make sure the RouteCollection knows what method we're using...
@@ -298,6 +319,26 @@ trait FeatureTestTrait
 		if ($config->forceGlobalSecureRequests)
 		{
 			$_SERVER['HTTPS'] = 'test';
+		}
+
+		return $request;
+	}
+
+	/**
+	 * Setup the custom request's headers
+	 *
+	 * @param \CodeIgniter\HTTP\Request $request
+	 *
+	 * @return \CodeIgniter\HTTP\IncomingRequest
+	 */
+	protected function setupHeaders(Request $request)
+	{
+		if (! empty($this->headers))
+		{
+			foreach ($this->headers as $name => $value)
+			{
+				$request->setHeader($name, $value);
+			}
 		}
 
 		return $request;

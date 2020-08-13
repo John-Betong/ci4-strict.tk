@@ -113,6 +113,40 @@ if (! function_exists('cache'))
 	}
 }
 
+if (! function_exists('clean_path'))
+{
+	/**
+	 * A convenience method to clean paths for
+	 * a nicer looking output. Useful for exception
+	 * handling, error logging, etc.
+	 *
+	 * @param string $path
+	 *
+	 * @return string
+	 */
+	function clean_path(string $path): string
+	{
+		// Resolve relative paths
+		$path = realpath($path) ?: $path;
+
+		switch (true)
+		{
+			case strpos($path, APPPATH) === 0:
+				return 'APPPATH' . DIRECTORY_SEPARATOR . substr($path, strlen(APPPATH));
+			case strpos($path, SYSTEMPATH) === 0:
+				return 'SYSTEMPATH' . DIRECTORY_SEPARATOR . substr($path, strlen(SYSTEMPATH));
+			case strpos($path, FCPATH) === 0:
+				return 'FCPATH' . DIRECTORY_SEPARATOR . substr($path, strlen(FCPATH));
+			case defined('VENDORPATH') && strpos($path, VENDORPATH) === 0:
+				return 'VENDORPATH' . DIRECTORY_SEPARATOR . substr($path, strlen(VENDORPATH));
+			case strpos($path, ROOTPATH) === 0:
+				return 'ROOTPATH' . DIRECTORY_SEPARATOR . substr($path, strlen(ROOTPATH));
+			default:
+				return $path;
+		}
+	}
+}
+
 if (! function_exists('command'))
 {
 	/**
@@ -130,8 +164,42 @@ if (! function_exists('command'))
 	{
 		$runner = service('commands');
 
-		$params  = explode(' ', $command);
-		$command = array_shift($params);
+		$args    = explode(' ', $command);
+		$command = array_shift($args);
+
+		$params      = [];
+		$optionValue = false;
+
+		foreach ($args as $i => $arg)
+		{
+			// add to segments if not starting with '-'
+			// and not an option value
+			if (mb_strpos($arg, '-') !== 0 && ! $optionValue)
+			{
+				$params[] = $arg;
+				continue;
+			}
+
+			// if this was an option value, it was already
+			// included in the previous iteration, so
+			// reset the process
+			if (mb_strpos($arg, '-') !== 0)
+			{
+				$optionValue = false;
+				continue;
+			}
+
+			$arg   = ltrim($arg, '-');
+			$value = null;
+
+			if (isset($args[$i + 1]) && mb_strpos($args[$i + 1], '-') !== 0)
+			{
+				$value       = $args[$i + 1];
+				$optionValue = true;
+			}
+
+			$params[$arg] = $value;
+		}
 
 		ob_start();
 		$runner->run($command, $params);
@@ -299,11 +367,7 @@ if (! function_exists('env'))
 	 */
 	function env(string $key, $default = null)
 	{
-		$value = getenv($key);
-		if ($value === false)
-		{
-			$value = $_ENV[$key] ?? $_SERVER[$key] ?? false;
-		}
+		$value = $_ENV[$key] ?? $_SERVER[$key] ?? getenv($key);
 
 		// Not found? Return the default value
 		if ($value === false)

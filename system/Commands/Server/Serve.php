@@ -165,5 +165,4 @@ class Serve extends BaseCommand
 			$this->run($params);
 		}
 	}
-
 }

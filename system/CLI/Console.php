@@ -94,14 +94,7 @@ class Console
 	 */
 	public function showHeader()
 	{
-		CLI::newLine(1);
-
-		CLI::write(CLI::color('CodeIgniter CLI Tool', 'green')
-				. ' - Version ' . CodeIgniter::CI_VERSION
-				. ' - Server-Time: ' . date('Y-m-d H:i:sa'));
-
-		CLI::newLine(1);
+		CLI::write(sprintf('CodeIgniter v%s Command Line Tool - Server Time: %s UTC%s', CodeIgniter::CI_VERSION, date('Y-m-d H:i:s'), date('P')), 'green');
+		CLI::newLine();
 	}
-
-	//--------------------------------------------------------------------
 }

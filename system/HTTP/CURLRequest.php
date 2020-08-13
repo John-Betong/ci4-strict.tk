@@ -131,7 +131,7 @@ class CURLRequest extends Request
 		parent::__construct($config);
 
 		$this->response = $response;
-		$this->baseURI  = $uri;
+		$this->baseURI  = $uri->useRawQueryString();
 
 		$this->parseOptions($options);
 	}
@@ -449,13 +449,22 @@ class CURLRequest extends Request
 
 		$output = $this->sendRequest($curl_options);
 
+		// Set the string we want to break our response from
+		$breakString = "\r\n\r\n";
+
 		if (strpos($output, 'HTTP/1.1 100 Continue') === 0)
 		{
-			$output = substr($output, strpos($output, "\r\n\r\n") + 4);
+			$output = substr($output, strpos($output, $breakString) + 4);
+		}
+
+		 // If request and response have Digest
+		if (isset($this->config['auth'][2]) && $this->config['auth'][2] === 'digest' && strpos($output, 'WWW-Authenticate: Digest') !== false)
+		{
+				$output = substr($output, strpos($output, $breakString) + 4);
 		}
 
 		// Split out our headers and body
-		$break = strpos($output, "\r\n\r\n");
+		$break = strpos($output, $breakString);
 
 		if ($break !== false)
 		{

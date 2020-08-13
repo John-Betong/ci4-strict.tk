@@ -1,5 +1,6 @@
 <?php DECLARE(STRICT_TYPES=1); ?>
 <?php
+
 /**
  * CodeIgniter
  *
@@ -73,4 +74,11 @@ class FeatureTestCase extends CIDatabaseTestCase
 	 * @var boolean
 	 */
 	protected $clean = true;
+
+	/**
+	 * Custom request's headers
+	 *
+	 * @var array
+	 */
+	protected $headers = [];
 }

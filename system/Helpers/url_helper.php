@@ -1,5 +1,6 @@
 <?php DECLARE(STRICT_TYPES=1); ?>
 <?php
+
 /**
  * CodeIgniter
  *
@@ -590,7 +591,7 @@ if (! function_exists('url_title'))
 
 		$trans = [
 			'&.+?;'                   => '',
-			'[^\w\d _-]'              => '',
+			'[^\w\d\pL\pM _-]'              => '',
 			'\s+'                     => $separator,
 			'(' . $q_separator . ')+' => $separator,
 		];
@@ -635,3 +636,34 @@ if (! function_exists('mb_url_title'))
 }
 
 //--------------------------------------------------------------------
+
+if (! function_exists('url_to'))
+{
+	/**
+	 * Get the full, absolute URL to a controller method
+	 * (with additional arguments)
+	 *
+	 * @param string $controller
+	 * @param mixed  ...$args
+	 *
+	 * @throws \CodeIgniter\Router\Exceptions\RouterException
+	 *
+	 * @return string
+	 */
+	function url_to(string $controller, ...$args): string
+	{
+		if (! $route = route_to($controller, ...$args))
+		{
+			$explode = explode('::', $controller);
+
+			if (isset($explode[1]))
+			{
+				throw new \CodeIgniter\Router\Exceptions\RouterException(lang('HTTP.controllerNotFound', [$explode[0], $explode[1]]));
+			}
+
+			throw new \CodeIgniter\Router\Exceptions\RouterException(lang('HTTP.invalidRoute', [$controller]));
+		}
+
+		return site_url($route);
+	}
+}
